@@ -3,5 +3,4 @@ window.addEventListener('load', function() {
 		let html = i.innerHTML
 		i.innerHTML = html.split("\n").map(x => x.trim() + "\n").join('').trim()
 	}
-
 })
