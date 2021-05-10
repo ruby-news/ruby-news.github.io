@@ -49,4 +49,4 @@ lines.each_with_index { |x, i|
 	end
 }
 
-puts fin
+puts "\e[2J\e[H\e[3J\e[38;2;255;255;0m#{fin.strip}\e[0m"
