@@ -5,11 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale:1.0">
 	<meta name="description" content="{{ page.description }}">
-	<meta name="author" content="{{ page.description }}">
-	<meta name="keywords" content="{{ page.description }}">
-	<meta name="revisit-after" content="{{ page.description }}">
+	<meta name="author" content="{{ page.content }}">
+	<meta name="keywords" content="{{ page.keywords }}">
+	<meta name="revisit-after" content="3-days">
 	<meta name="robots" content="{{ page.description }}">
-	<meta name="title" content="{{ page.description }}">
+	<meta name="title" content="{{ page.title }}">
 
 	<!-- Open Graphics Tags -->
 	<meta name="og:description" content="{{ page.description }}">
@@ -18,7 +18,9 @@
 	<meta name="og:url" content="https://rubyweekly.com">
 	<meta name="og:image" itemprop="image" content="https://rubyweekly.com/assets/images/logo.png">
 	<meta name="og:image" itemprop="image" content="https://rubyweekly.com/assets/images/logo.png">
-	<!-- Fonts -->
+	<!-- Any CDN Links? -->
+	<!-- -->
+	<!-- -->
 
 	<!-- Stylesheets -->
 	<link rel="preload" as="style" href="/assets/stylesheets/main.css">
@@ -27,9 +29,14 @@
 	<!-- Javascript -->
 	<link rel="preload" as="script" href="/assets/javascript/main.js">
 	<script src="/assets/javascript/main.js"></script>
+
+	{% include loader.css.html %}
 </head>
 
 <body>
+	{% include loader.html %}
+
+	<!-- Loader Should not be Fetched from Anywhere -->
 	{{ content }}
 </body>
 
