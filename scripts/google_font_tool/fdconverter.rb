@@ -11,6 +11,12 @@ require 'net/https'
 lines = sass.lines
 fin = ''
 
+# It works, gets the work done, but crudely. Things are hardcoded
+# This just downloads the fonts, and modify the scss that google gives
+# We can put the fonts in assets/fonts dir, and paste the ouput
+# to scss file. It has to be modified, but for now, it's what all we need
+# Don't get me on the performance, it's slow, strings are mutable and GC'ed!
+
 lines.each_with_index { |x, i|
 	if x[/src: url\(.*\).*/]
 		family = lines[i - 4].split(?:)[-1].delete(%Q('";)) &.strip
