@@ -31,8 +31,26 @@
 	<!-- -->
 
 	<!-- Stylesheets -->
+	<!-- Preload required stylesheets -->
 	<link rel="preload" as="style" href="/assets/stylesheets/main.css">
-	<link rel="stylesheet" href="/assets/stylesheets/main.css">
+
+	<!-- Load all the stylesheet synchronously -->
+	<!-- Don't wait for the stylesheets before showing the loader -->
+	<!-- With direct link tag, stylesheets loading can be ignored by the loader -->
+	<script>
+		// Paste stylesheet links here!
+		stylesheets = [
+			"/assets/stylesheets/main.css"
+		]
+
+		for(let stylesheetLink of stylesheets) {
+			let _link = document.createElement('link')
+			_link.rel = 'stylesheet'
+			_link.type = 'text/css'
+			_link.href = stylesheetLink
+			document.head.appendChild(_link)
+		}
+	</script>
 
 	<!-- Javascript -->
 	<link rel="preload" as="script" href="/assets/javascript/main.js">
@@ -43,10 +61,12 @@
 </head>
 
 <body>
+	<!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
 	{% include loader.html %}
 
-	<!-- Loader Should not be Fetched from Anywhere -->
 	{{ content }}
+
+	{% include footer.html %}
 </body>
 
 </html>
