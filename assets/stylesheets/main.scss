@@ -25,7 +25,14 @@ html, body {
 	font-weight: normal !important ;
 }
 
+code {
+	font-family: 'Jetbrains Mono', monospace ;
+	font-size: 14px ;
+}
+
 pre {
+	font-family: 'Jetbrains Mono', monospace ;
+	font-size: 14px ;
 	margin: 12px 0 ;
 	text-align: justify ;
 	padding: 6px ;
