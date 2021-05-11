@@ -1,5 +1,5 @@
 ---
-layout: ruby-weekly
+layout: rubynews
 title:  "Welcome to Jekyll!"
 date:   2021-05-10 14:17:37 +0530
 categories: jekyll update
