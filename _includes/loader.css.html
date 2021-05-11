@@ -1,4 +1,6 @@
 <style>
+	/* Because this loads with loader, it should be small as possible */
+
 	.loader {
 		width: 100%;
 		height: 100vh;
@@ -10,22 +12,18 @@
 		justify-content: center;
 		z-index:100000;
 		background-color: #fff;
-		flex-direction: column;
+		flex-direction: column
 	}
 
-	.loader .loader-relative {
-		position: relative;
-	}
+	.loader .loader-relative {position: relative}
 
 	.loader .logo {
 		width: calc(8vw + 8vh);
 		height: auto;
-		animation: loader-opacity-anim 1s linear infinite;
+		animation: loader-opacity-anim 1s linear infinite
 	}
 
-	.loader .margin-v {
-		margin-top: 2vh;
-	}
+	.loader .margin-v {margin-top: 2vh}
 
 	.loader .line-wrapper {
 		position: absolute;
@@ -33,14 +31,14 @@
 		left: 0;
 		width: 100%;
 		height: 8px;
-		overflow: hidden;
+		overflow: hidden
 	}
 
 	.loader .line-wrapper .line {
 		background-color: #EF4523;
 		width: 100%;
 		height: 4px;
-		animation: loader-line-anim 1s linear infinite alternate ;
+		animation: loader-line-anim 1s linear infinite alternate
 	}
 
 	.loader button.arrows {
@@ -49,20 +47,20 @@
 		position: absolute;
 		bottom: 10%;
 		width: calc(2vh + 2vw);
-		cursor: pointer;
+		cursor: pointer
 	}
 
 	.loader .arrow-relative {
 		position: relative;
 		width: 100%;
-		height: 100%;
+		height: 100%
 	}
 
 	.loader .arrow {
 		position: absolute;
 		top: 0;
 		left: 0;
-		transition: 0.25s ease;
+		transition: 0.25s ease
 	}
 
 	svg.arrow:nth-child(1) {
@@ -72,80 +70,53 @@
 
 	svg.arrow:nth-child(2) {
 		transform: scale(0.5);
-		opacity: 0;
+		opacity: 0
 	}
 
 	button.arrows:hover svg.arrow:nth-child(1) {
 		animation: loader-arrow-anim 1s ease infinite 0.25s;
-		transform: scale(0.25);
+		transform: scale(0.25)
 	}
 
 	button.arrows:hover svg.arrow:nth-child(2) {
 		animation: loader-arrow-anim2 1s ease infinite 0.25s;
-		transform: scale(0.5);
+		transform: scale(0.5)
 	}
 
 	@keyframes loader-opacity-anim {
-		0% {
-			opacity: 0.5;
-		}
-
-		25% {
-			opacity: 1;
-		}
-
-		75% {
-			opacity: 1;
-		}
-
-		100% {
-			opacity: 0.5;
-		}
+		0% {opacity: 0.5}
+		25% {opacity: 1}
+		75% {opacity: 1}
+		100% {opacity: 0.5}
 	}
 
 	@keyframes loader-line-anim {
-		0% {
-			transform: translateX(-90%) ;
-		}
-
-		50% {
-			transform: translateX(0) ;
-		}
-
-		100% {
-			transform: translateX(90%) ;
-		}
+		0% {transform: translateX(-90%)}
+		50% {transform: translateX(0)}
+		100% {transform: translateX(90%)}
 	}
 
 	@keyframes loader-arrow-anim {
-		0% {
-			transform: translateY(0) scale(0.25);
-		}
-
+		0% {transform: translateY(0) scale(0.25)}
 		50% {
 			transform: translateY(-50%) scale(0.25);
-			opacity: 0.5;
+			opacity: 0.5
 		}
-
 		100% {
 			transform: translateY(-50%) scale(0.25);
-			opacity: 0;
+			opacity: 0
 		}
 	}
 
 	@keyframes loader-arrow-anim2 {
-		0% {
-			transform: translateY(0) scale(0.5);
-		}
-
+		0% {transform: translateY(0) scale(0.5)}
 		50% {
 			transform: translateY(-25%) scale(0.5);
-			opacity: 0.5;
+			opacity: 0.5
 		}
-
 		100% {
 			transform: translateY(-25%) scale(0.5);
-			opacity: 0;
+			opacity: 0
 		}
 	}
 </style>

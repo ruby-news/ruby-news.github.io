@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale:1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<meta name="description" content="{{ page.description }}">
 	<meta name="author" content="{{ page.content }}">
 	<meta name="keywords" content="{{ page.keywords }}">
@@ -32,6 +32,7 @@
 
 	<!-- Stylesheets -->
 	<!-- Preload required stylesheets -->
+	<link rel="preload" as="stylesheet" href="/assets/stylesheets/material.min.css">
 	<link rel="preload" as="style" href="/assets/stylesheets/main.css">
 
 	<!-- Load all the stylesheet synchronously -->
@@ -40,7 +41,9 @@
 	<script>
 		// Paste stylesheet links here!
 		stylesheets = [
-			"/assets/stylesheets/main.css"
+			"/assets/stylesheets/main.css",
+			"/assets/stylesheets/navbar.css",
+			"/assets/stylesheets/material.min.css"
 		]
 
 		for(let stylesheetLink of stylesheets) {
@@ -56,6 +59,9 @@
 	<link rel="preload" as="script" href="/assets/javascript/main.js">
 	<script src="/assets/javascript/main.js"></script>
 
+	<link rel="preload" as="script" href="/assets/javascript/material.min.js">
+	<script src="/assets/javascript/material.min.js"></script>
+
 	<!-- Loader Related CSS, Should be a Partial or Code inside Head -->
 	{% include loader.css.html %}
 </head>
@@ -64,9 +70,15 @@
 	<!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
 	{% include loader.html %}
 
+	<!-- Body of Rubynews -->
+	{% include navbar.html %}
 	{{ content }}
-
 	{% include footer.html %}
+
+	<!-- FAB button with ripple -->
+	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+	<i class="material-icons">add</i>
+	</button>
 </body>
 
 </html>
