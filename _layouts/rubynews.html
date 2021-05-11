@@ -71,14 +71,19 @@
 	{% include loader.html %}
 
 	<!-- Body of Rubynews -->
-	{% include navbar.html %}
-	{{ content }}
-	{% include footer.html %}
+	<div class="wrapper">
+		<header class="navbar">
+			{% include navbar.html %}
+		</header>
 
-	<!-- FAB button with ripple -->
-	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-	<i class="material-icons">add</i>
-	</button>
+		<main>
+			{{ content }}
+		</main>
+
+		<footer>
+			{% include footer.html %}
+		</footer>
+	</div>
 </body>
 
 </html>

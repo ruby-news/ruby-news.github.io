@@ -18,11 +18,26 @@
 	text-shadow: 2px 2px 4px #0002 !important;
 }
 
+html {
+	box-sizing: border-box ;
+}
+
 html, body {
 	margin: 0 ;
 	padding: 0 ;
+	height: 100% ;
+}
+
+body {
+	// Overwrite font-weight and font provided by getmdl.io
 	font-family: 'Montserrat' !important ;
 	font-weight: normal !important ;
+}
+
+.wrapper {
+	min-height: 100% ;
+	display: grid ;
+	grid-template-rows: auto 1fr auto ;
 }
 
 code {
