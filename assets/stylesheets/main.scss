@@ -7,7 +7,9 @@
 @import "fonts.scss" ;
 
 :root {
-
+	--primary-gradient-color: linear-gradient(45deg, #f55, #55f) ;
+	--primary-color: #333 ;
+	--secondary-color: #f66 ;
 }
 
 ::selection {
