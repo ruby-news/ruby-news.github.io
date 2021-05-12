@@ -7,102 +7,102 @@
 @import "fonts.scss" ;
 
 :root {
-	--primary-gradient-color: linear-gradient(45deg, #f55, #55f) ;
+  --primary-gradient-color: linear-gradient(45deg, #f55, #55f) ;
 
-	--primary-color: #f66 ;
-	--secondary-color: #FF4081 ;
+  --primary-color: #f66 ;
+  --secondary-color: #FF4081 ;
 
-	--primary-text-color: #333 ;
-	--secondary-text-color: #f66 ;
+  --primary-text-color: #333 ;
+  --secondary-text-color: #f66 ;
 }
 
 ::selection {
-	background-color: var(--primary-color) !important;
-	color: #fff;
-	text-shadow: 2px 2px 4px #0002 !important;
+  background-color: var(--primary-color) !important;
+  color: #fff;
+  text-shadow: 2px 2px 4px #0002 !important;
 }
 
 html {
-	box-sizing: border-box ;
+  box-sizing: border-box ;
 }
 
 html, body {
-	margin: 0 ;
-	padding: 0 ;
-	height: 100% ;
+  margin: 0 ;
+  padding: 0 ;
+  height: 100% ;
 }
 
 body {
-	// Overwrite font-weight and font provided by getmdl.io
-	font-family: 'Montserrat' !important ;
-	font-weight: normal !important ;
+  // Overwrite font-weight and font provided by getmdl.io
+  font-family: 'Montserrat' !important ;
+  font-weight: normal !important ;
 }
 
 .wrapper {
-	min-height: 100% ;
-	display: grid ;
-	grid-template-rows: auto 1fr auto ;
+  min-height: 100% ;
+  display: grid ;
+  grid-template-rows: auto 1fr auto ;
 }
 
 code {
-	font-family: 'Jetbrains Mono', monospace ;
-	font-size: 14px ;
+  font-family: 'Jetbrains Mono', monospace ;
+  font-size: 14px ;
 }
 
 pre {
-	font-family: 'Jetbrains Mono', monospace ;
-	font-size: 14px ;
-	margin: 12px 0 ;
-	text-align: justify ;
-	padding: 6px ;
-	max-height: 300px ;
-	background-color: #efefef ;
-	line-height: 150% ;
-	border-radius: 6px ;
+  font-family: 'Jetbrains Mono', monospace ;
+  font-size: 14px ;
+  margin: 12px 0 ;
+  text-align: justify ;
+  padding: 6px ;
+  max-height: 300px ;
+  background-color: #efefef ;
+  line-height: 150% ;
+  border-radius: 6px ;
 
-	code-counter {
-		counter-increment: listing ;
-		overflow: auto ;
+  code-counter {
+    counter-increment: listing ;
+    overflow: auto ;
 
-		&::before {
-			content: counter(listing) '. ' ;
-			display: inline-block ;
-		}
-	}
+    &::before {
+            content: counter(listing) '. ' ;
+            display: inline-block ;
+    }
+  }
 
-	file {
-		display: block ;
-		color: #000 ;
-		font-size: 12px ;
-		width: 100%;
-		font-weight: bold ;
-		position: relative ;
-	}
+  file {
+    display: block ;
+    color: #000 ;
+    font-size: 12px ;
+    width: 100%;
+    font-weight: bold ;
+    position: relative ;
+  }
 
-	file::before {
-		content: '' ;
-		background: url("/assets/articles/base-images/text-x-generic.svg") no-repeat ;
-		background-size: cover ;
-		height: 24px ;
-		width: 24px ;
-		filter: drop-shadow(3px 3px 1px #0003) ;
-		margin: 0 8px 16px 0 ;
-		display: inline-flex ;
-		align-items: center ;
-		user-select: none ;
-	}
+  file::before {
+    content: '' ;
+    background: url("/assets/articles/base-images/text-x-generic.svg") no-repeat ;
+    background-size: cover ;
+    height: 24px ;
+    width: 24px ;
+    filter: drop-shadow(3px 3px 1px #0003) ;
+    margin: 0 8px 16px 0 ;
+    display: inline-flex ;
+    align-items: center ;
+    user-select: none ;
+  }
 
-	dollar, hash {
-		display: inline-block ;
-	}
+  dollar, hash {
+    display: inline-block ;
+  }
 
-	dollar::before {
-		content: '$ ' ;
-		user-select: none ;
-	}
+  dollar::before {
+    content: '$ ' ;
+    user-select: none ;
+  }
 
-	hash::before {
-		content: '# ' ;
-		user-select: none ;
-	}
+  hash::before {
+    content: '# ' ;
+    user-select: none ;
+  }
 }

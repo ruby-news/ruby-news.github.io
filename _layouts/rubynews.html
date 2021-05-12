@@ -2,88 +2,88 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta name="description" content="{{ page.description }}">
-	<meta name="author" content="{{ page.content }}">
-	<meta name="keywords" content="{{ page.keywords }}">
-	<meta name="revisit-after" content="3-days">
-	<meta name="robots" content="{{ page.description }}">
-	<meta name="title" content="{{ page.title }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="{{ page.description }}">
+  <meta name="author" content="{{ page.content }}">
+  <meta name="keywords" content="{{ page.keywords }}">
+  <meta name="revisit-after" content="3-days">
+  <meta name="robots" content="{{ page.description }}">
+  <meta name="title" content="{{ page.title }}">
 
-	<!-- Open Graphics Tags -->
-	<meta name="og:description" content="{{ page.description }}">
-	<meta name="og:title" content="{{ page.title }}">
-	<meta name="og:type" content="website">
-	<meta name="og:url" content="https://rubynews.com">
-	<meta name="og:image" itemprop="image" content="https://rubynews.com/assets/images/logo.png">
-	<meta name="og:image" itemprop="image" content="https://rubynews.com/assets/images/logo.png">
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
-	<link rel="icon" type="image/png" sizes="80x80" href="/assets/images/logo/logo80.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/logo/logo64.png">
-	<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/logo/logo48.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/logo16.png">
+  <!-- Open Graphics Tags -->
+  <meta name="og:description" content="{{ page.description }}">
+  <meta name="og:title" content="{{ page.title }}">
+  <meta name="og:type" content="website">
+  <meta name="og:url" content="https://rubynews.com">
+  <meta name="og:image" itemprop="image" content="https://rubynews.com/assets/images/logo.png">
+  <meta name="og:image" itemprop="image" content="https://rubynews.com/assets/images/logo.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
+  <link rel="icon" type="image/png" sizes="80x80" href="/assets/images/logo/logo80.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/logo/logo64.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/logo/logo48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/logo16.png">
 
-	<!-- Any CDN Links? -->
-	<!-- -->
-	<!-- -->
+  <!-- Any CDN Links? -->
+  <!-- -->
+  <!-- -->
 
-	<!-- Stylesheets -->
-	<!-- Preload required stylesheets -->
-	<link rel="preload" as="style" href="/assets/stylesheets/material.min.css">
-	<link rel="preload" as="style" href="/assets/stylesheets/main.css">
+  <!-- Stylesheets -->
+  <!-- Preload required stylesheets -->
+  <link rel="preload" as="style" href="/assets/stylesheets/material.min.css">
+  <link rel="preload" as="style" href="/assets/stylesheets/main.css">
 
-	<!-- Load all the stylesheet synchronously -->
-	<!-- Don't wait for the stylesheets before showing the loader -->
-	<!-- With direct link tag, stylesheets loading can be ignored by the loader -->
-	<script>
-		// Paste stylesheet links here!
-		stylesheets = [
-			"/assets/stylesheets/main.css",
-			"/assets/stylesheets/navbar.css",
-			"/assets/stylesheets/material.min.css"
-		]
+  <!-- Load all the stylesheet synchronously -->
+  <!-- Don't wait for the stylesheets before showing the loader -->
+  <!-- With direct link tag, stylesheets loading can be ignored by the loader -->
+  <script>
+    // Paste stylesheet links here!
+    stylesheets = [
+      "/assets/stylesheets/main.css",
+      "/assets/stylesheets/navbar.css",
+      "/assets/stylesheets/material.min.css"
+    ]
 
-		for(let stylesheetLink of stylesheets) {
-			let _link = document.createElement('link')
-			_link.rel = 'stylesheet'
-			_link.type = 'text/css'
-			_link.href = stylesheetLink
-			document.head.appendChild(_link)
-		}
-	</script>
+    for(let stylesheetLink of stylesheets) {
+      let _link = document.createElement('link')
+      _link.rel = 'stylesheet'
+      _link.type = 'text/css'
+      _link.href = stylesheetLink
+      document.head.appendChild(_link)
+    }
+  </script>
 
-	<!-- Javascript -->
-	<link rel="preload" as="script" href="/assets/javascript/main.js">
-	<link rel="preload" as="script" href="/assets/javascript/material.min.js">
+  <!-- Javascript -->
+  <link rel="preload" as="script" href="/assets/javascript/main.js">
+  <link rel="preload" as="script" href="/assets/javascript/material.min.js">
 
-	<script src="/assets/javascript/main.js"></script>
-	<script src="/assets/javascript/material.min.js"></script>
+  <script src="/assets/javascript/main.js"></script>
+  <script src="/assets/javascript/material.min.js"></script>
 
-	<!-- Loader Related CSS, Should be a Partial or Code inside Head -->
-	{% include loader.css.html %}
+  <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
+  {% include loader.css.html %}
 </head>
 
 <body>
-	<!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
-	{% include loader.html %}
+  <!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
+  {% include loader.html %}
 
-	<!-- Body of Rubynews -->
-	<div class="wrapper">
-		<header class="navbar">
-			{% include navbar.html %}
-		</header>
+  <!-- Body of Rubynews -->
+  <div class="wrapper">
+    <header class="navbar">
+      {% include navbar.html %}
+    </header>
 
-		<main>
-			{{ content }}
-		</main>
+    <main>
+      {{ content }}
+    </main>
 
-		<footer>
-			{% include footer.html %}
-		</footer>
-	</div>
+    <footer>
+      {% include footer.html %}
+    </footer>
+  </div>
 </body>
 
 </html>
