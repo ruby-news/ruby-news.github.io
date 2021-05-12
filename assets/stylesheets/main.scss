@@ -8,12 +8,16 @@
 
 :root {
 	--primary-gradient-color: linear-gradient(45deg, #f55, #55f) ;
-	--primary-color: #333 ;
-	--secondary-color: #f66 ;
+
+	--primary-color: #f66 ;
+	--secondary-color: #FF4081 ;
+
+	--primary-text-color: #333 ;
+	--secondary-text-color: #f66 ;
 }
 
 ::selection {
-	background: #f55 !important;
+	background-color: var(--primary-color) !important;
 	color: #fff;
 	text-shadow: 2px 2px 4px #0002 !important;
 }
