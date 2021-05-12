@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="{{ page.description }}">
-  <meta name="author" content="{{ page.content }}">
+  <meta name="author" content="{{ page.author }}">
   <meta name="keywords" content="{{ page.keywords }}">
   <meta name="revisit-after" content="3-days">
   <meta name="robots" content="{{ page.description }}">
@@ -25,6 +25,8 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/logo/logo48.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/logo16.png">
+
+  <title>RubyNEA</title>
 
   <!-- Any CDN Links? -->
   <!-- -->
@@ -72,11 +74,11 @@
 
   <!-- Body of Rubynews -->
   <div class="wrapper">
-    <header class="navbar">
+    <header class="css-navbar">
       {% include navbar.html %}
     </header>
 
-    <main>
+    <main class="content">
       {{ content }}
     </main>
 

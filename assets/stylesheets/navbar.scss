@@ -2,7 +2,7 @@
 ---
 
 /* Responsive Navbar, With Pure CSS Only Toggle Features */
-.navbar {
+.css-navbar {
 	& {
 		background: #fff ;
 		box-shadow: 0 2px 8px #0002 ;
@@ -32,11 +32,11 @@
 		padding: 16px 0 ;
 	}
 
-	nav {
+	.menu-items {
 		float: right ;
 	}
 
-	nav ul {
+	.menu-items ul {
 		margin: 0 ;
 		padding: 0 ;
 		list-style: none ;
@@ -44,14 +44,14 @@
 		text-align: center ;
 	}
 
-	nav li {
+	.menu-items li {
 		display: inline-block ;
 		margin-left: 14px ;
 		padding-top: 24px ;
 		position: relative ;
 	}
 
-	nav > ul > li > a::before, .social-media .icon a::before {
+	.menu-items > ul > li > a::before, .social-media .icon a::before {
 		content: '' ;
 		position: absolute ;
 		top: calc(100% + 4px) ;
@@ -64,11 +64,11 @@
 		transition: all 0.25s ease ;
 	}
 
-	nav > ul > li > a:hover::before, .social-media .icon a:hover::before {
+	.menu-items > ul > li > a:hover::before, .social-media .icon a:hover::before {
 		transform: scaleX(1) ;
 	}
 
-	nav > ul > li > a {
+	.menu-items > ul > li > a {
 		color: var(--primary-text-color) ;
 		text-decoration: none ;
 		text-transform: uppercase ;
@@ -77,7 +77,7 @@
 		transition: all 0.25s ease ;
 	}
 
-	nav > ul > li > a:hover {
+	.menu-items > ul > li > a:hover {
 		color: var(--secondary-text-color) ;
 
 	}
@@ -189,7 +189,7 @@
 		grid-template-columns: 2fr 1fr ;
 	}
 
-	@media(max-width: 760px) {
+	@media(max-width: 768px) {
 		.nav-btn {
 			display: inline-block ;
 			position: absolute ;

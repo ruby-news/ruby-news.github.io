@@ -1,0 +1,146 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: rubynews
+
+# Extra scss / css file(s)
+# stylesheets:
+
+# Extra javascript file(s)
+# js:
+---
+
+
+
+<pre>
+  <code-counter><dollar>Some English text</dollar></code-counter>
+  <code-counter><hash>Немного русского текста</hash></code-counter>
+
+  <dollar>Some English text</dollar>
+  <hash>Немного русского текста</hash>
+</pre>
+
+
+{% comment %}
+<div class = "mdl-layout__content">
+  <div class = "mdl-grid">
+    <div class = "mdl-cell mdl-cell--1-col graybox">1</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">2</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">3</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">4</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">5</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">6</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">7</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">8</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">9</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">10</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">11</div>
+    <div class = "mdl-cell mdl-cell--1-col graybox">12</div>
+  </div>
+
+  <div class = "mdl-grid">
+    <div class = "mdl-cell mdl-cell--4-col graybox">1</div>
+    <div class = "mdl-cell mdl-cell--4-col graybox">2</div>
+    <div class = "mdl-cell mdl-cell--4-col graybox">3</div>
+  </div>
+
+  <div class = "mdl-grid">
+    <div class = "mdl-cell mdl-cell--6-col graybox">6</div>
+    <div class = "mdl-cell mdl-cell--4-col graybox">4</div>
+    <div class = "mdl-cell mdl-cell--2-col graybox">2</div>
+  </div>
+
+  <div class = "mdl-grid">
+    <div class = "mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet graybox">
+      6 on desktop, 8 on tablet</div>
+    <div class = "mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet graybox">
+      4 on desktop, 6 on tablet</div>
+    <div class = "mdl-cell mdl-cell--2-col mdl-cell--4-col-phone graybox">
+      2 on desktop, 4 on phone</div>
+  </div>
+</div>
+{% endcomment %}
+
+<style>
+  .grid-responsive-max-3x3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid-gap: 4rem;
+  }
+
+  .card-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    text-overflow: ellipsis;
+    flex-direction: column;
+    width: 16em;
+    height: 20em;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px #0002;
+    overflow: hidden;
+  }
+
+  .preview {
+    width: 100%;
+    height: 40%;
+    margin-bottom: 1.25em;
+  }
+
+  .preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .heading .title {
+    display: block;
+    color: var(--primary-text-color);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+  }
+
+  .heading .author {
+    color: var(--primary-text-color);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    width: 100%;
+    overflow: hidden;
+  }
+</style>
+
+<div class="grid-responsive-max-3x3">
+  {% for i in (1..8) %}
+
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="preview">
+          <img src="/assets/images/sample.jpg">
+        </div>
+
+        <div class="heading mb-1rem">
+          <p class="title">Hello World This is an overflowing title</p>
+          <p class="author">By Lorem Ipsum</p>
+        </div>
+
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>

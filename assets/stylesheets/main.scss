@@ -5,6 +5,7 @@
 @import "buttons.scss" ;
 @import "footer.scss" ;
 @import "fonts.scss" ;
+@import "media_queries.scss" ;
 
 :root {
   --primary-gradient-color: linear-gradient(45deg, #f55, #55f) ;
@@ -20,6 +21,31 @@
   background-color: var(--primary-color) !important;
   color: #fff;
   text-shadow: 2px 2px 4px #0002 !important;
+}
+
+// Margins and paddings
+@for $size from 1 to 6 {
+  // Margins
+  .mt-#{$size}rem { margin-top: #{$size}rem; }
+  .mb-#{$size}rem { margin-bottom: #{$size}rem; }
+  .ml-#{$size}rem { margin-left: #{$size}rem; }
+  .mr-#{$size}rem { margin-right: #{$size}rem; }
+
+  .mt-#{$size}em { margin-top: #{$size}em; }
+  .mb-#{$size}em { margin-bottom: #{$size}em; }
+  .ml-#{$size}em { margin-left: #{$size}em; }
+  .mr-#{$size}em { margin-right: #{$size}em; }
+
+  // Padding
+  .pt-#{$size}rem { padding-top: #{$size}rem; }
+  .pb-#{$size}rem { padding-bottom: #{$size}rem; }
+  .pl-#{$size}rem { padding-left: #{$size}rem; }
+  .pr-#{$size}rem { padding-right: #{$size}rem; }
+
+  .pt-#{$size}em { padding-top: #{$size}em; }
+  .pb-#{$size}em { padding-bottom: #{$size}em; }
+  .pl-#{$size}em { padding-left: #{$size}em; }
+  .pr-#{$size}em { padding-right: #{$size}em; }
 }
 
 html {
@@ -44,6 +70,12 @@ body {
   grid-template-rows: auto 1fr auto ;
 }
 
+main.content {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto 8vh auto ;
+}
+
 code {
   font-family: 'Jetbrains Mono', monospace ;
   font-size: 14px ;
@@ -65,8 +97,8 @@ pre {
     overflow: auto ;
 
     &::before {
-            content: counter(listing) '. ' ;
-            display: inline-block ;
+      content: counter(listing) '. ' ;
+      display: inline-block ;
     }
   }
 

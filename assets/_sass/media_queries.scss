@@ -1,0 +1,17 @@
+// Seperate media queries to make things less cluttery
+// Phones:              <  768px
+// Tablets:             >= 768px
+// Small Laptops:    >= 992px
+// Desktops:           >= 1200px
+
+// Mobile devices
+@media(max-width: 768px) {
+	.grid-responsive-max-3x3 {
+		grid-template-columns: 1fr !important;
+	}
+
+  .card {
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+}
