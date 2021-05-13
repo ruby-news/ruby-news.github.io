@@ -11,17 +11,6 @@ layout: rubynews
 # js:
 ---
 
-
-
-<pre>
-  <code-counter><dollar>Some English text</dollar></code-counter>
-  <code-counter><hash>Немного русского текста</hash></code-counter>
-
-  <dollar>Some English text</dollar>
-  <hash>Немного русского текста</hash>
-</pre>
-
-
 {% comment %}
 <div class = "mdl-layout__content">
   <div class = "mdl-grid">
@@ -69,78 +58,239 @@ layout: rubynews
     justify-content: center;
     align-content: center;
     align-items: center;
-    grid-gap: 4rem;
+    grid-gap: 2rem;
   }
 
   .card-wrapper {
-    display: flex;
     width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .card {
     text-overflow: ellipsis;
-    flex-direction: column;
-    width: 16em;
-    height: 20em;
+    width: 370px;
+    height: 528px;
     border-radius: 8px;
-    box-shadow: 4px 4px 10px #0002;
-    overflow: hidden;
   }
 
   .preview {
     width: 100%;
-    height: 40%;
-    margin-bottom: 1.25em;
+    height: 35%;
   }
 
   .preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
   }
 
   .heading .title {
     display: block;
     color: var(--primary-text-color);
-    font-size: 20px;
     font-weight: 500;
     margin: 0;
     padding: 0;
   }
 
-  .heading .author {
-    color: var(--primary-text-color);
-    font-size: 14px;
-    font-weight: 600;
+  .author {
+    color: var(--text-gray);
     margin: 0;
     padding: 0;
     display: -webkit-box;
     width: 100%;
     overflow: hidden;
   }
+
+  .page-content-body {
+    height: 65%;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 8px #0001;
+    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .head {
+    display: flex;
+    justify-content: center;
+    color: var(--text-dark);
+  }
+
+  .date {
+    font-size: 18px;
+    color: var(--text-gray);
+  }
+
+  .page-content-body .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text-medium) ;
+  }
+
+  .tags ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
+
+  .tags ul li {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-medium);
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    margin: 4px;
+    border-radius: 6px;
+  }
+
+  .tags ul li::before {
+    content: '#';
+  }
+
+  /*
+    Subscribe container
+  */
+
+  .subscribe-container {
+    height: Min(550px, 90vh);
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    margin-bottom: 4vh;
+  }
+
+  input.email-field {
+    color: var(--text-medium);
+    border: 0px solid var(--primary-color) ;
+    box-shadow: 0px 2px 8px #0002 ;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .mdl-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--red));
+    color: var(--contrast-text-color) ;
+  }
+
+  .mdl-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white) ;
+  }
+
+  .subscribe-container #submitEmail {
+    display: none ;
+  }
+
+  .subscribe-container form.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .subscribe-container .form-wrapper {
+    display: block;
+    width: 100%;
+  }
 </style>
 
-<div class="grid-responsive-max-3x3">
-  {% for i in (1..8) %}
+<div class="subscribe-container">
+  <div class="head mb-2rem">
+    <h2>Ruby NEA</h2>
+  </div>
 
-    <div class="card-wrapper">
-      <div class="card">
-        <div class="preview">
-          <img src="/assets/images/sample.jpg">
-        </div>
+  <div class="description mb-2rem">
+    <h5 class="primary-text">A free, email for Ruby tips, tricks and news</h5>
+  </div>
 
-        <div class="heading mb-1rem">
-          <p class="title">Hello World This is an overflowing title</p>
-          <p class="author">By Lorem Ipsum</p>
-        </div>
-
-        <div class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+  <div class="form-wrapper">
+    <form action="#" class="flex-col-center-h">
+      <div class="mb-1rem flex-row-center-h">
+        <input type="email" class="email-field b-rad-8px w-50p" placeholder="Email">
       </div>
-    </div>
 
-  {% endfor %}
+      <label for="submitEmail">
+        <input type="submit" id="submitEmail">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+          Submit
+        </button>
+      </label>
+    </form>
+  </div>
+
+  <div class="absolute-bottom-10p">
+    <a class="arrows" href="#mainContent">
+      <div class="arrow-relative">
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="page-content" id="mainContent">
+  <div class="grid-responsive-max-3x3">
+    {% for i in (1..8) %}
+      <a href="#" class="link-no-style">
+
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="preview">
+              <img src="/assets/images/sample.jpg">
+            </div>
+
+            <div class="page-content-body">
+              <div class="p-2rem">
+                <div class="date mt-1rem mb-1rem">
+                  21.05.2021
+                </div>
+
+                <div class="heading mb-1rem">
+                  <h4>Hello World This is an overflowing title</h4>
+                </div>
+
+                <div class="pb-1rem">
+                  <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </div>
+                </div>
+
+                <div class="author">
+                  By Lorem Ipsum
+                </div>
+
+                <div class="tags">
+                  <ul>
+                    <li>Ruby</li>
+                    <li>C</li>
+                    <li>Rubygem</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </a>
+    {% endfor %}
+  </div>
 </div>

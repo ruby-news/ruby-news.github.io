@@ -1,0 +1,14 @@
+// Fading out animations that turns opacity to 0
+@keyframes fadeOut {
+	to {
+		opacity: 0;
+	}
+}
+
+// Fading out animations that turns opacity to 0
+@keyframes fadeUpOut {
+	to {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
