@@ -12,6 +12,7 @@
 
   .card {
     width: 100% !important;
+    max-width: 466px;
     box-shadow: none !important;
   }
 }
@@ -25,5 +26,8 @@
   .card {
     width: 100% !important;
     box-shadow: none !important;
+    max-width: none;
+    box-shadow: none;
+    height: 550px;
   }
 }
