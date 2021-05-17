@@ -2,29 +2,21 @@
 	<div class="card">
 		<div class="page-content-body h-100p">
 
-			<div class="p-2rem mt-4rem">
-				<h4>Don't want to miss a thing?</h4>
+			<div class="p-2rem mt-2rem">
+				<h4 class="mb-1rem">Don't want to miss a thing?</h4>
 
-				<div class="date mt-1rem mb-1rem">
-					{{ article.date | date: '%-d %B %Y'}}
-				</div>
-
-				<div class="heading mb-1rem">
-				</div>
-
-				<div class="pb-1rem mb-1rem">
+				<div class="mb-2rem">
 					<div class="description">
 						Get all the latest Ruby news right into your mailbox
 					</div>
 				</div>
 
-				<div class="author">
-
+				<div class="details">
 					<div class="subscribe-container">
 						<div class="form-wrapper">
 							<form action="#" class="flex-col-center-h">
 								<div class="p-1rem flex-row-center-h">
-									<input type="email" class="email-field b-rad-8px w-100p" placeholder="Enter your email here">
+									<input type="email" maxlength="200" class="email-field b-rad-8px w-100p" placeholder="Enter your email here">
 								</div>
 
 								<div class="mb-3rem">
@@ -36,7 +28,7 @@
 								<label for="submitEmail" class="w-100p">
 									<input type="submit" id="submitEmail">
 									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-										Submit
+										Subscribe
 									</button>
 								</label>
 							</form>

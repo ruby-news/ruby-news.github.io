@@ -129,6 +129,9 @@ h6 {
 }
 
 // Margins and paddings
+.m-0 { margin: 0 !important; }
+.p-0 { margin: 0 !important; }
+
 @for $size from 1 through 6 {
   // Margins
   .b-#{$size}rem { border: #{$size}rem; }
@@ -363,7 +366,7 @@ pre {
     color: var(--text-gray);
   }
 
-  .page-content-body .description {
+  .page-content-body .description, .page-content-body .details {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
