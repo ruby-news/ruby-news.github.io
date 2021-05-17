@@ -190,6 +190,8 @@ h6 {
   bottom: 10%;
 }
 
+// Other codes
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -205,6 +207,10 @@ body {
   // Overwrite font-weight and font provided by getmdl.io
   font-family: 'Roboto' !important;
   font-weight: normal !important;
+}
+
+main {
+  overflow: auto;
 }
 
 .wrapper {
