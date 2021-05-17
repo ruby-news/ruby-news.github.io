@@ -12,89 +12,104 @@ stylesheets: /assets/stylesheets/index-page
 # js:
 ---
 
-<div class="subscribe-container">
-  <div class="head mb-2rem">
+<style>
+  .main-header {
+    background-color: #000;
+    height: Min(550px, 90vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bg-blend {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-blend .blend {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/site-assets/homepage.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: block;
+  }
+
+  /* .bg-blend .blend {
+    color: #fff !important;
+    font-weight: 900 !important;
+    font-size: 150px;
+    line-height: normal;
+    white-space: nowrap;
+    background-color: #000;
+  } */
+
+  .bg-blend .blend::before, .bg-blend .blend::after {
+    font-size: 180px;
+    font-weight: 900 !important;
+    line-height: normal;
+    white-space: nowrap;
+    background-color: #000;
+
+  }
+
+  .bg-blend .blend::before {
+    content: attr(content);
+    color: transparent !important;
+    text-shadow: 4px 4px 2px #55fa;
+    mix-blend-mode: lighten;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bg-blend .blend::after {
+    content: attr(content);
+    color: #fff !important;
+    mix-blend-mode: multiply;
+    /* background-color: #000; */
+  }
+</style>
+
+<div class="main-header mb-4rem">
+  <div class="head">
     <div class="bg-blend">
-      <h2 class="white-text">RUBY IS ALIVE</h2>
-    </div>
-  </div>
-
-  <div class="description mb-2rem ta-center">
-    <h5 class="white-text">A free, email for Ruby tips, tricks and news</h5>
-  </div>
-
-  <div class="form-wrapper">
-    <form action="#" class="flex-col-center-h">
-      <div class="mb-1rem flex-row-center-h">
-        <input type="email" class="email-field b-rad-8px w-50p" placeholder="Email">
-      </div>
-
-      <label for="submitEmail">
-        <input type="submit" id="submitEmail">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-          Submit
-        </button>
-      </label>
-    </form>
-  </div>
-
-  <div class="absolute-bottom-10p">
-    <div style="filter: invert(100%)">
-      <a class="arrows" href="#mainContent">
-        <div class="arrow-relative">
-          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
-          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
-          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><path fill="#333" d="M226 354.7c-8.2 0-16.3-3-22.4-9.3L9.3 151.2A31.6 31.6 0 1154 106.4l172 172 171.8-172a31.6 31.6 0 0144.8 44.8L248.3 345.4a31.5 31.5 0 01-22.4 9.3z"/></svg>
-        </div>
-      </a>
+      <span class="white-text blend" content="RUBY IS ALIVE"></span>
     </div>
   </div>
 </div>
 
 <div class="page-content" id="mainContent">
   <div class="grid-responsive-max-3x3">
+    <!-- Show first 2 posts -->
+    {% assign maxFirstPosts = 2 %}
+    {% assign counter = 0 %}
+
     {% for article in site.articles %}
-      <a href="{{ article.permalink }}" class="link-no-style">
+      {% assign counter = counter | plus: 1 %}
+      {% include indexpage_item.html %}
 
-        <div class="card-wrapper">
-          <div class="card">
-            <div class="preview">
-              <img src="{{ article.preview_image }}">
-            </div>
+      {% if counter == maxFirstPosts %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
 
-            <div class="page-content-body">
-              <div class="p-2rem">
-                <div class="date mt-1rem mb-1rem">
-                  {{ article.date | date: '%-d %B %Y'}}
-                </div>
+    <!-- Show the Email submit form -->
+    {% include submit_form_card.html %}
 
-                <div class="heading mb-1rem">
-                  <h4>{{ article.title }}</h4>
-                </div>
+    <!-- Show the rest posts -->
+    {% assign counter = 0 %}
 
-                <div class="pb-1rem">
-                  <div class="description">
-                    {{ article.description }}
-                  </div>
-                </div>
+    {% for article in site.articles %}
+      {% if counter < maxFirstPosts %}
+        {% assign counter = counter | plus: 1 %}
+        {% continue %}
+      {% endif %}
 
-                <div class="author">
-                  {{ article.author }}
-                </div>
+      {% include indexpage_item.html %}
 
-                <div class="tags">
-                  <ul>
-                    <li>Ruby</li>
-                    <li>C</li>
-                    <li>Rubygem</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </a>
     {% endfor %}
   </div>
 </div>

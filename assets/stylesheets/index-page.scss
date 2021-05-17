@@ -7,34 +7,47 @@
 
 .subscribe-container {
   & {
-    height: Min(550px, 90vh);
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #fff;
     margin-bottom: 4vh;
   }
 
   input.email-field {
     color: var(--text-medium);
-    border: 0px solid var(--primary-color) ;
-    box-shadow: 0px 2px 8px #0002 ;
+    border: 1px solid var(--text-gray) ;
     padding: 8px;
     font-size: 20px;
     font-weight: 600;
+    transition: var(--default-trasition-time);
+    border-radius: 4px;
+    height: 36px;
+
+    &:hover {
+      box-shadow: 0px 4px 4px #0002;
+    }
   }
 
   .mdl-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--red));
-    color: var(--contrast-text-color) ;
-  }
+    width: 100%;
+    background-color: transparent !important;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: none;
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .mdl-button:hover {
-    background-color: var(--primary-color);
-    color: var(--white) ;
+    &:hover {
+      background-color: var(--primary-color) !important;
+      color: var(--text-white);
+      box-shadow: 4px 4px 4px #0002;
+    }
   }
 
   & #submitEmail {

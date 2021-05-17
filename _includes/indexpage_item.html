@@ -1,0 +1,41 @@
+<a href="{{ article.permalink }}" class="link-no-style">
+
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="preview">
+        <img src="{{ article.preview_image }}">
+      </div>
+
+      <div class="page-content-body">
+        <div class="p-2rem">
+          <div class="date mt-1rem mb-1rem">
+            {{ article.date | date: '%-d %B %Y'}}
+          </div>
+
+          <div class="heading mb-1rem">
+            <h4>{{ article.title }}</h4>
+          </div>
+
+          <div class="pb-1rem">
+            <div class="description">
+              {{ article.description }}
+            </div>
+          </div>
+
+          <div class="author">
+            {{ article.author }}
+          </div>
+
+          <div class="tags">
+            <ul>
+              <li>Ruby</li>
+              <li>C</li>
+              <li>Rubygem</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</a>

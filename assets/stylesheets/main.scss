@@ -33,6 +33,9 @@
 
   // Shadows (can be glows in dark mode!)
   --shadow: #0002;
+
+  // Times
+  --default-trasition-time: 0.25s;
 }
 
 @for $i from 1 to 6 {
@@ -75,11 +78,16 @@ h6 {
   text-shadow: 2px 2px 4px #0002 !important;
 }
 
-// Widths
+// Widths and heights
 // .w-25p, .w-50p, .w-75p, .w-100p
+// .h-25p, .h-50p, .h-75p, .h-100p
 @for $i from 1 through 4 {
   .w-#{$i * 25}p {
-    width: #{percentage($i / 100) * 25};
+    width: #{percentage($i / 100) * 25} !important;
+  }
+
+  .h-#{$i * 25}p {
+    height: #{percentage($i / 100) * 25} !important;
   }
 }
 
@@ -172,7 +180,6 @@ h6 {
 .ta-center {
   text-align: center;
 }
-
 
 // Positioning
 .absolute-bottom-10p {
