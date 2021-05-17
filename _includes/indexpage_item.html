@@ -2,8 +2,9 @@
 
   <div class="card-wrapper">
     <div class="card">
-      <div class="preview">
-        <img src="{{ article.preview_image }}">
+      <div class="preview lazyload">
+        <img src="{{ article.preview_image }}" loading="lazy">
+        <div class="lazyload-anim"></div>
       </div>
 
       <div class="page-content-body">

@@ -394,3 +394,22 @@ pre {
     content: '#';
   }
 }
+
+// Lazy images animation on pseudo elements
+.lazyload {
+  position: relative !important;
+  z-index: 1;
+
+  .lazyload-anim {
+    content: '';
+    display: inline;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000a;
+    opacity: 0.75;
+    z-index: -1;
+  }
+}
