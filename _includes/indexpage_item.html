@@ -8,7 +8,11 @@
 
 <div class="card-wrapper">
   <div class="card">
-    <div class="preview lazyload">
+      {% if article.link %}
+        <div class="preview lazyload" hover-text-content="Read Article &#x1f517;">
+      {% else %}
+        <div class="preview lazyload" hover-text-content="Read Article">
+      {% endif %}
       <img src="/articles/images/{{ article_date }}/{{ article.preview_image }}" loading="lazy">
       <div class="lazyload-anim"></div>
     </div>
@@ -20,7 +24,16 @@
         </div>
 
         <div class="heading mb-1rem">
-          <h4>{{ article.title }}</h4>
+          {% if article.link %}
+            <h4>
+              {{ article.title }}
+              <img src="/assets/images/icons/external-link.svg" class="icon-16px">
+            </h4>
+          {% elsif article.file %}
+            <h4>{{ article.title }}</h4>
+          {% else %}
+            Untitled
+          {% endif %}
         </div>
 
         <div class="pb-1rem">

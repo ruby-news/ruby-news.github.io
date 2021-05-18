@@ -144,6 +144,13 @@ h6 {
   .pr-#{$size}em { padding-right: #{$size}em !important; }
 }
 
+@for $i from 1 through 8 {
+  .icon-#{$i * 8}px {
+    width: #{$i * 8}px;
+    height: #{$i * 8}px;
+  }
+}
+
 // Links
 $class-names-colours: (
   primary: var(--primary-color),
@@ -370,7 +377,8 @@ pre {
     position: relative;
 
     &::before {
-      content: 'Read Article';
+      content: attr(hover-text-content);
+      text-shadow: 2px 2px 2px #0005;
       font-size: 30px;
       font-weight: normal;
       color: var(--text-white);
