@@ -31,4 +31,8 @@ window.addEventListener('load', function() {
       setTimeout(() => { animObj.remove() }, 3000)
     }
   }
+
+  // Inject years
+  const injectYears = Array.from(document.getElementsByClassName('insert-current-year'))
+  for (let i of injectYears) { i.innerText = new Date().getFullYear() }
 })

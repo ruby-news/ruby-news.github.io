@@ -1,7 +1,6 @@
 footer {
   & {
     padding: 40px;
-    border-top: 2px solid #0002 ;
   }
 
   .title {
@@ -17,5 +16,34 @@ footer {
     width: 100%;
     justify-content: center;
     align-items: center;
+  }
+
+  .logo {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    & img {
+      padding: 0 20px 0 20px;
+    }
+
+    &::before, &::after {
+      content: '';
+      width: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, #ccc0, #ccc, #ccc, #ccc, #ccc, #ccc0);
+      position: absolute;
+      top: 50%;
+    }
+
+    &::before {
+      left: -5%;
+    }
+
+    &::after {
+      left: 55%;
+    }
+
+
   }
 }
