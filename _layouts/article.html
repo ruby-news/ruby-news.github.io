@@ -86,7 +86,7 @@
 
 	<body>
 		{% if page.js %}
-			{% assign javascripts = page.js | split: "%" %}
+			{% assign javascripts = page.js | split: "," %}
 			{% for javascript in javascripts %}
 				<script src="{{ javascript }}.js"></script>
 			{% endfor %}

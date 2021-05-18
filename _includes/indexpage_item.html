@@ -27,13 +27,16 @@
             {{ article.author }}
           </div>
 
-          <div class="tags">
-            <ul>
-              <li>Ruby</li>
-              <li>C</li>
-              <li>Rubygem</li>
-            </ul>
-          </div>
+          {% if article.tags %}
+            <div class="tags">
+              <ul>
+                {% for tag in article.tags %}
+                    <li>{{ tag }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
         </div>
       </div>
     </div>
