@@ -101,11 +101,13 @@
           {% include navbar.html %}
         </header>
 
+        {% assign article_date = page.date | date: "%Y-%m-%d" %}
+
         <main>
           <div class="container-fluid z-1000">
             <div class="blog-contents">
               <header class="text-glow">
-                <img src="{{ page.preview_image }}">
+                <img src="/articles/images/{{ article_date }}/{{ page.preview_image }}">
 
                 <break></break>
 

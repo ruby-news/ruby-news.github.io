@@ -114,34 +114,34 @@ h6 {
 
 @for $size from 1 through 6 {
   // Margins
-  .b-#{$size}rem { border: #{$size}rem; }
+  .b-#{$size}rem { border: #{$size}rem !important; }
 
-  .mt-#{$size}rem { margin-top: #{$size}rem; }
-  .mb-#{$size}rem { margin-bottom: #{$size}rem; }
-  .ml-#{$size}rem { margin-left: #{$size}rem; }
-  .mr-#{$size}rem { margin-right: #{$size}rem; }
+  .mt-#{$size}rem { margin-top: #{$size}rem !important; }
+  .mb-#{$size}rem { margin-bottom: #{$size}rem !important; }
+  .ml-#{$size}rem { margin-left: #{$size}rem !important; }
+  .mr-#{$size}rem { margin-right: #{$size}rem !important; }
 
   .b-#{$size}em { border: #{$size}em; }
 
-  .mt-#{$size}em { margin-top: #{$size}em; }
-  .mb-#{$size}em { margin-bottom: #{$size}em; }
-  .ml-#{$size}em { margin-left: #{$size}em; }
-  .mr-#{$size}em { margin-right: #{$size}em; }
+  .mt-#{$size}em { margin-top: #{$size}em !important; }
+  .mb-#{$size}em { margin-bottom: #{$size}em !important; }
+  .ml-#{$size}em { margin-left: #{$size}em !important; }
+  .mr-#{$size}em { margin-right: #{$size}em !important; }
 
   // Padding
-  .p-#{$size}rem { padding: #{$size}rem; }
+  .p-#{$size}rem { padding: #{$size}rem !important; }
 
-  .pt-#{$size}rem { padding-top: #{$size}rem; }
-  .pb-#{$size}rem { padding-bottom: #{$size}rem; }
-  .pl-#{$size}rem { padding-left: #{$size}rem; }
-  .pr-#{$size}rem { padding-right: #{$size}rem; }
+  .pt-#{$size}rem { padding-top: #{$size}rem !important; }
+  .pb-#{$size}rem { padding-bottom: #{$size}rem !important; }
+  .pl-#{$size}rem { padding-left: #{$size}rem !important; }
+  .pr-#{$size}rem { padding-right: #{$size}rem !important; }
 
-  .p-#{$size}em { padding: #{$size}em; }
+  .p-#{$size}em { padding: #{$size}em !important; }
 
-  .pt-#{$size}em { padding-top: #{$size}em; }
-  .pb-#{$size}em { padding-bottom: #{$size}em; }
-  .pl-#{$size}em { padding-left: #{$size}em; }
-  .pr-#{$size}em { padding-right: #{$size}em; }
+  .pt-#{$size}em { padding-top: #{$size}em !important; }
+  .pb-#{$size}em { padding-bottom: #{$size}em !important; }
+  .pl-#{$size}em { padding-left: #{$size}em !important; }
+  .pr-#{$size}em { padding-right: #{$size}em !important; }
 }
 
 // Links

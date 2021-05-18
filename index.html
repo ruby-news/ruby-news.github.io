@@ -14,12 +14,20 @@ stylesheets: /assets/stylesheets/index-page
 
 <style>
   .main-header {
+    position: relative;
     background-color: #000;
     height: Min(550px, 90vh);
     display: flex;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+  }
+
+  .arrows {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .bg-blend {
@@ -76,7 +84,10 @@ stylesheets: /assets/stylesheets/index-page
 
 {% include ruby_is_alive.html %}
 
-<div class="page-content" id="mainContent">
+<!-- Scroll to this section to have adequate margin to top of the page-content section -->
+<div  class="mb-4rem" id="mainContent"></div>
+
+<div class="page-content">
   <div class="grid-responsive-max-3x3">
     <!-- Show first 2 posts -->
     {% assign maxFirstPosts = 2 %}
