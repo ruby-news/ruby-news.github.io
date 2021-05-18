@@ -28,7 +28,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 # Set baseurl to https://ruby.news/, don't forget the ending slash (/)
 baseurl: "https://ruby.news/"
 # baseurl should be set to empty when developing locally
-baseurl: ""
+# baseurl: ""
 
 url: "https://ruby.news/"
 github_username:  ruby-news
