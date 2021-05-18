@@ -26,9 +26,15 @@ window.addEventListener('load', function() {
     if(!animObj) continue
 
     animObj.style.animation = 'lazyloadAnim 1s linear alternate infinite'
+    img.display = 'none'
 
     img.onload = () => {
-      setTimeout(() => { animObj.remove() }, 3000)
+      setInterval(() => {
+        if(img.complete) {
+          setTimeout(() => { img.display = 'block' }, 500)
+          setTimeout(() => { animObj.remove() }, 3000)
+        }
+      }, 100)
     }
   }
 
