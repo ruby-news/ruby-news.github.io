@@ -1,0 +1,51 @@
+{% assign article_date = article.date | date: "%Y-%m-%d" %}
+
+{% if article.link %}
+  <a href="{{ article.link }}" class="link-no-style" target="_blank" rel="noopener">
+{% elsif article.file %}
+  <a href="/articles/{{ article_date }}-{{ article.file }}" class="link-no-style">
+{% endif %}
+
+<div class="card-wrapper">
+  <div class="card">
+    <div class="preview lazyload">
+      <img src="/articles/images/{{ article_date }}/{{ article.preview_image }}" loading="lazy">
+      <div class="lazyload-anim"></div>
+    </div>
+
+    <div class="page-content-body">
+      <div class="p-2rem">
+        <div class="date mt-1rem mb-1rem">
+          {{ article.date | date: '%-d %B %Y'}}
+        </div>
+
+        <div class="heading mb-1rem">
+          <h4>{{ article.title }}</h4>
+        </div>
+
+        <div class="pb-1rem">
+          <div class="description">
+            {{ article.description }}
+          </div>
+        </div>
+
+        <div class="author">
+          {{ article.author }}
+        </div>
+
+        {% if article.tags %}
+          <div class="tags">
+            <ul>
+              {% for tag in article.tags %}
+                  <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</a>

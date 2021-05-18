@@ -1,0 +1,33 @@
+// Seperate media queries to make things less cluttery
+// Phones:              <  768px
+// Tablets:             >= 768px
+// Small Laptops:    >= 992px
+// Desktops:           >= 1200px
+
+// < Desktops
+@media(max-width: 1200px) {
+	.grid-responsive-max-3x3 {
+		grid-template-columns: 1fr 1fr !important;
+	}
+
+  .card {
+    width: 100% !important;
+    max-width: 466px;
+    box-shadow: none !important;
+  }
+}
+
+// Mobile devices
+@media(max-width: 768px) {
+	.grid-responsive-max-3x3 {
+		grid-template-columns: 1fr !important;
+	}
+
+  .card {
+    width: 100% !important;
+    box-shadow: none !important;
+    max-width: none;
+    box-shadow: none;
+    height: 550px;
+  }
+}

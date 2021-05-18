@@ -1,0 +1,50 @@
+---
+---
+
+/*
+  Subscribe container
+*/
+
+.subscribe-container {
+  & {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 4vh;
+  }
+
+  input.email-field {
+    color: var(--text-medium);
+    border: 1px solid var(--text-gray) ;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: var(--default-trasition-time);
+    border-radius: 4px;
+    height: 36px;
+
+    &:hover {
+      box-shadow: 0px 4px 4px #0002;
+    }
+  }
+
+  & #submitEmail {
+    display: none ;
+  }
+
+  & form.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  & .form-wrapper {
+    display: block;
+    width: 100%;
+  }
+}

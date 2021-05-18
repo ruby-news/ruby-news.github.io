@@ -1,1 +1,121 @@
-<h1>ruby.news</h1>
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: rubynews
+
+# Extra scss / css file(s), don't use .css extension
+# Should be seperated with commas (,): file1, file2, file3...fileN
+stylesheets: /assets/stylesheets/index-page
+
+# Extra javascript file(s)
+# js:
+---
+
+<style>
+  .main-header {
+    position: relative;
+    background-color: #000;
+    height: Min(550px, 90vh);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrows {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bg-blend {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-blend .blend {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/site-assets/homepage.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: block;
+  }
+
+  /* .bg-blend .blend {
+    color: #fff !important;
+    font-weight: 900 !important;
+    font-size: 150px;
+    line-height: normal;
+    white-space: nowrap;
+    background-color: #000;
+  } */
+
+  .bg-blend .blend::before, .bg-blend .blend::after {
+    font-size: 180px;
+    font-weight: 900 !important;
+    line-height: normal;
+    white-space: nowrap;
+    background-color: #000;
+
+  }
+
+  .bg-blend .blend::before {
+    content: attr(content);
+    color: transparent !important;
+    text-shadow: 4px 4px 2px #55fa;
+    mix-blend-mode: lighten;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bg-blend .blend::after {
+    content: attr(content);
+    color: #fff !important;
+    mix-blend-mode: multiply;
+    /* background-color: #000; */
+  }
+</style>
+
+{% include ruby_is_alive.html %}
+
+<!-- Scroll to this section to have adequate margin to top of the page-content section -->
+<div  class="mb-4rem" id="mainContent"></div>
+
+<div class="page-content">
+  <div class="grid-responsive-max-3x3">
+    <!-- Show first 2 posts -->
+    {% assign maxFirstPosts = 2 %}
+    {% assign counter = 0 %}
+
+    {% for article in site.articles %}
+      {% assign counter = counter | plus: 1 %}
+      {% include indexpage_item.html %}
+
+      {% if counter == maxFirstPosts %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- Show the Email submit form -->
+    {% include submit_form_card.html %}
+
+    <!-- Show the rest posts -->
+    {% assign counter = 0 %}
+
+    {% for article in site.articles %}
+      {% if counter < maxFirstPosts %}
+        {% assign counter = counter | plus: 1 %}
+        {% continue %}
+      {% endif %}
+
+      {% include indexpage_item.html %}
+
+    {% endfor %}
+  </div>
+</div>
