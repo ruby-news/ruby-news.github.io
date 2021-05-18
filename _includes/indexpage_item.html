@@ -3,7 +3,7 @@
   <div class="card-wrapper">
     <div class="card">
       <div class="preview lazyload">
-        <img src="{{ article.preview_image }}" loading="lazy">
+        <img src="/articles/images/{{ article.date | date: "%-d-%m-%Y" }}/{{ article.preview_image }}" loading="lazy">
         <div class="lazyload-anim"></div>
       </div>
 
