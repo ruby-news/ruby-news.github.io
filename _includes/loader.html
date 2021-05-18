@@ -37,7 +37,7 @@
 			}, (0.75 + delay) * 1000)
 		}
 
-		window.onload = () => { hideLoader(0.25) }
+		document.addEventListener('DOMContentLoaded', () => { hideLoader(0.25) })
 		hideLoaderButton.onclick = () => { hideLoader(0) }
 	</script>
 </div>
