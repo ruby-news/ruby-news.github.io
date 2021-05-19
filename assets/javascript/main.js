@@ -41,4 +41,15 @@ window.addEventListener('load', function() {
   // Inject years
   const injectYears = Array.from(document.getElementsByClassName('insert-current-year'))
   for (let i of injectYears) { i.innerText = new Date().getFullYear() }
+
+  // Navbar close on escape button on small desktops
+  const navButton = document.getElementById('nav-check')
+  document.onkeydown = function(evt) {
+    evt = evt || window.event
+
+    if(
+      (navButton.checked && "key" in evt) &&
+      (evt.key == 'Escape' || evt.key == 'esc')
+    ) navButton.checked = false
+  }
 })
