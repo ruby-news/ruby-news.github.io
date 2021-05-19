@@ -1,6 +1,9 @@
 ---
 ---
 
+$line-height-regular: 32px;
+$line-height-sm: 28px;
+
 .author-details {
 	display: flex ;
 	font-size: 16px ;
@@ -28,10 +31,6 @@
 	}
 }
 
-.card * {
-	transition: all 1s ease ;
-}
-
 date {
 	display: block ;
 	font-size: 14px ;
@@ -55,6 +54,14 @@ break {
 	word-wrap: break-word ;
 	transition: background-color 0.25s ease !important ;
 	margin-bottom: 48px ;
+	font-size: 16px !important;
+	line-height: $line-height-regular !important;
+
+	p {
+		font-size: 16px;
+		font-weight: normal;
+		line-height: $line-height-regular;
+	}
 
 	header {
 		font-size: 40px ;
@@ -69,6 +76,15 @@ break {
 
 	initial {
 		font-size: 30px ;
+		display: inline;
+
+		& + p {
+			display: inline-block;
+		}
+	}
+
+	code {
+		background-color: #efefef;
 	}
 
 	img {
@@ -100,6 +116,20 @@ break {
 		}
 	}
 
+	@for $i from 2 through 9 {
+		grid-#{$i} {
+			display: grid;
+			grid-gap: 2rem;
+			margin-bottom: 2rem;
+
+			// Repeat 1fr N times
+			$var: '';
+			@for $j from 1 through $i { $var: $var + '1fr ' }
+			grid-template-columns: unquote(str-slice($var, 0, -2));
+		}
+	}
+
+
 	pre {
 		margin: 12px 0 ;
 		text-align: justify ;
@@ -110,8 +140,7 @@ break {
 		border-radius: 6px ;
     overflow: auto;
 
-
-		code {
+		code-counter {
 			counter-increment: listing ;
 			overflow: auto ;
 
@@ -121,7 +150,7 @@ break {
 			}
 		}
 
-		file {
+		& file {
 			display: block ;
 			color: #000 ;
 			font-size: 12px ;
@@ -172,8 +201,13 @@ break {
 	grid-template-columns: 1fr 1fr ;
 }
 
-@media(max-width: 1079px) {
-	.floaters {
-		grid-template-columns: 1fr ;
+@media(max-width: 768px) {
+	.blog-contents {
+		font-size: 16px !important;
+		line-height: $line-height-sm !important;
+
+		p {
+			line-height: $line-height-sm !important;
+		}
 	}
 }
