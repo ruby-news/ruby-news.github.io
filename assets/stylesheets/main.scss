@@ -42,7 +42,7 @@
   --default-trasition-time: 0.25s;
 }
 
-@for $i from 1 to 6 {
+@for $i from 1 through 6 {
   h#{$i} {
     font-family: 'Montserrat' !important;
     color: var(--heading-text-color);
@@ -73,7 +73,7 @@ h5 {
 }
 
 h6 {
-  font-size: 65px;
+  font-size: 16px;
 }
 
 ::selection {
