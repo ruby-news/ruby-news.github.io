@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
 
     if(
       (navButton.checked && "key" in evt) &&
-      (evt.key == 'Escape' || evt.key == 'esc')
+      (evt.key == 'Escape' || evt.key == 'Esc')
     ) navButton.checked = false
   }
 })
