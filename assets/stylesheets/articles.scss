@@ -4,6 +4,46 @@
 $line-height-regular: 32px;
 $line-height-sm: 28px;
 
+.btn-logo {
+	text-decoration: none;
+	padding: 2px 8px !important;
+
+	div {
+		gap: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 8px;
+		text-decoration: none;
+
+		img {
+			transition: var(--default-transition-time);
+			width: 20px;
+			height: 20px;
+			object-fit: scale-down;
+		}
+	}
+}
+
+.btn-share {
+	background-color: transparent !important;
+	border-radius: 4px;
+	box-shadow: none;
+
+	&:hover {
+		box-shadow: 2px 2px 4px #0004;
+	}
+}
+
+.btn-tweet {
+	color: #1DA1F2 !important;
+}
+
+.btn-copy {
+	color: #FF0B54 !important;
+}
+
+
 .author-details {
 	display: flex ;
 	font-size: 16px ;
@@ -194,11 +234,6 @@ break {
 	justify-content: center ;
 	margin-bottom: 5vh ;
 	margin-top: 5vh ;
-}
-
-.floaters {
-	display: grid ;
-	grid-template-columns: 1fr 1fr ;
 }
 
 @media(max-width: 768px) {

@@ -52,4 +52,32 @@ window.addEventListener('load', function() {
       (evt.key == 'Escape' || evt.key == 'Esc')
     ) navButton.checked = false
   }
+
+  // Copy text to clipboard when any element has class "copy"
+  const copyButtons = document.querySelectorAll('.copy')
+  for(let copyButton of copyButtons) {
+    let text = copyButton.getAttribute('text')
+
+    copyButton.onclick = () => {
+      let textArea = document.createElement('textarea')
+      textArea.style.position = 'fixed'
+      textArea.style.top = '0'
+      textArea.style.left = '0'
+      textArea.style.opacity = '0'
+
+      textArea.value = text
+
+      document.body.appendChild(textArea)
+      textArea.focus()
+      textArea.select()
+
+      try {
+        document.execCommand('copy')
+      } catch(err) {
+        alert('Text cannot be copied')
+      }
+
+      document.body.removeChild(textArea)
+    }
+  }
 })
