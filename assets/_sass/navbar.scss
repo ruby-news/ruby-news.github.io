@@ -129,20 +129,11 @@ $navbar-margin: 2rem;
 		opacity: 0.75;
 	}
 
-	.logo-text-more {
-		position: relative;
-		height: 100%;
-	}
-
 	.splitter {
 		width: 1px;
 		height: 60%;
 		background-color: #2227;
 		display: inline-block;
-	}
-
-	.logo-text-more {
-		font-size: 20px;
 	}
 
 	.nav-btn {
@@ -180,6 +171,7 @@ $navbar-margin: 2rem;
 
 	/* Show triple dashes as menu on mobile devices */
 	.menu-links {
+		align-items: baseline;
 		transition: 0.25s;
 		position: relative;
 		height: 100% !important;
@@ -202,6 +194,10 @@ $navbar-margin: 2rem;
 		#nav-check:not(:checked) ~ .menu-links {
 			height: 0;
 			opacity: 0;
+		}
+
+		.menu-items li {
+			margin-left: 0;
 		}
 
 		#nav-check:checked ~ .menu-links {
@@ -236,6 +232,7 @@ $navbar-margin: 2rem;
 			height: auto !important;
 			justify-content: center;
 			gap: 1rem;
+			align-items: center;
 		}
 
 		.social-media {
