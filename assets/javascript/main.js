@@ -26,13 +26,30 @@ window.addEventListener('load', function() {
     if(!animObj) continue
 
     animObj.style.animation = 'lazyloadAnim 1s linear alternate infinite'
+    img.display = 'none'
 
     img.onload = () => {
-      setTimeout(() => { animObj.remove() }, 3000)
+      setInterval(() => {
+        if(img.complete) {
+          setTimeout(() => { img.display = 'block' }, 500)
+          setTimeout(() => { animObj.remove() }, 3000)
+        }
+      }, 100)
     }
   }
 
   // Inject years
   const injectYears = Array.from(document.getElementsByClassName('insert-current-year'))
   for (let i of injectYears) { i.innerText = new Date().getFullYear() }
+
+  // Navbar close on escape button on small desktops
+  const navButton = document.getElementById('nav-check')
+  document.onkeydown = function(evt) {
+    evt = evt || window.event
+
+    if(
+      (navButton.checked && "key" in evt) &&
+      (evt.key == 'Escape' || evt.key == 'Esc')
+    ) navButton.checked = false
+  }
 })
