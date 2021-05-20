@@ -1,0 +1,81 @@
+<!Doctype HTML>
+<html>
+
+<head>
+  {% include meta_tags.html %}
+  <title>RubyNews</title>
+
+  <!-- Any CDN Links? -->
+  <!-- -->
+  <!-- -->
+
+  <!-- Stylesheets -->
+  <!-- Preload required stylesheets -->
+  <link rel="preload" as="style" href="/assets/stylesheets/material.min.css">
+  <link rel="preload" as="style" href="/assets/stylesheets/main.css">
+
+  <!-- Load all the stylesheet synchronously -->
+  <!-- Don't wait for the stylesheets before showing the loader -->
+  <!-- With direct link tag, stylesheets loading can be ignored by the loader -->
+  <script>
+    // Paste stylesheet links here!
+    // Keep things like materialLite or bootstrap at first to prevent
+    // your own style from overriding!
+    // CSS Libraries are quite notorious
+    // For even defining their own body fonts!
+
+    let stylesheets = [
+      "/assets/stylesheets/material.min.css",
+      "/assets/stylesheets/main.css"
+    ]
+
+    // Load other stylesheets
+    const otherStylesheets = "{{ page.stylesheets }}".split(',').map(x => x.trim())
+    if (otherStylesheets) stylesheets = stylesheets.concat(otherStylesheets)
+
+    // Append all stylesheets to head while the loader is shown
+    for(let stylesheetLink of stylesheets) {
+      if (stylesheetLink) {
+        let link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.type = 'text/css'
+        link.href = stylesheetLink.substr(-4) === '.css' ? stylesheetLink : stylesheetLink + '.css'
+
+        document.head.appendChild(link)
+      }
+    }
+  </script>
+
+  <!-- Javascript -->
+  <link rel="preload" as="script" href="/assets/javascript/main.js">
+  <link rel="preload" as="script" href="/assets/javascript/material.min.js">
+
+  <script src="/assets/javascript/main.js"></script>
+  <script src="/assets/javascript/material.min.js"></script>
+
+  <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
+  {% include loader.css.html %}
+  {% include arrow_animation.css.html %}
+</head>
+
+<body>
+  <!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
+  {% include loader.html %}
+
+  <!-- Body of Rubynews -->
+  <div class="wrapper">
+    <header class="css-navbar">
+      {% include navbar.html %}
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      {% include footer.html %}
+    </footer>
+  </div>
+</body>
+
+</html>
