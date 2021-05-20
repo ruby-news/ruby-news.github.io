@@ -324,6 +324,23 @@ pre {
   text-decoration: none;
 }
 
+.link-article {
+  height: auto;
+  padding: 0;
+  text-align: left;
+  line-height: initial;
+  overflow: visible;
+
+  &:hover {
+    transition: var(--default-transition-time);
+    box-shadow: 4px 4px 12px #0004;
+    background-color: initial;
+  }
+
+  &:active {
+    background-color: #efefef;
+  }
+}
 
 /*
   Grid 3x3
