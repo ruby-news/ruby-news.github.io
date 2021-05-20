@@ -112,76 +112,51 @@
       {% assign article_date = page.date | date: "%Y-%m-%d" %}
 
       <main>
-        <div class="container-fluid z-1000">
-          <div class="blog-contents">
-            <header>
-              <img src="/articles/images/{{ article_date }}/{{ page.preview_image }}">
-
-              <break></break>
-
-              <div>{{ page.title }}</div>
-
-              {% assign tag = page.tags | join: ' ' %}
-              {% if tag == '' %}
-                {% assign tag = 'Ruby News' %}
-              {% endif %}
-
-              <!-- Tweet Share Button -->
-              <a
-                class="btn-logo btn-tweet btn-share mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                href="https://twitter.com/share?text={{ page.description }}&url={{ site.url }}{{ page.url }}&hashtags={{ tag }}"
-                target="_blank"
-                rel="noopener"
-              >
-                <div>
-                  <img src="/assets/images/social-media/twitter-btn.svg">
-                  Tweet
-                </div>
-              </a>
-
-              <!-- Facebook Share Button -->
-
-              <!-- Copy Link Button -->
-              <button
-                class="btn-logo copy btn-copy btn-share mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                text="{{ site.url }}{{ page.url }}"
-              >
-                <div>
-                  <img src="/assets/images/social-media/copy-btn.svg">
-                  Copy Link
-                </div>
-              </button>
-
-              <author>
-                <div class="author-details">
-                  <author-image>
-                    {% if page.author_image %}
-                      <img src="/assets/articles/authors/{{ page.author_image }}">
-                    {% else %}
-                      <img src="/assets/articles/blog-authors/person.webp">
-                    {% endif %}
-                  </author-image>
-
-                  <about-post>
-                    {% if page.author_name %}
-                      {{ page.author_name }}
-                    {% else %}
-                      Ruby News
-                    {% endif %}
-                    <date>{{ page.date | date: "%d %B, %Y | %H:%M:%S %Z (%z)" }}</date>
-
-                    <div class="tags">
-                      {{ tag }}
-                    </div>
-                  </about-post>
-                </div>
-              </author>
-            </header>
+        <div class="blog-contents">
+          <header>
+            <img src="/articles/images/{{ article_date }}/{{ page.preview_image }}">
 
             <break></break>
-            {{ page.content }}
 
-          </div>
+            <div>{{ page.title }}</div>
+
+            {% assign tag = page.tags | join: ' ' %}
+            {% if tag == '' %}
+              {% assign tag = 'Ruby News' %}
+            {% endif %}
+
+            <div class="grid-2x2-float">
+              <div class="author-details">
+                <author-image>
+                  {% if page.author_image %}
+                    <img src="/assets/articles/authors/{{ page.author_image }}">
+                  {% else %}
+                    <img src="/assets/articles/blog-authors/person.webp">
+                  {% endif %}
+                </author-image>
+
+                <about-post>
+                  {% if page.author_name %}
+                    {{ page.author_name }}
+                  {% else %}
+                    Ruby News
+                  {% endif %}
+                  <date>{{ page.date | date: "%d %B, %Y | %H:%M:%S %Z (%z)" }}</date>
+
+                  <div class="tags">
+                    {{ tag }}
+                  </div>
+                </about-post>
+              </div>
+
+              <div class="right">
+                {% include article_share_buttons.html %}
+              </div>
+            </div>
+          </header>
+
+          <break></break>
+          {{ page.content }}
         </div>
       </main>
 

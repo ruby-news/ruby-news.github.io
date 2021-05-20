@@ -71,8 +71,17 @@ window.addEventListener('load', function() {
       textArea.focus()
       textArea.select()
 
+      let snackbarContainer = document.querySelector('#copy-snackbar');
+
       try {
         document.execCommand('copy')
+
+        if (snackbarContainer) {
+            snackbarContainer.MaterialSnackbar.showSnackbar({
+              message: 'Link Copied', timeout: 1000
+          })
+        }
+
       } catch(err) {
         alert('Text cannot be copied')
       }

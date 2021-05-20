@@ -27,22 +27,17 @@ $line-height-sm: 28px;
 
 .btn-share {
 	background-color: transparent !important;
-	border-radius: 4px;
-	box-shadow: none;
+	width: 24px;
+	height: 24px;
+	border: none;
+	object-fit: scale-down;
+	cursor: pointer;
+	transition: var(--default-transition-time);
 
 	&:hover {
-		box-shadow: 2px 2px 4px #0004;
+		opacity: 0.75;
 	}
 }
-
-.btn-tweet {
-	color: #1DA1F2 !important;
-}
-
-.btn-copy {
-	color: #FF0B54 !important;
-}
-
 
 .author-details {
 	display: flex ;
@@ -75,10 +70,6 @@ date {
 	display: block ;
 	font-size: 14px ;
 	margin: 8px 0 ;
-}
-
-.container-fluid {
-	min-height: 92vh ;
 }
 
 break {
@@ -234,6 +225,18 @@ break {
 	justify-content: center ;
 	margin-bottom: 5vh ;
 	margin-top: 5vh ;
+}
+
+.grid-2x2-float {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	.right {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: flex-end;
+	}
 }
 
 @media(max-width: 768px) {
