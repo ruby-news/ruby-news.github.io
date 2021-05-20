@@ -5,7 +5,7 @@ date: 2021-05-18 10:22:58 +0530
 
 title:  "How to Make Ruby Fast with GCC Optimization"
 categories: souravgoswami blogs
-description: "Make Ruby Fast with GCC Optimization -1"
+description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 preview_image: "main.jpg"
 tags: Ruby Optimization GCC
@@ -24,7 +24,7 @@ Easiest way: Compile Original Ruby for Native Binary
 
 It takes 3 - 5 minutes to compile Ruby. To compile Ruby:
 
-### 1. Install packages
+#### 1. Install packages
 
 Arch:
 <pre><hash>pacman -S gcc base-devel make git autoconf ncurses gdbm openssl libffi libyaml gmp zlib</hash></pre>
@@ -34,7 +34,7 @@ Debian:
 
 You can also use Clang instead of GCC, but that slowed down Ruby a little bit in my careful benchmark!
 
-### 2. Download Ruby
+#### 2. Download Ruby
 [https://cache.ruby-lang.org/pub/ruby/](https://cache.ruby-lang.org/pub/ruby/)
 
 Get a tarball for small file size :)
@@ -45,10 +45,10 @@ It's not a necessity, just a suggestion...
 
 Move it to /tmp/ (or any other ramdisk you have) directory for faster read/write. Ruby is quite small, and will fit in < 300 - 400 MB RAM space.
 
-### 3. Decompress
+#### 3. Decompress
 <pre><hash>tar -xvf ruby-major_ver-minor_ver-teeny_ver.tar.xz</hash></pre>
 
-### 4. Configure
+#### 4. Configure
 cd into the decompressed directory.
 
 Run `autoconf`
@@ -75,17 +75,17 @@ You can also specify the compiler to the CC environment variable, for example CC
 
 This can be problematic! Don't go beyond `-O3` optimization level, you can also use <code>-O2</code> (that's the default) flags if you don't have time to experiment.
 
-### 5. Build
+#### 5. Build
 <pre><hash>make -j$(( $(nproc) * 2 + 1 ))</hash></pre>
 
 This <code>$(( $(nproc) * 2 + 1 ))</code> will return 9 if you have a 4 threaded processor (Hyper Threading or not). It will return 17 on if your CPU has 8 threads.
 
-### 6. Install
+#### 6. Install
 <pre><hash>make install</hash></pre>
 
 You have done installing a faster Ruby on your system! You have access to ruby and ruby's `gem` command.
 
-### 7. Confirm that Proper Flags are in Use
+#### 7. Confirm that Proper Flags are in Use
 <pre><dollar>ruby -e "puts RbConfig::CONFIG.then { |x| %Q(\e[1;33mCFLAGS\e[0m => #{x['CFLAGS']}\n\n\e[1;34mCXXFLAGS\e[0m => #{x['CXXFLAGS']}) }"</dollar></pre>
 
 The output should be something like this:
@@ -100,7 +100,7 @@ But in case of installing gems, this value may be required.
 
 <hr>
 
-### If you want to create native binary using rvm, follow this:
+#### If you want to create native binary using rvm, follow this:
 ###### 1. You need RVM first.
 
 ###### 2. Add CFLAGS that Should be Passed:
@@ -126,7 +126,7 @@ Benchmarks
 
 [ source code given after the benchmarks ]
 
-### Original ruby (Any x64, arch community)
+#### Original ruby (Any x64, arch community)
 
 <pre>
 	<dollar>sleep 2 ; ruby benchmark.rb</dollar>
@@ -326,7 +326,7 @@ Here's a single file that you can Run and benchmark. It only works from Ruby 2.5
 
 While test like CPU Blowfish doesn't test the Ruby's capability, it's more like your system benchmark! But apart from Blowfish, there are others that can help!
 
-### Is the hassle worth It?
+#### Is the hassle worth It?
 If you are doing things like running rails, it's not probably worth it. Because
 rails doesn't use a lot of computational power to serve users. But if you have
 millions of visitors, it's worth the effort
