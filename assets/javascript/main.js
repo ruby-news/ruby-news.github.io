@@ -19,6 +19,7 @@ window.addEventListener('load', function() {
     let children = lazyload.children
     if(!children) continue
 
+    // Inject image div
     let img = children[0]
     if(!img) continue
 
@@ -26,16 +27,15 @@ window.addEventListener('load', function() {
     if(!animObj) continue
 
     animObj.style.animation = 'lazyloadAnim 1s linear alternate infinite'
-    img.display = 'none'
+    let image = new Image()
 
-    img.onload = () => {
-      setInterval(() => {
-        if(img.complete) {
-          setTimeout(() => { img.display = 'block' }, 500)
-          setTimeout(() => { animObj.remove() }, 3000)
-        }
-      }, 100)
-    }
+    image.addEventListener('load', function(event) {
+      setTimeout(() => { animObj.remove() }, 3000)
+      img.appendChild(image)
+    }, false)
+
+    image.src = img.getAttribute('src')
+    image.setAttribute('loading', 'lazy')
   }
 
   // Inject years
