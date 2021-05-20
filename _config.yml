@@ -39,9 +39,16 @@ plugins:
 
 sass:
   sass_dir: assets/_sass
+  style: compressed
 
+# Pagination
+paginate: 5
+
+# Collections directories
 collections:
   articles:
+    output: true
+  archives:
     output: true
 
 # Exclude from processing.

@@ -1,25 +1,40 @@
 ---
 permalink: /404.html
-layout: default
+layout: rubynews
 ---
 
 <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
+  .main-header {
+    flex-direction: column;
+    height: 100vh;
   }
-  h1 {
+
+  p {
+    color: #fff;
     margin: 30px 0;
-    font-size: 4em;
+    font-size: 1rem;
     line-height: 1;
-    letter-spacing: -1px;
+  }
+
+  a.home-button {
+    color: #fff !important;
+    background-color: transparent !important;
+  }
+
+  a.home-button:hover {
+    color: #fff !important;
+    background-color: #FF0B54 !important;
   }
 </style>
 
-<div class="container">
-  <h1>404</h1>
+<div class="main-header h-100vh">
+  <div class="head">
+    <div class="bg-blend">
+      <span class="white-text blend" content="Aww 404!"></span>
+    </div>
+  </div>
+    <p><strong>Page not found :(</strong></p>
+    <p>The requested page could not be found.</p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+    <a href="/" class="home-button mdl-button mdl-js-button mdl-js-ripple-effect">Back to Home</a>
 </div>
