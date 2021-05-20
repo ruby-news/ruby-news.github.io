@@ -39,6 +39,7 @@ plugins:
 
 sass:
   sass_dir: assets/_sass
+  style: compressed
 
 collections:
   articles:
