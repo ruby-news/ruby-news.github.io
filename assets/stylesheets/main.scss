@@ -515,7 +515,8 @@ pre {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #000a;
+    background: linear-gradient(90deg, #0006, #0006, #0006, #0006, #0002, #0006, #0006, #0006, #0006);
+    background-size: 150%;
     opacity: 0.75;
     z-index: -1;
   }

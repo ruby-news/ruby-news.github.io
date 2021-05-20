@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
     let animObj = children[1]
     if(!animObj) continue
 
-    animObj.style.animation = 'lazyloadAnim 1s linear alternate infinite'
+    animObj.style.animation = 'lazyloadAnim 2s linear infinite'
     let image = new Image()
 
     image.addEventListener('load', function(event) {
