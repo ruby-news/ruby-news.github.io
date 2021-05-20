@@ -3,8 +3,11 @@ $navbar-margin: 2rem;
 .css-navbar {
 	& {
 		background: var(--navbar-bg);
-		box-shadow: 0 2px 8px #0002;
+		// box-shadow: 0 2px 8px #0002;
 		z-index: 100;
+		position: fixed;
+		top: 0;
+		left: 0;
 	}
 
 	&::after {

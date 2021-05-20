@@ -1,0 +1,30 @@
+<!-- Tweet Share Button -->
+<!-- Simple Tooltip -->
+{% assign tagshare = page.tags | join: '+' %}
+{% assign textshare = page.description | split: ' ' | join: '+' %}
+
+
+<div class="mdl-tooltip" data-mdl-for="tweet">Tweet</div>
+<div class="mdl-tooltip" data-mdl-for="copy">Copy Link</div>
+
+<a
+	class="btn-share mr-1rem"
+	id="tweet"
+	href="https://twitter.com/share?text={{ textshare }}&url={{ site.url }}{{ page.url }}&hashtags={{ tagshare }}"
+	target="_blank"
+	rel="noopener"
+>
+	<img src="/assets/images/social-media/twitter-btn.svg">
+</a>
+
+<!-- Facebook Share Button -->
+
+<!-- Copy Link Button -->
+<button class="btn-share copy" id="copy" text="{{ site.url }}{{ page.url }}">
+	<img src="/assets/images/social-media/copy-btn.svg">
+</button>
+
+<div id="copy-snackbar" class="mdl-js-snackbar mdl-snackbar snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
