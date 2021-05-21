@@ -36,13 +36,15 @@ github_username:  ruby-news
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 sass:
   sass_dir: assets/_sass
   style: compressed
 
 # Pagination
-paginate: 5
+paginate: 3
+paginate_path: "/archives/page:num/"
 
 # Collections directories
 collections:
@@ -50,6 +52,13 @@ collections:
     output: true
   archives:
     output: true
+
+# Some default webrick headers
+webrick:
+  headers:
+    Cache-Control: 'private,max-age=1,no-store,no-cache,post-check=0,pre-check=0'
+    Cache-Control: 'age=1'
+    Pragma: 'no-cache'
 
 # Exclude from processing.
 # The following items will not be processed, by default.
