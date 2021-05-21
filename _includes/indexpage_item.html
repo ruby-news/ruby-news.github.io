@@ -27,12 +27,13 @@
 
         <div class="heading mb-1rem">
           {% if article.link %}
-            <h4>
+            <h4 class="line-clamp-3">
               {{ article.title }}
-              <img src="/assets/images/icons/external-link.svg" class="icon-16px">
             </h4>
+            <img src="/assets/images/icons/external-link.svg" class="icon-16px">
+
           {% elsif article.file %}
-            <h4>{{ article.title }}</h4>
+            <h4 class="line-clamp-3">{{ article.title }}</h4>
           {% else %}
             Untitled
           {% endif %}

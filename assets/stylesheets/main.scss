@@ -222,6 +222,16 @@ $class-names-colours: (
   bottom: 10%;
 }
 
+// Clamp to max N lines
+@for $i from 1 through 8 {
+  .line-clamp-#{$i} {
+    display: -webkit-box;
+    -webkit-line-clamp: #{$i};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
 // Other codes
 html {
   box-sizing: border-box;
@@ -324,17 +334,39 @@ pre {
   text-decoration: none;
 }
 
+@mixin cardHoverEffect {
+  .page-content-body {
+    transition: var(--default-transition-time);
+    box-shadow: 4px 4px 12px #0004;
+  }
+
+  .preview {
+    &::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    & img {
+      transform: scale(1.25);
+      filter: blur(2px);
+    }
+  }
+}
+
 .link-article {
   height: auto;
   padding: 0;
   text-align: left;
   line-height: initial;
   overflow: visible;
+  text-transform: initial;
+  border-radius: 8px;
 
   &:hover {
     transition: var(--default-transition-time);
-    box-shadow: 4px 4px 12px #0004;
-    background-color: initial;
+    background-color: transparent;
+
+    @include cardHoverEffect;
   }
 
   &:active {
@@ -369,24 +401,7 @@ pre {
     height: 528px;
     border-radius: 8px;
 
-    &:hover {
-      .page-content-body {
-        transition: var(--default-transition-time);
-        box-shadow: 4px 4px 12px #0004;
-      }
-
-      .preview {
-        &::before {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        & img {
-          transform: scale(1.25);
-          filter: blur(2px);
-        }
-      }
-    }
+    &:hover { @include cardHoverEffect; }
   }
 
   .preview {
