@@ -19,23 +19,23 @@ window.addEventListener('load', function() {
     let children = lazyload.children
     if(!children) continue
 
+    // Inject image div
     let img = children[0]
     if(!img) continue
 
     let animObj = children[1]
     if(!animObj) continue
 
-    animObj.style.animation = 'lazyloadAnim 1s linear alternate infinite'
-    img.display = 'none'
+    animObj.style.animation = 'lazyloadAnim 2s linear infinite'
+    let image = new Image()
 
-    img.onload = () => {
-      setInterval(() => {
-        if(img.complete) {
-          setTimeout(() => { img.display = 'block' }, 500)
-          setTimeout(() => { animObj.remove() }, 3000)
-        }
-      }, 100)
-    }
+    image.addEventListener('load', function(event) {
+      setTimeout(() => { animObj.remove() }, 3000)
+      img.appendChild(image)
+    }, false)
+
+    image.src = img.getAttribute('src')
+    image.setAttribute('loading', 'lazy')
   }
 
   // Inject years
@@ -52,6 +52,30 @@ window.addEventListener('load', function() {
       (evt.key == 'Escape' || evt.key == 'Esc')
     ) navButton.checked = false
   }
+
+  // Scroll elements into view when the element is intersecting
+  function observeComponents(direction) {
+    for(let i of document.querySelectorAll(`.appear-${direction}`)) {
+      let delay = i.getAttribute('slide-delay') || 250
+
+      i.observer = new IntersectionObserver(e => {
+        if(e[0].isIntersecting) {
+          if(!i.observed) {
+            i.observed = true
+            i.style.animation = `appear-${direction} 1s ease forwards ${delay}ms`
+            if(i.observer) i.observer.unobserve(i)
+          }
+        }
+      })
+
+      i.observer.observe(i)
+    }
+  }
+
+  observeComponents('up')
+  observeComponents('down')
+  observeComponents('right')
+  observeComponents('left')
 
   // Copy text to clipboard when any element has class "copy"
   const copyButtons = document.querySelectorAll('.copy')

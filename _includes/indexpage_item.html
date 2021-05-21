@@ -2,9 +2,9 @@
 {% assign button_class = "link-no-style link-article mdl-button mdl-js-button mdl-js-ripple-effect" %}
 
 {% if article.link %}
-  <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener">
+  <a href="{{ article.link }}" class="appear-up {{ button_class }}" target="_blank" rel="noopener">
 {% elsif article.file %}
-  <a href="/articles/{{ article_date }}-{{ article.file }}" class="{{ button_class }}">
+  <a href="/articles/{{ article_date }}-{{ article.file }}" class="appear-up {{ button_class }}">
 {% endif %}
 
 <div class="card-wrapper">
@@ -14,7 +14,8 @@
       {% else %}
         <div class="preview lazyload" hover-text-content="Read Article">
       {% endif %}
-      <img src="/articles/images/{{ article_date }}/{{ article.preview_image }}" loading="lazy">
+
+      <div src="/articles/images/{{ article_date }}/{{ article.preview_image }}" loading="lazy"></div>
       <div class="lazyload-anim"></div>
     </div>
 
@@ -26,12 +27,13 @@
 
         <div class="heading mb-1rem">
           {% if article.link %}
-            <h4>
+            <h4 class="line-clamp-3">
               {{ article.title }}
-              <img src="/assets/images/icons/external-link.svg" class="icon-16px">
             </h4>
+            <img src="/assets/images/icons/external-link.svg" class="icon-16px">
+
           {% elsif article.file %}
-            <h4>{{ article.title }}</h4>
+            <h4 class="line-clamp-3">{{ article.title }}</h4>
           {% else %}
             Untitled
           {% endif %}
