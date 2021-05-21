@@ -7,7 +7,7 @@
 // < Desktops
 @media(max-width: 1200px) {
 	.grid-responsive-max-3x3 {
-		grid-template-columns: 1fr 1fr !important;
+		grid-template-columns: auto auto !important;
 	}
 
   .card {
@@ -20,7 +20,7 @@
 // Mobile devices
 @media(max-width: 768px) {
 	.grid-responsive-max-3x3 {
-		grid-template-columns: 1fr !important;
+		grid-template-columns: auto !important;
 	}
 
   .card {

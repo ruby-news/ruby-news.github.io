@@ -381,7 +381,7 @@ pre {
 .grid-responsive-max-3x3 {
   & {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: auto auto auto ;
     justify-content: center;
     align-content: center;
     align-items: center;
