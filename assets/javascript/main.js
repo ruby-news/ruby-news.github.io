@@ -53,6 +53,30 @@ window.addEventListener('load', function() {
     ) navButton.checked = false
   }
 
+  // Scroll elements into view when the element is intersecting
+  function observeComponents(direction) {
+    for(let i of document.querySelectorAll(`.appear-${direction}`)) {
+      let delay = i.getAttribute('slide-delay') || 250
+
+      i.observer = new IntersectionObserver(e => {
+        if(e[0].isIntersecting) {
+          if(!i.observed) {
+            i.observed = true
+            i.style.animation = `appear-${direction} 1s ease forwards ${delay}ms`
+            if(i.observer) i.observer.unobserve(i)
+          }
+        }
+      })
+
+      i.observer.observe(i)
+    }
+  }
+
+  observeComponents('up')
+  observeComponents('down')
+  observeComponents('right')
+  observeComponents('left')
+
   // Copy text to clipboard when any element has class "copy"
   const copyButtons = document.querySelectorAll('.copy')
   for(let copyButton of copyButtons) {

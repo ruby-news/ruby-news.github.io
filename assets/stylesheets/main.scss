@@ -599,5 +599,10 @@ pre {
   content: attr(content);
   color: #fff !important;
   mix-blend-mode: multiply;
-  /* background-color: #000; */
+}
+
+.appear {
+  &-up, &-down, &-left, &-right {
+    opacity: 0;
+  }
 }
