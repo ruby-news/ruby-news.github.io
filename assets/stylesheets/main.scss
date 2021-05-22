@@ -648,12 +648,12 @@ pre {
 }
 
 .bg-blend .blend::before, .bg-blend .blend::after {
-  font-size: 180px;
+  font-size: Min(14vw, 120px);
   font-weight: 900 !important;
   line-height: normal;
   white-space: nowrap;
   background-color: #000;
-
+  object-fit: scale-down;
 }
 
 .bg-blend .blend::before {
