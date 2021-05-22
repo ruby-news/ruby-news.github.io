@@ -113,4 +113,31 @@ window.addEventListener('load', function() {
       document.body.removeChild(textArea)
     }
   }
+
+  // Total posts counter
+  const postCounter = document.getElementById('postCounter')
+
+  ;(() => {
+    if(!postCounter) return
+    let innerHtml = postCounter.innerHTML
+    let count = postCounter.getAttribute('count')
+    let counter = 0
+    let numStr = count.toString()
+    let digits = numStr.length
+
+    let counterIncInterval = setInterval(() => {
+      if (counter < count) counter += Math.round(5 * count / 100)
+      if (counter > count) counter = count
+
+      let counterStr = counter.toString()
+      let counterStrLen = counterStr.length
+      let counterValStr = counterStrLen < digits ? '0'.repeat(digits - counterStrLen) + counter : counter
+
+      postCounter.innerHTML = `${innerHtml}${counterValStr}`
+
+      if (counter == count) {
+        clearInterval(counterIncInterval)
+      }
+    }, 100)
+  })()
 })
