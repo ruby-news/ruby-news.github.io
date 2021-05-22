@@ -17,14 +17,7 @@ sass:
   style: compressed
 
 # Pagination
-paginate: 2
-
-# Collections directories
-collections:
-  articles:
-    output: true
-  archives:
-    output: true
+paginate: 10
 
 # Some default webrick headers
 webrick:

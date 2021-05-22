@@ -19,20 +19,14 @@ stylesheets: /assets/stylesheets/index-page
 <!-- Scroll to this section to have adequate margin to top of the page-content section -->
 <div  class="mb-4rem" id="mainContent"></div>
 
-H
-<h1>
-{% for post in paginator.posts %}
-  'hi'
-{% endfor %}
-</h1>
-
 <div class="page-content">
   <div class="grid-responsive-max-3x3">
     <!-- Show first 2 posts -->
     {% assign maxFirstPosts = 2 %}
     {% assign counter = 0 %}
+    {% assign articles = paginator.posts %}
 
-    {% for article in site.articles %}
+    {% for article in articles %}
       {% assign counter = counter | plus: 1 %}
       {% include indexpage_item.html %}
 
@@ -42,12 +36,14 @@ H
     {% endfor %}
 
     <!-- Show the Email submit form -->
-    {% include submit_form_card.html %}
+    {% if paginator.page == 1 %}
+      {% include submit_form_card.html %}
+    {% endif %}
 
     <!-- Show the rest posts -->
     {% assign counter = 0 %}
 
-    {% for article in site.articles %}
+    {% for article in articles %}
       {% if counter < maxFirstPosts %}
         {% assign counter = counter | plus: 1 %}
         {% continue %}
@@ -57,4 +53,82 @@ H
 
     {% endfor %}
   </div>
+</div>
+
+<!-- Show Pagination -->
+<div class="pagination">
+    {% assign current_page = paginator.page %}
+    {% assign total_pages = paginator.total_pages %}
+    {% assign starting_page = current_page | minus: 3 %}
+    {% assign ending_page = current_page | plus: 3 %}
+    {% assign starting_ellipsis = true %}
+    {% assign ending_ellipsis = true %}
+
+    {% if current_page < 3 %}
+      {% assign starting_ellipsis = false %}
+    {% endif %}
+
+    {% if total_pages == ending_page%}
+      {% assign ending_ellipsis = false %}
+    {% endif %}
+
+    {% if starting_page < 1 %}
+      {% assign starting_page = 1 %}
+      {% assign ending_page = current_page | plus: 6 %}
+    {% endif %}
+
+    {% if ending_page > total_pages %}
+      {% assign starting_page = current_page | minus: 6 %}
+      {% assign ending_page = total_pages %}
+      {% assign ending_ellipsis = false %}
+    {% endif %}
+
+  {% if current_page != 1 %}
+    <a href="{{ site.url }}" class="first page-link mdl-button mdl-js-button mdl-js-ripple-effect">First</a>
+  {% else %}
+    <span class="first page-link-disabled active">First</span>
+  {% endif %}
+
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous page-link mdl-button mdl-js-button mdl-js-ripple-effect">
+      Previous
+    </a>
+  {% else %}
+    <span class="previous page-link-disabled">Previous</span>
+  {% endif %}
+
+  {% if starting_ellipsis %}
+    <span class="ellipsis">...</span>
+  {% endif %}
+
+  {% for i in (starting_page..ending_page) %}
+    {% if i == 1 %}
+      {% assign j = site.url %}
+    {% else %}
+      {% assign j = site.url | append: "/page" | append:  i %}
+    {% endif %}
+
+    {% if i == current_page %}
+      <a href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+    {% else %}
+      <a href="{{ j }}" class="page-link mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if ending_ellipsis %}
+    <span class="ellipsis">...</span>
+  {% endif %}
+
+  <!-- Page: {{ paginator.page }} of {{ paginator.total_pages }} -->
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next page-link mdl-button mdl-js-button mdl-js-ripple-effect">Next</a>
+  {% else %}
+    <span class="next page-link-disabled">Next</span>
+  {% endif %}
+
+  {% if paginator.page != paginator.total_pages %}
+    <a href="{{ site.url }}/page{{ total_pages }}" class="last page-link mdl-button mdl-js-button mdl-js-ripple-effect">Last</a>
+  {% else %}
+    <span class="last page-link-disabled active">Last</span>
+  {% endif %}
 </div>

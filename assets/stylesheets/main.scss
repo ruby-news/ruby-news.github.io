@@ -517,7 +517,10 @@ pre {
   }
 }
 
-// Lazy images animation on pseudo elements
+/*
+  Lazy images animation on pseudo elements
+*/
+
 .lazyload {
   position: relative !important;
   z-index: 1;
@@ -536,6 +539,63 @@ pre {
     z-index: -1;
   }
 }
+
+/*
+  Pagination
+*/
+.pagination {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .page-link, .page-link-disabled, .ellipsis {
+    color: var(--secondary-text-color);
+    background-color: transparent;
+    text-decoration: none !important;
+    border-right: none !important;
+    padding: 8px 16px;
+    transition: var(--default-transition-time);
+    border: 1px solid var(--primary-color);
+    min-width: initial;
+    height: 24px;
+    font-weight: 500;
+    line-height: 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+  }
+
+  .page-link-disabled {
+    cursor: not-allowed;
+    color: var(--text-gray) !important;
+  }
+
+  .page-link:first-child, .page-link-disabled:first-child {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+
+  .page-link:last-child, .page-link-disabled:last-child {
+    border-right: 1px solid var(--primary-color) !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+  }
+
+  .active  {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+  }
+
+  .page-link:hover {
+    background-color: #ddd;
+  }
+}
+
+/*
+  Other small changes
+*/
 
 .snackbar {
   font-size: 16px;
