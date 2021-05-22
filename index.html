@@ -83,18 +83,20 @@ stylesheets: /assets/stylesheets/index-page
       {% assign ending_ellipsis = false %}
     {% endif %}
 
+  <div class="mdl-tooltip" data-mdl-for="pageLinkFirst">First</div>
   {% if current_page != 1 %}
-    <a href="{{ site.url }}" class="first page-link mdl-button mdl-js-button mdl-js-ripple-effect">First</a>
+    <a id="pageLinkFirst" href="{{ site.url }}" class="first page-link mdl-button mdl-js-button mdl-js-ripple-effect">&laquo;</a>
   {% else %}
-    <span class="first page-link-disabled active">First</span>
+    <span id="pageLinkFirst" class="first page-link-disabled active">&laquo;</span>
   {% endif %}
 
+  <div class="mdl-tooltip" data-mdl-for="pageLinkPrevious">Previous</div>
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous page-link mdl-button mdl-js-button mdl-js-ripple-effect">
-      Previous
+    <a id="pageLinkPrevious" href="{{ paginator.previous_page_path }}" class="previous page-link mdl-button mdl-js-button mdl-js-ripple-effect">
+      &lt;
     </a>
   {% else %}
-    <span class="previous page-link-disabled">Previous</span>
+    <span id="pageLinkPrevious" class="previous page-link-disabled">&lt;</span>
   {% endif %}
 
   {% if starting_ellipsis %}
@@ -108,10 +110,11 @@ stylesheets: /assets/stylesheets/index-page
       {% assign j = site.url | append: "/page" | append:  i %}
     {% endif %}
 
+    <div class="mdl-tooltip" data-mdl-for="pageLink-{{ i }}">Page {{ i }}</div>
     {% if i == current_page %}
-      <a href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
     {% else %}
-      <a href="{{ j }}" class="page-link mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
     {% endif %}
   {% endfor %}
 
@@ -120,15 +123,17 @@ stylesheets: /assets/stylesheets/index-page
   {% endif %}
 
   <!-- Page: {{ paginator.page }} of {{ paginator.total_pages }} -->
+  <div class="mdl-tooltip" data-mdl-for="pageLinkNext">Next</div>
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next page-link mdl-button mdl-js-button mdl-js-ripple-effect">Next</a>
+    <a id="pageLinkNext" href="{{ paginator.next_page_path }}" class="next page-link mdl-button mdl-js-button mdl-js-ripple-effect">&gt;</a>
   {% else %}
-    <span class="next page-link-disabled">Next</span>
+    <span id="pageLinkNext" class="next page-link-disabled">&gt;</span>
   {% endif %}
 
+  <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last</div>
   {% if paginator.page != paginator.total_pages %}
-    <a href="{{ site.url }}/page{{ total_pages }}" class="last page-link mdl-button mdl-js-button mdl-js-ripple-effect">Last</a>
+    <a id="pageLinkLast" href="{{ site.url }}/page{{ total_pages }}" class="last page-link mdl-button mdl-js-button mdl-js-ripple-effect">&raquo;</a>
   {% else %}
-    <span class="last page-link-disabled active">Last</span>
+    <span id="pageLinkLast" class="last page-link-disabled active">&raquo;</span>
   {% endif %}
 </div>
