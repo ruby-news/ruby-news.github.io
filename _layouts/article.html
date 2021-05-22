@@ -82,9 +82,11 @@
 
     <!-- Javascript -->
     <link rel="preload" as="script" href="/assets/javascript/main.js">
+    <link rel="preload" as="script" href="/assets/javascript/article.js">
     <link rel="preload" as="script" href="/assets/javascript/material.min.js">
 
     <script src="/assets/javascript/main.js"></script>
+    <script src="/assets/javascript/article.js"></script>
     <script src="/assets/javascript/material.min.js"></script>
 
     <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
@@ -109,6 +111,8 @@
         {% include navbar.html %}
       </header>
 
+      <div id="progress-bg"></div>
+      <div id="progress"></div>
       {% assign article_date = page.date | date: "%Y-%m-%d" %}
 
       <main>
@@ -156,7 +160,9 @@
           </header>
 
           <break></break>
-          {{ page.content }}
+          <div id="articleContent">
+            {{ page.content }}
+          </div>
         </div>
       </main>
 
