@@ -3,7 +3,7 @@
 
 {% if article.link %}
   <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener">
-{% elsif article.file %}
+{% else %}
   <a href="{{ article.url }}" class="{{ button_class }}">
 {% endif %}
 
