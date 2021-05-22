@@ -7,8 +7,16 @@
 // < Desktops
 @media(max-width: 1200px) {
 	.grid-responsive-max-3x3 {
-		grid-template-columns: auto auto !important;
+		grid-template-columns: 1fr 1fr !important;
 	}
+
+  .card-link {
+    max-width: 466px;
+  }
+
+  .submit-form-notice {
+    margin-bottom: 3rem;
+  }
 
   .card {
     width: 100% !important;
@@ -23,6 +31,10 @@
 		grid-template-columns: auto !important;
 	}
 
+  .card-link {
+    max-width: none;
+  }
+
   .card {
     width: 100% !important;
     box-shadow: none !important;
@@ -30,4 +42,9 @@
     box-shadow: none;
     height: 550px;
   }
+
+  .submit-form-notice {
+    margin-bottom: 2rem;
+  }
+
 }

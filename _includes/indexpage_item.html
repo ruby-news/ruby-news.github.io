@@ -1,10 +1,10 @@
 {% assign article_date = article.date | date: "%Y-%m-%d" %}
-{% assign button_class = "link-no-style link-article mdl-button mdl-js-button mdl-js-ripple-effect" %}
+{% assign button_class = "card-link appear-up link-no-style link-article mdl-button mdl-js-button mdl-js-ripple-effect" %}
 
 {% if article.link %}
-  <a href="{{ article.link }}" class="appear-up {{ button_class }}" target="_blank" rel="noopener">
+  <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener">
 {% elsif article.file %}
-  <a href="/articles/{{ article_date }}-{{ article.file }}" class="appear-up {{ button_class }}">
+  <a href="/articles/{{ article_date }}-{{ article.file }}" class="{{ button_class }}">
 {% endif %}
 
 <div class="card-wrapper">
