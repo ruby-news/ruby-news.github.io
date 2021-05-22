@@ -4,7 +4,7 @@
 {% if article.link %}
   <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener">
 {% elsif article.file %}
-  <a href="/articles/{{ article_date }}-{{ article.file }}" class="{{ button_class }}">
+  <a href="{{ article.url }}" class="{{ button_class }}">
 {% endif %}
 
 <div class="card-wrapper">
