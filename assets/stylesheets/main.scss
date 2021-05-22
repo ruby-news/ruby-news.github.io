@@ -547,6 +547,7 @@ pre {
   display: flex;
   width: 100%;
   justify-content: center;
+  user-select: none;
 
   .page-link, .page-link-disabled, .ellipsis {
     color: var(--secondary-text-color);
