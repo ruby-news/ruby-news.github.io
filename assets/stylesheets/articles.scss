@@ -3,6 +3,7 @@
 
 $line-height-regular: 32px;
 $line-height-sm: 28px;
+$code-bg: #222;
 
 .btn-logo {
 	text-decoration: none;
@@ -93,6 +94,7 @@ break {
 		font-size: 16px;
 		font-weight: normal;
 		line-height: $line-height-regular;
+		color: var(--text-dark);
 	}
 
 	header {
@@ -116,7 +118,10 @@ break {
 	}
 
 	code {
+		color: var(--text-dark);
 		background-color: #efefef;
+		border-radius: 4px;
+		padding: 4px;
 	}
 
 	img {
@@ -161,16 +166,23 @@ break {
 		}
 	}
 
-
 	pre {
 		margin: 12px 0 ;
 		text-align: justify ;
 		padding: 6px ;
-		max-height: 300px ;
-		background-color: #efefef ;
+		max-height: 400px ;
+		background-color: $code-bg ;
 		line-height: 150% ;
-		border-radius: 6px ;
+		border-top-right-radius: 6px ;
+		border-top-left-radius: 6px ;
     overflow: auto;
+		color: var(--text-white);
+		border: 3px solid #b77;
+
+		code {
+			color: var(--text-white);
+			background-color: transparent;
+		}
 
 		code-counter {
 			counter-increment: listing ;
