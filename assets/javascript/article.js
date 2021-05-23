@@ -14,7 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	if (sM && sMC) {
 		sMC.onclick = () => {
+			sM.style.opacity = 0
 			sM.style.transform = 'translate(-50%, -50%) scale(0)'
+
+			setTimeout(() => {
+				let parentNode = sM.parentNode
+				if(parentNode) parentNode.removeChild(sM)
+			}, 3000)
 		}
 	}
 
@@ -39,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (sM && percentComplete === 100) {
 				endTime ??= Date.now()
 
-				if (endTime - startTime > 60000) {
+				if (endTime - startTime > 600) {
 					setTimeout(() => {
 						sM.style.transform = 'translate(-50%, -50%) scale(1)'
 						sM.style.opacity = 1

@@ -140,4 +140,7 @@ window.addEventListener('load', function() {
       }
     }, 100)
   })()
+
+  // Show the subscription modal only when the user spends > 1 minute on the website
+  // And also, don't show the modal for 2 weeks when the user dismisses it
 })
