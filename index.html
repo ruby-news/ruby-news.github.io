@@ -90,8 +90,8 @@ stylesheets: /assets/stylesheets/subscribe-form
     <span id="pageLinkFirst" class="first page-link-disabled active">&laquo;</span>
   {% endif %}
 
-  <div class="mdl-tooltip" data-mdl-for="pageLinkPrevious">Previous</div>
   {% if paginator.previous_page %}
+    <div class="mdl-tooltip" data-mdl-for="pageLinkPrevious">Previous (page {{ paginator.previous_page }})</div>
     <a id="pageLinkPrevious" href="{{ paginator.previous_page_path }}" class="previous page-link mdl-button mdl-js-button mdl-js-ripple-effect">
       &lt;
     </a>
@@ -123,14 +123,14 @@ stylesheets: /assets/stylesheets/subscribe-form
   {% endif %}
 
   <!-- Page: {{ paginator.page }} of {{ paginator.total_pages }} -->
-  <div class="mdl-tooltip" data-mdl-for="pageLinkNext">Next</div>
   {% if paginator.next_page %}
+    <div class="mdl-tooltip" data-mdl-for="pageLinkNext">Next (page {{ paginator.next_page }})</div>
     <a id="pageLinkNext" href="{{ paginator.next_page_path }}" class="next page-link mdl-button mdl-js-button mdl-js-ripple-effect">&gt;</a>
   {% else %}
     <span id="pageLinkNext" class="next page-link-disabled">&gt;</span>
   {% endif %}
 
-  <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last</div>
+  <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last (page {{ total_pages }})</div>
   {% if paginator.page != paginator.total_pages %}
     <a id="pageLinkLast" href="{{ site.url }}/page{{ total_pages }}" class="last page-link mdl-button mdl-js-button mdl-js-ripple-effect">&raquo;</a>
   {% else %}
