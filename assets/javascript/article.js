@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (sM && percentComplete === 100) {
 				endTime ??= Date.now()
 
-				console.log(endTime - startTime)
-
 				if (endTime - startTime > 60000) {
 					setTimeout(() => {
 						sM.style.transform = 'translate(-50%, -50%) scale(1)'
