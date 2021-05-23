@@ -19,6 +19,10 @@ sass:
 # Pagination
 paginate: 10
 
+collections:
+  top10:
+    output: true
+
 # Some default webrick headers
 webrick:
   headers:
