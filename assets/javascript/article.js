@@ -1,11 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+	// Start time the page is loaded, which is used to determine the time user
+	// Spent reading the article!
+	const startTime = Date.now()
+
+	// Handle subscribe modal
+	const sM = document.getElementById('subscribeModal')
+	const sMC = document.getElementById('closeSubscribeModal')
+	sM.style.transform = 'translate(-50%, -50%) scale(0)'
+
+	// Article read progress
 	const articleContent = document.getElementById('articleContent')
 	const progressBar = document.getElementById('progress')
+
+	if (sM && sMC) {
+		sMC.onclick = () => {
+			sM.style.transform = 'translate(-50%, -50%) scale(0)'
+		}
+	}
 
 	;(() => {
 		if(!articleContent) return
 		if(!progressBar) return
 
+		let endTime = null
 
 		window.onscroll = () => {
 			let bcr = articleContent.getBoundingClientRect()
@@ -18,6 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			percentComplete = percentComplete < 0 ? 0 : percentComplete > 100 ? 100 : percentComplete
 			progressBar.style.width = `${percentComplete}%`
+
+			if (sM && percentComplete === 100) {
+				endTime ??= Date.now()
+
+				console.log(endTime - startTime)
+
+				if (endTime - startTime > 60000) {
+					setTimeout(() => {
+						sM.style.transform = 'translate(-50%, -50%) scale(1)'
+						sM.style.opacity = 1
+					}, 3000)
+				}
+			}
 		}
 	})()
 })
