@@ -287,7 +287,8 @@ break {
 }
 
 .popup-modal {
-	width: 450px;
+	width: 85%;
+	max-width: 450px;
 	height: auto;
 	background-color: #fff;
 	position: fixed;
