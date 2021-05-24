@@ -29,13 +29,12 @@ window.addEventListener('load', function() {
     animObj.style.animation = 'lazyloadAnim 2s linear infinite'
     let image = new Image()
 
-    image.addEventListener('load', function(event) {
+    image.addEventListener('load', () => {
       setTimeout(() => { animObj.remove() }, 3000)
       img.appendChild(image)
     }, false)
 
     image.src = img.getAttribute('src')
-    image.setAttribute('loading', 'lazy')
   }
 
   // Inject years
