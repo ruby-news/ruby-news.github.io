@@ -27,6 +27,13 @@
 		display: inline-flex;
 		width: 48px;
 		height: 48px;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 30px;
+			height: 30px;
+		}
 	}
 
 	.cookie-close {
