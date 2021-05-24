@@ -567,10 +567,10 @@ pre {
     color: var(--secondary-text-color);
     background-color: transparent;
     text-decoration: none !important;
-    border-right: none !important;
+    // border-right: none !important;
     padding: 8px 16px;
     transition: var(--default-transition-time);
-    border: 1px solid var(--primary-color);
+    border-radius: 4px;
     min-width: initial;
     height: 24px;
     font-weight: 500;
@@ -579,23 +579,11 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0;
   }
 
   .page-link-disabled {
     cursor: not-allowed;
     color: var(--text-gray) !important;
-  }
-
-  .first {
-    border-top-left-radius: 4px !important;
-    border-bottom-left-radius: 4px !important;
-  }
-
-  .last {
-    border-right: 1px solid var(--primary-color) !important;
-    border-top-right-radius: 4px !important;
-    border-bottom-right-radius: 4px !important;
   }
 
   .active  {
