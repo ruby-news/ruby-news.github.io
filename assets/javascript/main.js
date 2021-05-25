@@ -55,13 +55,13 @@ window.addEventListener('load', function() {
   // Scroll elements into view when the element is intersecting
   function observeComponents(direction) {
     for(let i of document.querySelectorAll(`.appear-${direction}`)) {
-      let delay = i.getAttribute('slide-delay') || 250
+      let delay = i.getAttribute('slide-delay') || 125
 
       i.observer = new IntersectionObserver(e => {
         if(e[0].isIntersecting) {
           if(!i.observed) {
             i.observed = true
-            i.style.animation = `appear-${direction} 1s ease forwards ${delay}ms`
+            i.style.animation = `appear-${direction} 0.5s ease forwards ${delay}ms`
             if(i.observer) i.observer.unobserve(i)
           }
         }
