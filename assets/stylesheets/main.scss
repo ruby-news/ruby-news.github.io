@@ -162,8 +162,7 @@ h6 {
 // Links
 $class-names-colours: (
   primary: var(--primary-color),
-  secondary: var(--secondary-color),
-  tertiary: var(--secondary-color)
+  secondary: var(--secondary-color)
 );
 
 @each $n, $c in $class-names-colours{
@@ -196,9 +195,7 @@ $class-names-colours: (
 }
 
 .link-primary { color: var(--primary-color) !important }
-.link-secondary { color: var(--primary-color) !important }
-.link-primary-minimal { color: var(--primary-color) !important }
-.link-secondary-minimal { color: var(--primary-color) !important }
+.link-secondary { color: var(--secondary-color) !important }
 
 // Centre items
 .flex-row-center-h {
