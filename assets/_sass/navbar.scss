@@ -12,6 +12,7 @@ $navbar-margin: 2rem;
 		align-items: center;
 		justify-content: center;
 		height: 5rem;
+		transition: var(--default-transition-time);
 	}
 
 	&::after {
