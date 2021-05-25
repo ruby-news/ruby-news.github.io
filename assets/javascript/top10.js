@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		navbar.shadowed = false
 
 		window.addEventListener('scroll', () => {
-			console.log(navbar.shadowed)
-
 			if(window.scrollY > navbar.offsetHeight) {
 				if (!navbar.shadowed) {
 					navbar.shadowed = true
