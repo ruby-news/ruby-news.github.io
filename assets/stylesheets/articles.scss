@@ -90,8 +90,12 @@ break {
 	font-size: 16px !important;
 	line-height: $line-height-regular !important;
 
+	a {
+		text-decoration: none;
+		&:hover { text-decoration: none; }
+	}
 
-  a {
+  a.styled {
     text-decoration: none;
     position: relative;
     font-size: 16px;
