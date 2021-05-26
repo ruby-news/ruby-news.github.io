@@ -23,12 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
 		if(!cookieContainer || !accept || !custom || !reject) return
 
 		reject.onclick = () => {
-			// dismissCookie()
+			dismissCookie()
 		}
 
 		accept.onclick = () => {
-			// localStorage.cookieAccept = 1
-			// dismissCookie()
+			let google = document.getElementById('googleAnalyticsCookieToggler')
+			let disqus = document.getElementById('disqusCookieToggler')
+
+			localStorage.cookieAccept = 1
+
+			if(google) localStorage.googleAnalyticsCookie = google.checked ? 1 : 0
+			if(disqus) localStorage.disqusCookie = disqus.checked ? 1 : 0
+
+			dismissCookie()
 		}
 
 		// Show the cookie options
@@ -52,20 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		// Disable google analytics when button is disabled
-		const google = document.getElementById('googleAnalyticsCookieToggler')
-		if (google) {
-			google.onchange = () => {
-				localStorage.googleAnalyticsCookie = google.checked ? 1 : 0
-			}
-		}
-
-		// Disable disqus when button is disabled
-		const disqus = document.getElementById('disqusCookieToggler')
-		if (disqus) {
-			disqus.onchange = () => {
-				localStorage.disqusCookie = disqus.checked ? 1 : 0
-			}
-		}
 	})()
 
 		const PARTICLES = 10
