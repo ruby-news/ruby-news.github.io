@@ -72,8 +72,8 @@
 				</div>
 
 				<div class="switch">
-					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="basic">
-						<input type="checkbox" id="basic" class="mdl-switch__input" checked="true" disabled="true">
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="basicCookie">
+						<input type="checkbox" id="basicCookie" class="mdl-switch__input" checked>
 						<span class="mdl-switch__label"></span>
 					</label>
 				</div>
@@ -82,6 +82,13 @@
 		</div>
 	</div>
 </div>
+
+<script>
+if(localStorage.cookieAccept == 1) {
+	let _cookieContainer = document.getElementById('cookieContainer')
+	if(_cookieContainer) cookieContainer.remove()
+}
+</script>
 
 <link rel="stylesheet" href="/assets/stylesheets/cookie.css">
 <script src="/assets/javascript/cookie.js"></script>
