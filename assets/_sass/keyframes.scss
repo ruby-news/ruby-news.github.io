@@ -71,3 +71,15 @@
     transform: translateX(0);
   }
 }
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}

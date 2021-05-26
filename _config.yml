@@ -1,64 +1,35 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Ruby News
 email: your-email@cybergizer.com
+
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A blog for Ruby enthusiasts!
 
-# Set baseurl to https://ruby.news/, don't forget the ending slash (/)
-# baseurl: "https://ruby.news/"
-# baseurl should be set to empty when developing locally
 baseurl: ""
-
 url: "https://ruby.news/"
 github_username:  ruby-news
 
-# Build settings
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 sass:
   sass_dir: assets/_sass
   style: compressed
 
 # Pagination
-paginate: 5
+paginate: 10
 
-# Collections directories
 collections:
-  articles:
-    output: true
-  archives:
+  top10:
     output: true
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
+# Some default webrick headers
+webrick:
+  headers:
+    Cache-Control: 'private,max-age=1,no-store,no-cache,post-check=0,pre-check=0'
+    Cache-Control: 'age=1'
+    Pragma: 'no-cache'
+
 # exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/

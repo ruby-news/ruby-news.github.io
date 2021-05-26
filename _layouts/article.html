@@ -2,30 +2,7 @@
 
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="description" content="{{ page.description }}">
-    <meta name="author" content="{{ page.author }}">
-    <meta name="keywords" content="{{ page.categories }}">
-    <meta name="revisit-after" content="3-days">
-    <meta name="robots" content="{{ page.description }}">
-    <meta name="title" content="{{ page.title }}">
-
-    <!-- Open Graphics Tags -->
-    <meta name="og:description" content="{{ page.description }}">
-    <meta name="og:title" content="{{ page.title }}">
-    <meta name="og:type" content="website">
-    <meta name="og:url" content="{{ site.url }}">
-    <meta name="og:image" itemprop="image" content="{{ site.url }}/assets/images/logo/logo.png">
-    <meta name="og:image" itemprop="image" content="{{ site.url }}/assets/images/logo/logo.png">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
-    <link rel="shortcut icon" type="image/png" sizes="80x80" href="/assets/images/logo/logo80.png">
-    <link rel="shortcut icon" type="image/png" sizes="64x64" href="/assets/images/logo/logo64.png">
-    <link rel="shortcut icon" type="image/png" sizes="48x48" href="/assets/images/logo/logo48.png">
-    <link rel="shortcut icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo32.png">
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/assets/images/logo/logo16.png">
+    {% include meta_tags.html %}
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
@@ -60,7 +37,8 @@
       let stylesheets = [
         "/assets/stylesheets/material.min.css",
         "/assets/stylesheets/main.css",
-        "/assets/stylesheets/articles.css"
+        "/assets/stylesheets/articles.css",
+        "/assets/stylesheets/subscribe-form.css"
       ]
 
       // Load other stylesheets
@@ -82,10 +60,14 @@
 
     <!-- Javascript -->
     <link rel="preload" as="script" href="/assets/javascript/main.js">
+    <link rel="preload" as="script" href="/assets/javascript/article.js">
+    <link rel="preload" as="script" href="/assets/javascript/confetti.js">
     <link rel="preload" as="script" href="/assets/javascript/material.min.js">
 
     <script src="/assets/javascript/main.js"></script>
+    <script src="/assets/javascript/article.js"></script>
     <script src="/assets/javascript/material.min.js"></script>
+    <script src="/assets/javascript/confetti.js"></script>
 
     <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
     {% include loader.css.html %}
@@ -109,12 +91,61 @@
         {% include navbar.html %}
       </header>
 
+      <div id="progress-bg"></div>
+      <div id="progress"></div>
       {% assign article_date = page.date | date: "%Y-%m-%d" %}
+
+      <div class="popup-modal" id="subscribeModal">
+        <div class="close-popup mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="closeSubscribeModal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365.7 365">
+            <path fill="#555" d="M356 296L70 10a32 32 0 00-46 0L9 25a32 32 0 000 45l287 287c12 12 33 12 45 0l15-15c13-13 13-33 0-46zm0 0"/>
+            <path fill="#555" d="M296 10L9 296a32 32 0 000 46l15 15c13 12 33 12 46 0L356 70c13-12 13-33 0-45l-15-15a32 32 0 00-45 0zm0 0"/>
+          </svg>
+        </div>
+
+        <div id="confettis">
+          <canvas id="confettiCanvas"></canvas>
+        </div>
+
+        <script>
+          confettiSettings = { target: 'confettiCanvas', rotate: true, max: 120 }
+          confetti = new ConfettiGenerator(confettiSettings)
+          confetti.render()
+        </script>
+
+        <div class="modal-wrapper">
+          <div class="check">
+            <img src="/assets/images/icons/check.svg">
+          </div>
+
+          <div class="message">
+            <h6 class="ta-center">Congrats! You have finished the article!</h6>
+            <p class="ta-center" style="color: #444">If you liked this article, you can subscribe to our weekly email digest! It's completely free of cost. You can also unsubscribe any time!</p>
+          </div>
+
+          <div class="subscribe-container">
+            <div class="form-wrapper">
+              <form action="#" class="flex-col-center-h">
+                <div class="p-1rem flex-row-center-h">
+                  <input type="email" maxlength="200" class="email-field b-rad-8px w-100p" placeholder="Enter your email here">
+                </div>
+
+                <label for="submitEmail" class="w-100p">
+                  <input type="submit" id="submitEmail">
+                  <button class="btn-transparent w-100p mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Subscribe
+                  </button>
+                </label>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <main>
         <div class="blog-contents">
           <header>
-            <img src="/articles/images/{{ article_date }}/{{ page.preview_image }}">
+            <img src="/post_images/{{ article_date }}/{{ page.preview_image }}">
 
             <break></break>
 
@@ -156,7 +187,19 @@
           </header>
 
           <break></break>
-          {{ page.content }}
+          <div id="articleContent">
+            {{ page.content }}
+          </div>
+
+          <div class="mt-2rem"></div>
+
+          <div class="disqus mt-2rem">
+            {% include disqus.html %}
+          </div>
+
+          <div class="mt-2rem">
+            {% include end.html %}
+          </div>
         </div>
       </main>
 

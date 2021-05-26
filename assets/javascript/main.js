@@ -29,13 +29,31 @@ window.addEventListener('load', function() {
     animObj.style.animation = 'lazyloadAnim 2s linear infinite'
     let image = new Image()
 
-    image.addEventListener('load', function(event) {
-      setTimeout(() => { animObj.remove() }, 3000)
-      img.appendChild(image)
+    image.addEventListener('load', () => {
+      if (img.getAttribute('full-background') == 'true') {
+        image.setAttribute('class', 'preview-img-1 cover')
+        img.appendChild(image)
+      } else {
+        img.appendChild(image)
+        image.setAttribute('class', 'preview-img-1')
+
+        if (img.getAttribute('blur-bg') == 'true') {
+          let clonedImg = image.cloneNode(true)
+          clonedImg.setAttribute('class', 'preview-img-2')
+          img.appendChild(clonedImg)
+        }
+
+        image.setAttribute('class', 'preview-img-1')
+      }
+
+
+
+
+      animObj.style.animation = 'fade-out 0.5s ease'
+      setTimeout(() => { animObj.remove() }, 500)
     }, false)
 
     image.src = img.getAttribute('src')
-    image.setAttribute('loading', 'lazy')
   }
 
   // Inject years
@@ -56,13 +74,13 @@ window.addEventListener('load', function() {
   // Scroll elements into view when the element is intersecting
   function observeComponents(direction) {
     for(let i of document.querySelectorAll(`.appear-${direction}`)) {
-      let delay = i.getAttribute('slide-delay') || 250
+      let delay = i.getAttribute('slide-delay') || 125
 
       i.observer = new IntersectionObserver(e => {
         if(e[0].isIntersecting) {
           if(!i.observed) {
             i.observed = true
-            i.style.animation = `appear-${direction} 1s ease forwards ${delay}ms`
+            i.style.animation = `appear-${direction} 0.5s ease forwards ${delay}ms`
             if(i.observer) i.observer.unobserve(i)
           }
         }
@@ -113,4 +131,34 @@ window.addEventListener('load', function() {
       document.body.removeChild(textArea)
     }
   }
+
+  // Total posts counter
+  const postCounter = document.getElementById('postCounter')
+
+  ;(() => {
+    if(!postCounter) return
+    let innerHtml = postCounter.innerHTML
+    let count = postCounter.getAttribute('count')
+    let counter = 0
+    let numStr = count.toString()
+    let digits = numStr.length
+
+    let counterIncInterval = setInterval(() => {
+      if (counter < count) counter += Math.round(5 * count / 100)
+      if (counter > count) counter = count
+
+      let counterStr = counter.toString()
+      let counterStrLen = counterStr.length
+      let counterValStr = counterStrLen < digits ? '0'.repeat(digits - counterStrLen) + counter : counter
+
+      postCounter.innerHTML = `${innerHtml}${counterValStr}`
+
+      if (counter == count) {
+        clearInterval(counterIncInterval)
+      }
+    }, 100)
+  })()
+
+  // Show the subscription modal only when the user spends > 1 minute on the website
+  // And also, don't show the modal for 2 weeks when the user dismisses it
 })
