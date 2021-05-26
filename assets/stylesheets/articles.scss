@@ -364,14 +364,19 @@ break {
 		right: 12px;
 		cursor: pointer;
 		transition: var(--default-transition-time);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		svg {
 			width: 12px;
 			height: 12px;
+			transition: var(--default-transition-time) ease;
 		}
 
-		&:hover {
+		&:hover svg {
 			opacity: 0.5;
+			transform: scale(0.75);
 		}
 	}
 

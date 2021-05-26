@@ -40,8 +40,17 @@
     box-shadow: none !important;
     max-width: none;
     box-shadow: none;
-    height: 550px;
+    height: auto !important;
+
+    .preview {
+      height: 100% !important;
+    }
+
+    .page-content-body {
+      height: 100% !important;
+    }
   }
+
 
   .submit-form-notice {
     margin-bottom: 2rem;
