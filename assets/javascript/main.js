@@ -144,7 +144,7 @@ window.addEventListener('load', function() {
     let digits = numStr.length
 
     let counterIncInterval = setInterval(() => {
-      if (counter < count) counter += Math.round(5 * count / 100)
+      if (counter < count) counter += Math.ceil(5 * count / 100)
       if (counter > count) counter = count
 
       let counterStr = counter.toString()
