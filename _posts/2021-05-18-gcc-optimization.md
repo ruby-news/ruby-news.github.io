@@ -2,6 +2,7 @@
 active: "articles"
 layout: article
 date: 2021-05-18 10:22:58 +0530
+preview_blur: false
 
 title:  "How to Make Ruby Fast with GCC Optimization"
 categories: souravgoswami blogs

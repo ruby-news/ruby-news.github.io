@@ -30,8 +30,17 @@ window.addEventListener('load', function() {
     let image = new Image()
 
     image.addEventListener('load', () => {
-      setTimeout(() => { animObj.remove() }, 3000)
+      image.setAttribute('class', 'preview-img-1')
       img.appendChild(image)
+
+      if (img.getAttribute('blur-bg') == 'true') {
+        let clonedImg = image.cloneNode(true)
+        clonedImg.setAttribute('class', 'preview-img-2')
+        img.appendChild(clonedImg)
+      }
+
+      animObj.style.animation = 'fade-out 0.5s ease'
+      setTimeout(() => { animObj.remove() }, 500)
     }, false)
 
     image.src = img.getAttribute('src')

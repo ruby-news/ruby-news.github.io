@@ -15,7 +15,14 @@
         <div class="preview lazyload" hover-text-content="Read Article">
       {% endif %}
 
-      <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" style="line-height:0!important"></div>
+
+      {% if article.preview_blur != false %}
+        {% assign blurred_bg = true %}
+      {% else %}
+        {% assign blurred_bg = false %}
+      {% endif %}
+
+      <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"></div>
       <div class="lazyload-anim"></div>
     </div>
 
