@@ -22,7 +22,13 @@
         {% assign blurred_bg = false %}
       {% endif %}
 
-      <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"></div>
+      {% if article.full_background != true %}
+        {% assign full_bg = false %}
+      {% else %}
+        {% assign full_bg = true %}
+      {% endif %}
+
+      <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
       <div class="lazyload-anim"></div>
     </div>
 

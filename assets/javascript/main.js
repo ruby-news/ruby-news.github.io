@@ -30,14 +30,24 @@ window.addEventListener('load', function() {
     let image = new Image()
 
     image.addEventListener('load', () => {
-      image.setAttribute('class', 'preview-img-1')
-      img.appendChild(image)
+      if (img.getAttribute('full-background') == 'true') {
+        image.setAttribute('class', 'preview-img-1 cover')
+        img.appendChild(image)
+      } else {
+        img.appendChild(image)
+        image.setAttribute('class', 'preview-img-1')
 
-      if (img.getAttribute('blur-bg') == 'true') {
-        let clonedImg = image.cloneNode(true)
-        clonedImg.setAttribute('class', 'preview-img-2')
-        img.appendChild(clonedImg)
+        if (img.getAttribute('blur-bg') == 'true') {
+          let clonedImg = image.cloneNode(true)
+          clonedImg.setAttribute('class', 'preview-img-2')
+          img.appendChild(clonedImg)
+        }
+
+        image.setAttribute('class', 'preview-img-1')
       }
+
+
+
 
       animObj.style.animation = 'fade-out 0.5s ease'
       setTimeout(() => { animObj.remove() }, 500)

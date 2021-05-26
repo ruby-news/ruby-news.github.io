@@ -433,6 +433,10 @@ pre {
         object-fit: cover;
         filter: blur(20px);
       }
+
+      img.fit-cover {
+        object-fit: cover;
+      }
     }
 
     &:hover { @include cardHoverEffect; }
