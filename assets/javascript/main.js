@@ -46,9 +46,6 @@ window.addEventListener('load', function() {
         image.setAttribute('class', 'preview-img-1')
       }
 
-
-
-
       animObj.style.animation = 'fade-out 0.5s ease'
       setTimeout(() => { animObj.remove() }, 500)
     }, false)
@@ -158,6 +155,24 @@ window.addEventListener('load', function() {
       }
     }, 100)
   })()
+
+  // Google Analytics:
+  function loadAnalytics() {
+    let _analytics = document.createElement('script')
+    _analytics.setAttribute('async', "true")
+    _analytics.setAttribute('src', "https://www.googletagmanager.com/gtag/js?id=G-E0C84MXS82")
+    document.head.appendChild(_analytics)
+
+    window.dataLayer = window.dataLayer || []
+    function gtag(){ dataLayer.push(arguments) }
+    gtag('js', new Date())
+
+    gtag('config', 'G-E0C84MXS82')
+  }
+
+  if(localStorage.googleAnalyticsCookie) {
+    loadAnalytics()
+  }
 
   // Show the subscription modal only when the user spends > 1 minute on the website
   // And also, don't show the modal for 2 weeks when the user dismisses it

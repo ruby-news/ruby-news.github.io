@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			dismissCookie()
 		}
 
-		accept.onclick = () => {
-			let basic = document.getElementById('basicCookie')
+		const basic = document.getElementById('basicCookie')
+		const google = document.getElementById('googleAnalyticsCookieToggler')
+		const disqus = document.getElementById('disqusCookieToggler')
+		let services = [google, disqus]
 
+		accept.onclick = () => {
 			if(basic) localStorage.cookieAccept = basic.checked ? 1 : 0
 
 			if(localStorage.cookieAccept) {
-				let google = document.getElementById('googleAnalyticsCookieToggler')
-				let disqus = document.getElementById('disqusCookieToggler')
-
 				if(google) localStorage.googleAnalyticsCookie = google.checked ? 1 : 0
 				if(disqus) localStorage.disqusCookie = disqus.checked ? 1 : 0
 			}
@@ -58,6 +58,29 @@ document.addEventListener('DOMContentLoaded', function() {
 				custom.collapsed = true
 			}
 		}
+
+		;(() => {
+			for(let service of services) {
+				service.onchange = () => {
+					if(service.checked) {
+						basic.checked = true
+						let parent = basic.parentNode
+						parent.classList.add('is-checked')
+					}
+				}
+
+				basic.onchange = () => {
+					if(!basic.checked) {
+						for(let service of services) {
+							service.checked = false
+							let parent = service.parentNode
+							parent.classList.remove('is-checked')
+						}
+					}
+				}
+			}
+		})()
+
 	})()
 
 	if (cookieContainer) {
