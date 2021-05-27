@@ -1,6 +1,8 @@
 ---
 layout: null
 ---
+'use strict'
+
 // loadAnalytics()
 {% include google_analytics.js.html %}
 
