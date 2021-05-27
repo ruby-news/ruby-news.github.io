@@ -1,3 +1,5 @@
+'use strict'
+
 document.addEventListener('DOMContentLoaded', function() {
 	// Start time the page is loaded, which is used to determine the time user
 	// Spent reading the article!

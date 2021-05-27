@@ -1,3 +1,5 @@
+'use strict'
+
 document.addEventListener('DOMContentLoaded', function()  {
 	// Close modal when clicked on X
 	const modal = document.getElementById('subscribeModal')

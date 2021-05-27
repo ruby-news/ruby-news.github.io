@@ -1,4 +1,33 @@
+---
+layout: null
+---
+'use strict'
+
+// loadAnalytics()
+{% include google_analytics.js.html %}
+
+// loadDisqus()
+{% include disqus.js.html %}
+
 window.addEventListener('load', function() {
+  /*
+    > Load Google analytics and disqus and other cookie related stuff
+    > Make sure to have some sort of branching to ensure that cookies only load
+    when the user wants that, and it strictly complies to GDPR
+  */
+
+  ;(() => {
+    if(!localStorage.cookieAccept == 1) return
+
+    if(localStorage.googleAnalyticsCookie == 1) {
+      loadAnalytics()
+    }
+
+    if(localStorage.disqusCookie == 1) {
+      loadDisqus()
+    }
+  })()
+
   /*
     Trim all pre tags
   */
@@ -45,9 +74,6 @@ window.addEventListener('load', function() {
 
         image.setAttribute('class', 'preview-img-1')
       }
-
-
-
 
       animObj.style.animation = 'fade-out 0.5s ease'
       setTimeout(() => { animObj.remove() }, 500)
@@ -144,7 +170,7 @@ window.addEventListener('load', function() {
     let digits = numStr.length
 
     let counterIncInterval = setInterval(() => {
-      if (counter < count) counter += Math.round(5 * count / 100)
+      if (counter < count) counter += Math.ceil(5 * count / 100)
       if (counter > count) counter = count
 
       let counterStr = counter.toString()
@@ -158,6 +184,10 @@ window.addEventListener('load', function() {
       }
     }, 100)
   })()
+
+  if(localStorage.googleAnalyticsCookie) {
+    loadAnalytics()
+  }
 
   // Show the subscription modal only when the user spends > 1 minute on the website
   // And also, don't show the modal for 2 weeks when the user dismisses it

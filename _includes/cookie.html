@@ -1,8 +1,14 @@
 <div class="cookie-container" id="cookieContainer">
-	<div style="position: relative;width:100%;height:100%">
+	<div class="cookie-relative">
+
 		<div class="cookie-container-content">
 			<div class="cookie-svg">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 510"><g fill="#ff0b54"><path d="M270 165a45 45 0 100-90 45 45 0 000 90zm0-60a15 15 0 110 30 15 15 0 010-30zM195 180h30v30h-30zM240 255h30v30h-30zM75 300h30v30H75zM360 150h30v30h-30zM315 225h30v30h-30z"/><path d="M510 195c0-43-14-71-16-78l-12 2c-26 5-52-10-60-36l-4-15-15 5a45 45 0 01-57-54l4-17-35-2c-85 0-158 55-184 131a195 195 0 10248 248c76-26 131-99 131-184zM315 30c0 45 39 80 84 74 14 28 42 46 75 46 9 31 8 66-3 99a75 75 0 00-102 102 165 165 0 11-54-321zM62 412c43-23 94 13 87 62-35-11-66-33-87-62zm117 67a90 90 0 00-133-93c-38-80-6-179 76-219a195 195 0 00221 221c-31 63-97 98-164 91zm218-141c-5-7-7-15-7-23 0-35 39-56 68-38-14 25-36 47-61 61z"/></g></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 510">
+					<g fill="#ff0b54">
+						<path d="M270 165a45 45 0 100-90 45 45 0 000 90zm0-60a15 15 0 110 30 15 15 0 010-30zM195 180h30v30h-30zM240 255h30v30h-30zM75 300h30v30H75zM360 150h30v30h-30zM315 225h30v30h-30z"/>
+						<path d="M510 195c0-43-14-71-16-78l-12 2c-26 5-52-10-60-36l-4-15-15 5a45 45 0 01-57-54l4-17-35-2c-85 0-158 55-184 131a195 195 0 10248 248c76-26 131-99 131-184zM315 30c0 45 39 80 84 74 14 28 42 46 75 46 9 31 8 66-3 99a75 75 0 00-102 102 165 165 0 11-54-321zM62 412c43-23 94 13 87 62-35-11-66-33-87-62zm117 67a90 90 0 00-133-93c-38-80-6-179 76-219a195 195 0 00221 221c-31 63-97 98-164 91zm218-141c-5-7-7-15-7-23 0-35 39-56 68-38-14 25-36 47-61 61z"/>
+					</g>
+				</svg>
 			</div>
 
 			<div>
@@ -10,14 +16,79 @@
 			</div>
 		</div>
 
-		<div class="cookie-close mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="cookieClose">
-			<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 455">
-				<path fill="#555" d="M356 296L70 10a32 32 0 00-46 0L9 25a32 32 0 000 45l287 287c12 12 33 12 45 0l15-15c13-13 13-33 0-46zm0 0"/>
-				<path fill="#555" d="M296 10L9 296a32 32 0 000 46l15 15c13 12 33 12 46 0L356 70c13-12 13-33 0-45l-15-15a32 32 0 00-45 0zm0 0"/>
-			</svg>
+		<div class="buttons-right">
+			<div class="cookie-accept mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="cookieAccept">
+				<svg width="12px" height="12px" viewBox="0 -46 417.81333 417" width="417pt" xmlns="http://www.w3.org/2000/svg">
+					<path fill="#555" d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/>
+				</svg>
+			</div>
+
+			<div class="particleButton cookie-settings mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="cookieSettings">
+				<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+					<path fill="#555" d="M497 312l-47-37a185 185 0 000-38l47-37c8-7 11-19 5-30l-49-84c-5-10-16-15-28-10l-56 22c-10-8-21-14-33-19l-8-59c-2-12-11-20-23-20h-98c-12 0-21 8-23 19l-8 60c-11 5-22 11-33 19L87 76c-10-4-23 0-28 10l-49 84c-6 10-4 23 5 30l47 37a186 186 0 000 38l-47 37c-8 7-11 19-5 30l49 84c5 10 16 15 28 10l56-22c10 8 21 14 33 19l8 59c2 12 11 20 23 20h98c12 0 21-8 23-19l8-60c11-5 22-11 33-19l56 22 8 2c9 0 16-5 20-12l49-85c6-10 3-22-5-29zm-241 29a85 85 0 110-171 85 85 0 010 171z"/>
+				</svg>
+			</div>
+
+			<div class="cookie-reject mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="cookieReject">
+				<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 455">
+					<path fill="#555" d="M356 296L70 10a32 32 0 00-46 0L9 25a32 32 0 000 45l287 287c12 12 33 12 45 0l15-15c13-13 13-33 0-46zm0 0"/>
+					<path fill="#555" d="M296 10L9 296a32 32 0 000 46l15 15c13 12 33 12 46 0L356 70c13-12 13-33 0-45l-15-15a32 32 0 00-45 0zm0 0"/>
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<div class="cookie-settings-wrapper">
+		<div class="more-settings" id="moreCookieSettings">
+			<div class="setting">
+				<div class="description">
+					<img src="/assets/images/icons/google.svg"> Google Analytics
+				</div>
+
+				<div class="switch">
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="googleAnalyticsCookieToggler">
+						<input type="checkbox" id="googleAnalyticsCookieToggler" class="mdl-switch__input" checked>
+						<span class="mdl-switch__label"></span>
+					</label>
+				</div>
+			</div>
+
+			<div class="setting">
+				<div class="description">
+					<img src="/assets/images/icons/disqus.svg"> Disqus
+				</div>
+
+				<div class="switch">
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="disqusCookieToggler">
+						<input type="checkbox" id="disqusCookieToggler" class="mdl-switch__input" checked>
+						<span class="mdl-switch__label"></span>
+					</label>
+				</div>
+			</div>
+
+			<div class="setting">
+				<div class="description">
+					<img src="/assets/images/icons/leaf.svg"> Basic
+				</div>
+
+				<div class="switch">
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="basicCookie">
+						<input type="checkbox" id="basicCookie" class="mdl-switch__input" checked>
+						<span class="mdl-switch__label"></span>
+					</label>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
+
+<script>
+if(localStorage.cookieAccept == 1) {
+	let _cookieContainer = document.getElementById('cookieContainer')
+	if(_cookieContainer) cookieContainer.remove()
+}
+</script>
 
 <link rel="stylesheet" href="/assets/stylesheets/cookie.css">
 <script src="/assets/javascript/cookie.js"></script>

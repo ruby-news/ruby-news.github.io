@@ -14,10 +14,19 @@
 	height: auto;
 	padding: 8px;
 	z-index: 100000;
+	overflow: hidden;
+
+	.cookie-relative {
+		position: relative;
+		width:100%;
+		height:100%;
+		display:grid;
+		grid-template-columns: auto auto;
+	}
 
 	.cookie-container-content {
-		width: 90%;
-		display: flex;
+		width: 100%;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		gap: 12px;
@@ -36,15 +45,61 @@
 		}
 	}
 
-	.cookie-close {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 4px;
+	.buttons-right {
+		display: inline-flex;
+		gap: 4px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.cookie-accept, .cookie-settings, .cookie-reject {
 		width: 32px;
 		height: 32px;
 		overflow: hidden;
 		cursor: pointer;
+
+		svg {
+			transition: var(--default-transition-time);
+		}
+
+		&:hover svg {
+			transform: scale(0.75);
+		}
+	}
+
+	.cookie-settings:hover svg {
+		transform: scale(0.75) rotate(360deg);
+	}
+
+	.more-settings {
+		overflow: hidden;
+		height: 0;
+		transition: var(--default-transition-time);
+
+		.setting {
+			display: grid;
+			grid-template-columns: 2fr auto;
+			margin-top: 4px;
+			gap: 4px;
+
+			.switch {
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-end;
+			}
+
+			.description {
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+				gap: 12px;
+			}
+		}
+
+		img {
+			width: 16px;
+			height: 16px
+		}
 	}
 }
 
@@ -52,5 +107,15 @@
 	100% {
 		opacity: 0;
 		bottom: 0;
+	}
+}
+
+@keyframes flip {
+	50% {
+		transform: translateX(-100%);
+	}
+
+	0%, 100% {
+		transform: translateX(0);
 	}
 }

@@ -1,3 +1,5 @@
+'use strict'
+
 document.addEventListener('DOMContentLoaded', function() {
 	// Make navbar white and shadowed when scrolled
 	const navbar = document.querySelector('.css-navbar')
