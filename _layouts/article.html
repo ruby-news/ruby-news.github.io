@@ -143,6 +143,8 @@
       </div>
 
       <main>
+        {% include cookie.html %}
+
         <div class="blog-contents">
           <header>
             <img src="/post_images/{{ article_date }}/{{ page.preview_image }}">
@@ -194,7 +196,7 @@
           <div class="mt-2rem"></div>
 
           <div class="disqus mt-2rem">
-            {% include disqus.html %}
+            <div id="disqus_thread"></div>
           </div>
 
           <div class="mt-2rem">

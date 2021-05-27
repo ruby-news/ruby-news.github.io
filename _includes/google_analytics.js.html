@@ -1,0 +1,12 @@
+function loadAnalytics() {
+  let _analytics = document.createElement('script')
+  _analytics.setAttribute('async', "true")
+  _analytics.setAttribute('src', "https://www.googletagmanager.com/gtag/js?id=G-E0C84MXS82")
+  document.head.appendChild(_analytics)
+
+  window.dataLayer = window.dataLayer || []
+  function gtag(){ dataLayer.push(arguments) }
+  gtag('js', new Date())
+
+  gtag('config', 'G-E0C84MXS82')
+}

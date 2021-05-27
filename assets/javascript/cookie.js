@@ -1,3 +1,10 @@
+---
+layout: null
+---
+
+{% include google_analytics.js.html %}
+{% include disqus.js.html %}
+
 document.addEventListener('DOMContentLoaded', function() {
 	const cookieContainer = document.getElementById('cookieContainer')
 
@@ -27,12 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		let services = [google, disqus]
 
 		accept.onclick = () => {
-			if(basic) localStorage.cookieAccept = basic.checked ? 1 : 0
+			localStorage.cookieAccept = basic && basic.checked ? 1 : 0
 
-			if(localStorage.cookieAccept) {
-				if(google) localStorage.googleAnalyticsCookie = google.checked ? 1 : 0
-				if(disqus) localStorage.disqusCookie = disqus.checked ? 1 : 0
+			if(localStorage.cookieAccept == 1) {
+				localStorage.googleAnalyticsCookie = google && google.checked ? 1 : 0
+				localStorage.disqusCookie = disqus && disqus.checked ? 1 : 0
 			}
+
+			if(localStorage.googleAnalyticsCookie == 1) { loadAnalytics() }
+			if(localStorage.disqusCookie == 1) { loadDisqus() }
 
 			dismissCookie()
 		}

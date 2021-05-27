@@ -1,4 +1,31 @@
+---
+layout: null
+---
+// loadAnalytics()
+{% include google_analytics.js.html %}
+
+// loadDisqus()
+{% include disqus.js.html %}
+
 window.addEventListener('load', function() {
+  /*
+    > Load Google analytics and disqus and other cookie related stuff
+    > Make sure to have some sort of branching to ensure that cookies only load
+    when the user wants that, and it strictly complies to GDPR
+  */
+
+  ;(() => {
+    if(!localStorage.cookieAccept == 1) return
+
+    if(localStorage.googleAnalyticsCookie == 1) {
+      loadAnalytics()
+    }
+
+    if(localStorage.disqusCookie == 1) {
+      loadDisqus()
+    }
+  })()
+
   /*
     Trim all pre tags
   */
@@ -155,20 +182,6 @@ window.addEventListener('load', function() {
       }
     }, 100)
   })()
-
-  // Google Analytics:
-  function loadAnalytics() {
-    let _analytics = document.createElement('script')
-    _analytics.setAttribute('async', "true")
-    _analytics.setAttribute('src', "https://www.googletagmanager.com/gtag/js?id=G-E0C84MXS82")
-    document.head.appendChild(_analytics)
-
-    window.dataLayer = window.dataLayer || []
-    function gtag(){ dataLayer.push(arguments) }
-    gtag('js', new Date())
-
-    gtag('config', 'G-E0C84MXS82')
-  }
 
   if(localStorage.googleAnalyticsCookie) {
     loadAnalytics()
