@@ -66,11 +66,11 @@ You can also specify the compiler to the CC environment variable, for example CC
 
 <grid-2>
 	Using different flags like -ffast-math or -Ofast will make ruby fail to round numbers, say 3.14159.round(2) will return 3.139999999999999.
-	<img src="/assets/posts/images/3/ffast-math.jpg">
+	<img src="/post_images/2021-05-18/ffast-math.jpg">
 </grid-2>
 
 <grid-2>
-	<img src="/assets/posts/images/3/ffast-math-rails.jpg">
+	<img src="/post_images/2021-05-18/ffast-math-rails.jpg">
 	Here's how Rails looks after using Ofast optimization level! 🤦‍♂️🤦‍♂️
 </grid-2>
 
