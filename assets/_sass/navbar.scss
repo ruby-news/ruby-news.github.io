@@ -74,6 +74,10 @@ $navbar-margin: 2rem;
 		transition: all 0.25s ease;
 	}
 
+	.menu-items {
+		height: 100%;
+	}
+
 	.menu-items > ul > li > a:hover::before, .social-media .icon a:hover::before {
 		transform: scaleX(1);
 	}
@@ -177,13 +181,13 @@ $navbar-margin: 2rem;
 
 	/* Show triple dashes as menu on mobile devices */
 	.menu-links {
-		align-items: baseline;
+		align-items: center;
 		transition: 0.25s;
 		position: relative;
 		height: 100% !important;
 		z-index: 0;
 		display: grid;
-		grid-template-columns: 2fr 1fr;
+		grid-template-columns: 3fr 1fr;
 	}
 }
 
