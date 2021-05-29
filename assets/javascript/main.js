@@ -9,7 +9,7 @@ layout: null
 // loadDisqus()
 {% include disqus.js.html %}
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
   /*
     > Load Google analytics and disqus and other cookie related stuff
     > Make sure to have some sort of branching to ensure that cookies only load
