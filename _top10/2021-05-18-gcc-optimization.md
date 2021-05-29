@@ -4,7 +4,6 @@ layout: article
 date: 2021-05-18 10:22:58 +0530
 
 title:  "How to Make Ruby Fast with GCC Optimization"
-categories: souravgoswami blogs
 description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 preview_image: "main.jpg"
