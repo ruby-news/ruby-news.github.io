@@ -20,16 +20,19 @@ author: 'Ruby News'
 #    and the image doesn't fit the card. This is helpful for
 #    preview images with transparent background
 #    default: true
-preview_full_background: true
-preview_blur: false
+preview_full_background: false
+preview_blur: true
 
 
 # Allows you to control behaviour on the article page
 # > Background shown on index page as list
 # > Blurring is only shown when full_background is set to false,
 #    and the image doesn't fit the grid
-article_full_background: false
+#    article_full_background: false
+# > round_borders allows you to round the border of the home image,
+#    defualts to false
 article_preview_blur: true
+round_borders: false
 ---
 
 <initial>R</initial>uby is quite fast compared to Python or Perl:
