@@ -1,67 +1,67 @@
 <style>
-	/* Because this loads with loader, it should be small as possible */
+  /* Because this loads with loader, it should be small as possible */
 
-	.loader {
-		width: 100%;
-		height: 100vh;
-		position: fixed;
-		top: 0;
-		left: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index:100000;
-		background-color: #fff;
-		flex-direction: column
-	}
+  .loader {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:100000;
+    background-color: #fff;
+    flex-direction: column
+  }
 
-	.loader .loader-relative {position: relative}
+  .loader .loader-relative {position: relative}
 
-	.loader .logo {
-		width: calc(16vw + 16vh);
-		height: auto;
-		filter: drop-shadow(6px 6px 2px #0003);
-		animation: loader-opacity-anim 1s linear infinite
-	}
+  .loader .logo {
+    width: calc(16vw + 16vh);
+    height: auto;
+    filter: drop-shadow(6px 6px 2px #0003);
+    animation: loader-opacity-anim 1s linear infinite
+  }
 
-	.loader .margin-v {margin-top: 2vh}
+  .loader .margin-v {margin-top: 2vh}
 
-	.loader .line-wrapper {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		height: 8px;
-		overflow: hidden
-	}
+  .loader .line-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    overflow: hidden
+  }
 
-	.loader .line-wrapper .line {
-		background-color: #EF4523;
-		width: 100%;
-		height: Min(4px, 0.5vh);
-		animation: loader-line-anim 1s linear infinite alternate
-	}
+  .loader .line-wrapper .line {
+    background-color: #EF4523;
+    width: 100%;
+    height: Min(4px, 0.5vh);
+    animation: loader-line-anim 1s linear infinite alternate
+  }
 
-	@keyframes loader-opacity-anim {
-		0% {opacity: 0.5}
-		25% {opacity: 1}
-		75% {opacity: 1}
-		100% {opacity: 0.5}
-	}
+  @keyframes loader-opacity-anim {
+    0% {opacity: 0.5}
+    25% {opacity: 1}
+    75% {opacity: 1}
+    100% {opacity: 0.5}
+  }
 
-	@keyframes loader-line-anim {
-		0% {transform: translateX(-90%)}
-		50% {transform: translateX(0)}
-		100% {transform: translateX(90%)}
-	}
+  @keyframes loader-line-anim {
+    0% {transform: translateX(-90%)}
+    50% {transform: translateX(0)}
+    100% {transform: translateX(90%)}
+  }
 
-	@keyframes loader-fadeout {
-		to {opacity: 0}
-	}
+  @keyframes loader-fadeout {
+    to {opacity: 0}
+  }
 
-	.loader button.arrows {
-		position: absolute;
-		bottom: 10%;
-		width: calc(2vw + 2vh) !important;
-	}
+  .loader button.arrows {
+    position: absolute;
+    bottom: 10%;
+    width: calc(2vw + 2vh) !important;
+  }
 </style>

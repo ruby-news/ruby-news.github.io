@@ -1,34 +1,34 @@
 <!-- Show Pagination -->
 <div class="pagination">
-	{% assign current_page = paginator.page %}
-	{% assign total_pages = paginator.total_pages %}
-	{% assign starting_page = current_page | minus: 3 %}
-	{% assign ending_page = current_page | plus: 3 %}
-	{% assign starting_ellipsis = true %}
-	{% assign ending_ellipsis = true %}
+  {% assign current_page = paginator.page %}
+  {% assign total_pages = paginator.total_pages %}
+  {% assign starting_page = current_page | minus: 3 %}
+  {% assign ending_page = current_page | plus: 3 %}
+  {% assign starting_ellipsis = true %}
+  {% assign ending_ellipsis = true %}
 
-	{% if current_page < 3 %}
-		{% assign starting_ellipsis = false %}
-	{% endif %}
+  {% if current_page < 3 %}
+    {% assign starting_ellipsis = false %}
+  {% endif %}
 
-	{% if total_pages == ending_page%}
-		{% assign ending_ellipsis = false %}
-	{% endif %}
+  {% if total_pages == ending_page%}
+    {% assign ending_ellipsis = false %}
+  {% endif %}
 
-	{% if starting_page < 1 %}
-		{% assign starting_page = 1 %}
-		{% assign ending_page = current_page | plus: 6 %}
-	{% endif %}
+  {% if starting_page < 1 %}
+    {% assign starting_page = 1 %}
+    {% assign ending_page = current_page | plus: 6 %}
+  {% endif %}
 
-	{% if ending_page > total_pages %}
-		{% assign starting_page = current_page | minus: 6 %}
-		{% assign ending_page = total_pages %}
-		{% assign ending_ellipsis = false %}
-	{% endif %}
+  {% if ending_page > total_pages %}
+    {% assign starting_page = current_page | minus: 6 %}
+    {% assign ending_page = total_pages %}
+    {% assign ending_ellipsis = false %}
+  {% endif %}
 
-		{% if starting_page < 1 %}
-			{% assign starting_page = 1 %}
-		{% endif %}
+    {% if starting_page < 1 %}
+      {% assign starting_page = 1 %}
+    {% endif %}
 
   <div class="mdl-tooltip" data-mdl-for="pageLinkFirst">First</div>
   {% if current_page != 1 %}
