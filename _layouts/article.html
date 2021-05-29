@@ -159,8 +159,15 @@
                 {% assign blurred_bg = false %}
               {% endif %}
 
-              <div class="preview lazyload">
-                <div src="/post_images/{{ article_date }}/{{ page.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+              <div class="lazyload">
+                <div
+                  src="/post_images/{{ article_date }}/{{ page.preview_image }}"
+                  loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"
+                  full-background="{{ full_bg }}"
+                  {% if page.round_borders %}
+                    style="border-radius:8px"
+                  {% endif %}
+                ></div>
                 <div class="lazyload-anim"></div>
               </div>
 
