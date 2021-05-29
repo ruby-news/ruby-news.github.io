@@ -2,7 +2,7 @@
 active: "articles"
 layout: article
 date: 2021-05-18 10:22:58 +0530
-preview_blur: false
+
 
 title:  "How to Make Ruby Fast with GCC Optimization"
 description: "Make Ruby Fast with GCC Optimization"
@@ -10,6 +10,26 @@ file: "gcc-optimization"
 preview_image: "main.jpg"
 tags: Ruby Optimization GCC
 author: 'Ruby News'
+
+
+###########################################
+#
+# Allows you to control behaviour on the index page cards
+# > Background shown on index page as list, default: true
+# > Blurring is only shown when full_background is set to false
+#    and the image doesn't fit the card. This is helpful for
+#    preview images with transparent background
+#    default: true
+preview_full_background: true
+preview_blur: false
+
+
+# Allows you to control behaviour on the article page
+# > Background shown on index page as list
+# > Blurring is only shown when full_background is set to false,
+#    and the image doesn't fit the grid
+article_full_background: false
+article_preview_blur: true
 ---
 
 <initial>R</initial>uby is quite fast compared to Python or Perl:

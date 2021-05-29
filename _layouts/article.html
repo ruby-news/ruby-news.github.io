@@ -147,11 +147,28 @@
 
         <div class="blog-contents">
           <header>
-            <img src="/post_images/{{ article_date }}/{{ page.preview_image }}">
 
-            <break></break>
+            {% if page.preview_image %}
+              {% assign full_bg = true %}
+              {% if page.article_full_background == false %}
+                {% assign full_bg = false %}
+              {% endif %}
 
-            <div>{{ page.title }}</div>
+              {% assign blurred_bg = true %}
+              {% if page.article_preview_blur == false %}
+                {% assign blurred_bg = false %}
+              {% endif %}
+
+              <div class="preview lazyload">
+                <div src="/post_images/{{ article_date }}/{{ page.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+                <div class="lazyload-anim"></div>
+              </div>
+
+              <break></break>
+              <div>{{ page.title }}</div>
+            {% else %}
+              <div class="ta-center">{{ page.title }}</div>
+            {% endif %}
 
             {% assign tag = page.tags | join: ' ' %}
             {% if tag == '' %}
