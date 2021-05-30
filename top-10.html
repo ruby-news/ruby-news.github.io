@@ -7,12 +7,15 @@ author: https://ruby.news
 keywords: ruby rubynews weekly digest
 
 # Extra scss / css file(s), don't use .css extension
-# Should be seperated with commas (,): file1, file2, file3...fileN
-stylesheets: /assets/stylesheets/subscribe-form
+# Should be an YAML Array
+# stylesheets:
 
 # Extra javascript file(s)
-# js:
+js:
+  - /assets/javascript/particles.min.js
+  - /assets/javascript/delaunay-settings.js
 ---
+{% include ruby_is_alive_top10.html %}
 
 <!-- Scroll to this section to have adequate margin to top of the page-content section -->
 <div  class="mb-4rem" id="mainContent"></div>
