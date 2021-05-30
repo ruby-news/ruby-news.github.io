@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="7.6918731"
+   height="14.932489"
+   viewBox="0 0 7.6918731 14.932489"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="chevron-left.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="22.627417"
+     inkscape:cx="-4.5961941"
+     inkscape:cy="9.0377085"
+     inkscape:current-layer="svg6" />
+  <path
+     d="m 0.7703215,7.4662486 6.808744,6.8087404 c 0.15041,0.1504 0.15041,0.3943 0,0.5447 -0.15042,0.1504 -0.39429,0.1504 -0.5447,0 L 0.2256225,8.0109486 c -0.30083,-0.30083 -0.30083,-0.7885704 0,-1.0894004 l 6.808743,-6.80873997 c 0.15041,-0.15041098 0.39428,-0.15041098 0.5447,0 0.15041,0.15042 0.15041,0.39429 0,0.5447 z"
+     fill="#ff0b54"
+     id="path2" />
+</svg>

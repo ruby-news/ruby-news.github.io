@@ -2,8 +2,8 @@
 <div class="pagination">
   {% assign current_page = paginator.page %}
   {% assign total_pages = paginator.total_pages %}
-  {% assign starting_page = current_page | minus: 3 %}
-  {% assign ending_page = current_page | plus: 3 %}
+  {% assign starting_page = current_page | minus: 1 %}
+  {% assign ending_page = current_page | plus: 1 %}
   {% assign starting_ellipsis = true %}
   {% assign ending_ellipsis = true %}
 
@@ -11,40 +11,43 @@
     {% assign starting_ellipsis = false %}
   {% endif %}
 
-  {% if total_pages == ending_page%}
+  {% if total_pages == ending_page %}
     {% assign ending_ellipsis = false %}
   {% endif %}
 
-  {% if starting_page < 1 %}
-    {% assign starting_page = 1 %}
-    {% assign ending_page = current_page | plus: 6 %}
+  {% if starting_page < 2 %}
+    {% assign starting_page = 2 %}
+    {% assign ending_page = current_page | plus: 2 %}
   {% endif %}
 
-  {% if ending_page > total_pages %}
-    {% assign starting_page = current_page | minus: 6 %}
-    {% assign ending_page = total_pages %}
+  {% assign max_pages = total_pages | minus: 1 %}
+  {% if ending_page > max_pages %}
+    {% assign starting_page = current_page | minus: 2 %}
+    {% assign ending_page = max_pages %}
     {% assign ending_ellipsis = false %}
   {% endif %}
 
-    {% if starting_page < 1 %}
-      {% assign starting_page = 1 %}
-    {% endif %}
+  {% if starting_page < 2 %}
+    {% assign starting_page = 2 %}
+  {% endif %}
 
-  <div class="mdl-tooltip" data-mdl-for="pageLinkFirst">First</div>
-  {% if current_page != 1 %}
-    <a id="pageLinkFirst" href="{{ site.url }}" class="first page-link mdl-button mdl-js-button mdl-js-ripple-effect">&laquo;</a>
-  {% else %}
-    <span id="pageLinkFirst" class="first page-link-disabled active">&laquo;</span>
+  {% if ending_page < 1 %}
+    {% assign ending_page = 1 %}
   {% endif %}
 
   {% if paginator.previous_page %}
     <div class="mdl-tooltip" data-mdl-for="pageLinkPrevious">Previous (page {{ paginator.previous_page }})</div>
-    <a id="pageLinkPrevious" href="{{ paginator.previous_page_path }}" class="previous page-link mdl-button mdl-js-button mdl-js-ripple-effect">
-      &lt;
+    <a id="pageLinkPrevious" href="{{ paginator.previous_page_path }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">
+      <img src="/assets/images/icons/chevron-left.svg">
     </a>
   {% else %}
-    <span id="pageLinkPrevious" class="previous page-link-disabled">&lt;</span>
+    <span id="pageLinkPrevious" class="previous page-link-disabled">
+      <img src="/assets/images/icons/chevron-left.svg">
+    </span>
   {% endif %}
+
+  <div class="mdl-tooltip" data-mdl-for="pageLinkFirst">First (Page 1)</div>
+  <a id="pageLinkFirst" href="{{ site.url }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">1</a>
 
   {% if starting_ellipsis %}
     <span class="ellipsis">...</span>
@@ -59,9 +62,9 @@
 
     <div class="mdl-tooltip" data-mdl-for="pageLink-{{ i }}">Page {{ i }}</div>
     {% if i == current_page %}
-      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">{{ i }}</a>
     {% else %}
-      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link mdl-button mdl-js-button mdl-js-ripple-effect">{{ i }}</a>
+      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">{{ i }}</a>
     {% endif %}
   {% endfor %}
 
@@ -69,18 +72,19 @@
     <span class="ellipsis">...</span>
   {% endif %}
 
-  <!-- Page: {{ paginator.page }} of {{ paginator.total_pages }} -->
+  <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last (page {{ total_pages }})</div>
+    <a id="pageLinkLast" href="{{ site.url }}/page{{ total_pages }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">
+      {{ paginator.total_pages }}
+    </a>
+
   {% if paginator.next_page %}
     <div class="mdl-tooltip" data-mdl-for="pageLinkNext">Next (page {{ paginator.next_page }})</div>
-    <a id="pageLinkNext" href="{{ paginator.next_page_path }}" class="next page-link mdl-button mdl-js-button mdl-js-ripple-effect">&gt;</a>
+    <a id="pageLinkNext" href="{{ paginator.next_page_path }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">
+      <img src="/assets/images/icons/chevron-right.svg">
+    </a>
   {% else %}
-    <span id="pageLinkNext" class="next page-link-disabled">&gt;</span>
-  {% endif %}
-
-  <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last (page {{ total_pages }})</div>
-  {% if paginator.page != paginator.total_pages %}
-    <a id="pageLinkLast" href="{{ site.url }}/page{{ total_pages }}" class="last page-link mdl-button mdl-js-button mdl-js-ripple-effect">&raquo;</a>
-  {% else %}
-    <span id="pageLinkLast" class="last page-link-disabled active">&raquo;</span>
+    <span id="pageLinkNext" class="next page-link-disabled">
+      <img src="/assets/images/icons/chevron-right.svg">
+    </span>
   {% endif %}
 </div>

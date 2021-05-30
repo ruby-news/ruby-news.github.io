@@ -514,15 +514,11 @@ pre {
   user-select: none;
 
   .page-link, .page-link-disabled, .ellipsis {
-    color: var(--secondary-text-color);
+    color: var(--text-medium);
     background-color: transparent;
     text-decoration: none !important;
-    // border-right: none !important;
-    padding: 8px 16px;
+    padding: 12px;
     transition: var(--default-transition-time);
-    border-radius: 4px;
-    min-width: initial;
-    height: 24px;
     font-weight: 500;
     line-height: 0;
     font-size: 14px;
@@ -537,12 +533,11 @@ pre {
   }
 
   .active  {
-    background-color: var(--primary-color);
-    color: var(--text-white);
+    color: var(--primary-color);
   }
 
   .page-link:hover {
-    background-color: #ddd;
+    transform: scale(0.75);
   }
 }
 
