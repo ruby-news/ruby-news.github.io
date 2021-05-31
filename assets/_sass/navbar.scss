@@ -207,7 +207,7 @@ $navbar-margin: 2rem;
     }
 
     #nav-check:not(:checked) ~ .menu-links {
-      height: 0;
+      height: 0 !important;
       opacity: 0;
     }
 
