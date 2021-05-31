@@ -125,8 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const copyButtons = document.querySelectorAll('.copy')
   for(let copyButton of copyButtons) {
     let text = copyButton.getAttribute('text')
-
-    copyButton.onclick = () => {
+    let copyFunc = () => {
       let textArea = document.createElement('textarea')
       textArea.style.position = 'fixed'
       textArea.style.top = '0'
@@ -156,6 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       document.body.removeChild(textArea)
     }
+
+    copyButton.addEventListener('touchStart', () => { copyFunc() })
+    copyButton.onclick = () => { copyFunc() }
   }
 
   // Total posts counter

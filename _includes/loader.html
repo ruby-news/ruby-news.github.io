@@ -39,5 +39,6 @@
 
     document.addEventListener('DOMContentLoaded', () => { hideLoader(0.25) })
     hideLoaderButton.onclick = () => { hideLoader(0) }
+    hideLoaderButton.addEventListener('touchstart', () => { hideLoader(0) })
   </script>
 </div>

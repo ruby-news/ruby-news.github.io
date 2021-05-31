@@ -5,15 +5,14 @@ document.addEventListener('DOMContentLoaded', function()  {
   const modal = document.getElementById('subscribeModal')
   const closeBtn = document.getElementById('closeSubscribeModal')
 
-  closeBtn.onclick = () => {
+  let removeFunc = () => {
     modal.style.opacity = 0
     modal.style.transform = 'translate(-50%, -50%) scale(0)'
-
-    setTimeout(() => {
-      let parentNode = modal.parentNode
-      if(parentNode) parentNode.removeChild(modal)
-    }, 2000)
+    setTimeout(() => { if(modal) modal.remove() }, 2000)
   }
+
+  closeBtn.addEventListener('touchstart', () => { removeFunc() })
+  closeBtn.onclick = () => { removeFunc() }
 
   // Dealing with scrolling text in the modal
   const item = document.getElementById('scrollingItems')
