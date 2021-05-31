@@ -184,10 +184,11 @@
             <div class="grid-2x2-float">
               <div class="author-details">
                 <author-image>
-                  {% if page.author_image %}
-                    <img src="/assets/articles/authors/{{ page.author_image }}">
+                  {% if page.author %}
+                    {% assign author_image = page.author | split: ' ' | join: '_' | downcase | append: '.jpg' %}
+                    <img src="/authors/{{ author_image }}">
                   {% else %}
-                    <img src="/assets/articles/blog-authors/person.webp">
+                    <img src="/authors/default.jpg">
                   {% endif %}
                 </author-image>
 
@@ -213,7 +214,7 @@
 
           <break></break>
           <div id="articleContent">
-            {{ page.content }}
+            {{ content }}
           </div>
 
           <div class="mt-2rem"></div>
