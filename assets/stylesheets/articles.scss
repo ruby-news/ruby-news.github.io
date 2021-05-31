@@ -28,12 +28,20 @@ $code-bg: #222;
 
 .btn-share {
   background-color: transparent !important;
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px !important;
   border: none;
   object-fit: scale-down;
   cursor: pointer;
   transition: var(--default-transition-time);
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 20px !important;
+    height: 20px !important;
+  }
 
   &:hover {
     opacity: 0.75;
