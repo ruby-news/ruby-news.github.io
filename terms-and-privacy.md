@@ -1,14 +1,13 @@
 ---
-active: "contact-us"
 layout: default
 date: 2021-06-01 10:22:58 +0300
-permalink: /contact-us/
+permalink: /terms-and-privacy/
 
-title:  "Contact Us"
+title:  "Terms and Privacy"
 description: "Contact Ruby News"
 file: "contribute"
-tags: Contact RubyNews
+tags: RubyNews Terms and Privacy
 author: 'Ruby News'
 ---
 
-### Contact Ruby News
+### Terms and Privacy
