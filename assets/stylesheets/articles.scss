@@ -90,6 +90,38 @@ break {
   font-size: 16px !important;
   line-height: $line-height-regular !important;
 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+
+    thead {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      tr {
+        background: linear-gradient(45deg, #ff0b54, #f33);
+      }
+
+      th {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 12px;
+        text-align: left;
+      }
+    }
+
+    td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    tr:nth-of-type(odd) {
+      background-color: #efefef;
+    }
+  }
+
   .preview-img-1 {
     height: 50vh;
     width: 100%;
