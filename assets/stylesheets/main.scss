@@ -78,6 +78,11 @@ h6 {
   font-size: 16px;
 }
 
+em {
+  font-family: 'Roboto-italic';
+  font-style: italic;
+}
+
 ::selection {
   background-color: var(--primary-color) !important;
   color: #fff;
