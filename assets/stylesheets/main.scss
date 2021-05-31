@@ -234,8 +234,10 @@ $class-names-colours: (
 @for $i from 1 through 8 {
   .line-clamp-#{$i} {
     display: -webkit-box;
+    display: box;
     -webkit-line-clamp: #{$i};
     -webkit-box-orient: vertical;
+    box-orient: vertical;
     overflow: hidden;
   }
 }
@@ -434,6 +436,7 @@ pre {
     margin: 0;
     padding: 0;
     display: -webkit-box;
+    display: box;
     width: 100%;
     overflow: hidden;
   }
@@ -460,8 +463,10 @@ pre {
 
   .page-content-body .description, .page-content-body .details {
     display: -webkit-box;
+    display: box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    box-orient: vertical;
     overflow: hidden;
     color: var(--text-medium) ;
   }
