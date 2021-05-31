@@ -108,12 +108,17 @@ $navbar-margin: 2rem;
     align-items: center;
     justify-content: flex-end;
     margin-right: $navbar-margin;
-    gap: 1rem;
+    // gap: 1rem;
   }
 
   .social-media > .icon {
     cursor: pointer;
     position: relative;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .social-media > .icon img {
