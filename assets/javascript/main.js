@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let image = new Image()
 
     image.addEventListener('load', () => {
-      if (img.getAttribute('full-background') == 'true') {
+      if (img.getAttribute('full-background') != 'false') {
         image.setAttribute('class', 'preview-img-1 cover')
         img.appendChild(image)
       } else {

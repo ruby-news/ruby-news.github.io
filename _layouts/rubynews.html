@@ -30,7 +30,7 @@
     ]
 
     // Load other stylesheets
-    const otherStylesheets = "{{ page.stylesheets }}".split(',').map(x => x.trim())
+    const otherStylesheets = "{{ page.stylesheets | join: ',' }}".split(',').map(x => x.trim())
     if (otherStylesheets) stylesheets = stylesheets.concat(otherStylesheets)
 
     // Append all stylesheets to head while the loader is shown
@@ -54,6 +54,11 @@
   <script src="/assets/javascript/main.js"></script>
   <script src="/assets/javascript/material.min.js"></script>
   <script src="/assets/javascript/navbar.js"></script>
+
+  <!-- Load Extra JS Files From Page -->
+  {% for js_file in page.js %}
+    <script src="{{ js_file }}"></script>
+  {% endfor %}
 
   <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
   {% include loader.css.html %}

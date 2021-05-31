@@ -1,7 +1,13 @@
 ---
+active: "about"
 layout: article
-title: About
 permalink: /about/
+
+title:  "About Ruby News"
+description: "Ruby News - Ruby Weekly News Digest"
+# file: ""    # TODO: Upload an image
+tags: RubyNews About
+author: 'Ruby News'
 ---
 
 Ruby News

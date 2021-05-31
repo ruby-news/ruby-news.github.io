@@ -76,8 +76,7 @@
 
 	<body>
 		{% if page.js %}
-			{% assign javascripts = page.js | split: "," %}
-			{% for javascript in javascripts %}
+			{% for javascript in page.js %}
 				<script src="{{ javascript }}.js"></script>
 			{% endfor %}
 		{% endif %}
@@ -147,11 +146,35 @@
 
         <div class="blog-contents">
           <header>
-            <img src="/post_images/{{ article_date }}/{{ page.preview_image }}">
 
-            <break></break>
+            {% if page.preview_image %}
+              {% assign full_bg = true %}
+              {% if page.article_full_background == false %}
+                {% assign full_bg = false %}
+              {% endif %}
 
-            <div>{{ page.title }}</div>
+              {% assign blurred_bg = true %}
+              {% if page.article_preview_blur == false %}
+                {% assign blurred_bg = false %}
+              {% endif %}
+
+              <div class="lazyload">
+                <div
+                  src="/post_images/{{ article_date }}/{{ page.preview_image }}"
+                  loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"
+                  full-background="{{ full_bg }}"
+                  {% if page.round_borders %}
+                    style="border-radius:8px"
+                  {% endif %}
+                ></div>
+                <div class="lazyload-anim"></div>
+              </div>
+
+              <break></break>
+              <h2>{{ page.title }}</h2>
+            {% else %}
+              <div class="ta-center">{{ page.title }}</div>
+            {% endif %}
 
             {% assign tag = page.tags | join: ' ' %}
             {% if tag == '' %}
@@ -161,10 +184,11 @@
             <div class="grid-2x2-float">
               <div class="author-details">
                 <author-image>
-                  {% if page.author_image %}
-                    <img src="/assets/articles/authors/{{ page.author_image }}">
+                  {% if page.author %}
+                    {% assign author_image = page.author | split: ' ' | join: '_' | downcase | append: '.jpg' %}
+                    <img src="/authors/{{ author_image }}">
                   {% else %}
-                    <img src="/assets/articles/blog-authors/person.webp">
+                    <img src="/authors/default.jpg">
                   {% endif %}
                 </author-image>
 
@@ -190,7 +214,7 @@
 
           <break></break>
           <div id="articleContent">
-            {{ page.content }}
+            {{ content }}
           </div>
 
           <div class="mt-2rem"></div>

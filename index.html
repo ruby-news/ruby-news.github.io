@@ -2,16 +2,19 @@
 layout: rubynews
 
 # These fields are fetched from the rubynews layout to generate meta tags
-description:
+description: Ruby Weekly News Digest
 author: https://ruby.news
 keywords: ruby rubynews weekly digest
 
 # Extra scss / css file(s), don't use .css extension
-# Should be seperated with commas (,): file1, file2, file3...fileN
-stylesheets: /assets/stylesheets/subscribe-form
+# Should be an YAML Array
+stylesheets:
+  - /assets/stylesheets/subscribe-form
 
 # Extra javascript file(s)
-# js:
+js:
+  - /assets/javascript/particles.min.js
+  - /assets/javascript/delaunay-settings.js
 ---
 
 {% include ruby_is_alive.html %}

@@ -1,8 +1,10 @@
 {
-	"editor.tabSize": 2,
-	"editor.trimAutoWhitespace": true,
-	"editor.comments.insertSpace": true,
-	"editor.detectIndentation": true,
-	"editor.renderFinalNewline": true,
-	"files.insertFinalNewline": true
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.tabCompletion": "on",
+  "editor.trimAutoWhitespace": true,
+  "editor.comments.insertSpace": true,
+  "editor.detectIndentation": true,
+  "editor.renderFinalNewline": true,
+  "files.insertFinalNewline": true
 }

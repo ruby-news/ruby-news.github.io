@@ -2,15 +2,37 @@
 active: "articles"
 layout: article
 date: 2021-05-18 10:22:58 +0530
-preview_blur: false
+
 
 title:  "How to Make Ruby Fast with GCC Optimization"
-categories: souravgoswami blogs
 description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 preview_image: "main.jpg"
 tags: Ruby Optimization GCC
 author: 'Ruby News'
+
+
+###########################################
+#
+# Allows you to control behaviour on the index page cards
+# > Background shown on index page as list, default: true
+# > Blurring is only shown when full_background is set to false
+#    and the image doesn't fit the card. This is helpful for
+#    preview images with transparent background
+#    default: true
+preview_full_background: false
+preview_blur: true
+
+
+# Allows you to control behaviour on the article page
+# > Background shown on index page as list
+# > Blurring is only shown when full_background is set to false,
+#    and the image doesn't fit the grid
+#    article_full_background: false
+# > round_borders allows you to round the border of the home image,
+#    defualts to false
+article_preview_blur: true
+round_borders: false
 ---
 
 <initial>R</initial>uby is quite fast compared to Python or Perl:
@@ -65,13 +87,13 @@ You can also specify the compiler to the CC environment variable, for example CC
 #### ⚠️⚠️⚠️ Warning!
 
 <grid-2>
-	Using different flags like -ffast-math or -Ofast will make ruby fail to round numbers, say 3.14159.round(2) will return 3.139999999999999.
-	<img src="/post_images/2021-05-18/ffast-math.jpg">
+  Using different flags like -ffast-math or -Ofast will make ruby fail to round numbers, say 3.14159.round(2) will return 3.139999999999999.
+  <img src="/post_images/2021-05-18/ffast-math.jpg">
 </grid-2>
 
 <grid-2>
-	<img src="/post_images/2021-05-18/ffast-math-rails.jpg">
-	Here's how Rails looks after using Ofast optimization level! 🤦‍♂️🤦‍♂️
+  <img src="/post_images/2021-05-18/ffast-math-rails.jpg">
+  Here's how Rails looks after using Ofast optimization level! 🤦‍♂️🤦‍♂️
 </grid-2>
 
 This can be problematic! Don't go beyond `-O3` optimization level, you can also use <code>-O2</code> (that's the default) flags if you don't have time to experiment.
@@ -111,7 +133,7 @@ Your RVM Ruby is built with the defined CC and CFlags!
 
 ###### 3. Confirm (after installation)
 <pre>
-	<dollar>~/.rvm/rubies/ruby-2.7.1/bin/ruby -e "puts RbConfig::CONFIG.then { |x| %Q(\n\e[1;33mCFLAGS\e[0m => #{x['CFLAGS']}\n\n\e[1;34mCXXFLAGS\e[0m => #{x['CXXFLAGS']}) }"</dollar>
+  <dollar>~/.rvm/rubies/ruby-2.7.1/bin/ruby -e "puts RbConfig::CONFIG.then { |x| %Q(\n\e[1;33mCFLAGS\e[0m => #{x['CFLAGS']}\n\n\e[1;34mCXXFLAGS\e[0m => #{x['CXXFLAGS']}) }"</dollar>
 </pre>
 
 The output will be something like this:
@@ -130,189 +152,189 @@ Benchmarks
 #### Original ruby (Any x64, arch community)
 
 <pre>
-	<dollar>sleep 2 ; ruby benchmark.rb</dollar>
-	:: Details:
-	Ruby Version: 2.7.1 (x86_64-linux)
+  <dollar>sleep 2 ; ruby benchmark.rb</dollar>
+  :: Details:
+  Ruby Version: 2.7.1 (x86_64-linux)
 
-	CC: gcc
-	CFLAGS: -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fPIC
-	--------------------------------------------------------------------------------
-	:: Please stop all your apps, perhaps reboot your system, and run the benchmark
-	:: Don't even move your mouse during the benchmark for consistent result!
-	- Ready?.....................................................................
-	CPU Blowfish Test
-	:: CPU Blowfish Iteration 1: 0.098s
-	:: CPU Blowfish Iteration 2: 0.072s
-	:: CPU Blowfish Iteration 3: 0.072s
-	:: CPU Blowfish Iteration 4: 0.072s
-	:: CPU Blowfish Iteration 5: 0.072s
-	:: CPU Blowfish Iteration 6: 0.071s
-	:: CPU Blowfish Iteration 7: 0.070s
-	:: CPU Blowfish Iteration 8: 0.070s
-	:: CPU Blowfish Iteration 9: 0.068s
-	:: CPU Blowfish Iteration 10: 0.071s
-	Total time taken: 0.736s
-	--------------------------------------------------------------------------------
-	FPU Test
-	:: FPU Math Iteration 1: 0.068s
-	:: FPU Math Iteration 2: 0.068s
-	:: FPU Math Iteration 3: 0.068s
-	:: FPU Math Iteration 4: 0.068s
-	:: FPU Math Iteration 5: 0.068s
-	:: FPU Math Iteration 6: 0.068s
-	:: FPU Math Iteration 7: 0.068s
-	:: FPU Math Iteration 8: 0.069s
-	:: FPU Math Iteration 9: 0.066s
-	:: FPU Math Iteration 10: 0.066s
-	Total time taken: 0.677s
-	--------------------------------------------------------------------------------
-	CPU Fibonacci Test
-	:: CPU Fibonacci Iteration 1: 0.126s
-	:: CPU Fibonacci Iteration 2: 0.114s
-	:: CPU Fibonacci Iteration 3: 0.116s
-	:: CPU Fibonacci Iteration 4: 0.113s
-	:: CPU Fibonacci Iteration 5: 0.110s
-	:: CPU Fibonacci Iteration 6: 0.110s
-	:: CPU Fibonacci Iteration 7: 0.111s
-	:: CPU Fibonacci Iteration 8: 0.111s
-	:: CPU Fibonacci Iteration 9: 0.111s
-	:: CPU Fibonacci Iteration 10: 0.112s
-	Total time taken: 1.134s
-	--------------------------------------------------------------------------------
-	CPU Anagram Hunt
-	:: CPU Anagram Iteration 1: 0.310s
-	:: CPU Anagram Iteration 2: 0.311s
-	:: CPU Anagram Iteration 3: 0.309s
-	:: CPU Anagram Iteration 4: 0.304s
-	:: CPU Anagram Iteration 5: 0.302s
-	:: CPU Anagram Iteration 6: 0.302s
-	:: CPU Anagram Iteration 7: 0.302s
-	:: CPU Anagram Iteration 8: 0.301s
-	:: CPU Anagram Iteration 9: 0.303s
-	:: CPU Anagram Iteration 10: 0.301s
-	Total time taken: 3.045s
-	--------------------------------------------------------------------------------
-	CPU 8 Million Prime Numbers
-	:: Prime Numbers Iteration 1: 1.366s
-	:: Prime Numbers Iteration 2: 1.367s
-	:: Prime Numbers Iteration 3: 1.365s
-	:: Prime Numbers Iteration 4: 1.366s
-	:: Prime Numbers Iteration 5: 1.367s
-	:: Prime Numbers Iteration 6: 1.370s
-	:: Prime Numbers Iteration 7: 1.369s
-	:: Prime Numbers Iteration 8: 1.367s
-	:: Prime Numbers Iteration 9: 1.368s
-	:: Prime Numbers Iteration 10: 1.370s
-	Total time taken: 13.675s
-	--------------------------------------------------------------------------------
-	CPU 3k Pi Digits
-	:: 3K Pi Digits Iteration 1: 1.013s
-	:: 3K Pi Digits Iteration 2: 0.941s
-	:: 3K Pi Digits Iteration 3: 0.907s
-	:: 3K Pi Digits Iteration 4: 0.956s
-	:: 3K Pi Digits Iteration 5: 0.885s
-	:: 3K Pi Digits Iteration 6: 0.932s
-	:: 3K Pi Digits Iteration 7: 0.877s
-	:: 3K Pi Digits Iteration 8: 0.889s
-	:: 3K Pi Digits Iteration 9: 0.903s
-	:: 3K Pi Digits Iteration 10: 0.890s
-	Total time taken: 9.193s
-	--------------------------------------------------------------------------------
-	All test time: 28.460000000000004s
+  CC: gcc
+  CFLAGS: -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fPIC
+  --------------------------------------------------------------------------------
+  :: Please stop all your apps, perhaps reboot your system, and run the benchmark
+  :: Don't even move your mouse during the benchmark for consistent result!
+  - Ready?.....................................................................
+  CPU Blowfish Test
+  :: CPU Blowfish Iteration 1: 0.098s
+  :: CPU Blowfish Iteration 2: 0.072s
+  :: CPU Blowfish Iteration 3: 0.072s
+  :: CPU Blowfish Iteration 4: 0.072s
+  :: CPU Blowfish Iteration 5: 0.072s
+  :: CPU Blowfish Iteration 6: 0.071s
+  :: CPU Blowfish Iteration 7: 0.070s
+  :: CPU Blowfish Iteration 8: 0.070s
+  :: CPU Blowfish Iteration 9: 0.068s
+  :: CPU Blowfish Iteration 10: 0.071s
+  Total time taken: 0.736s
+  --------------------------------------------------------------------------------
+  FPU Test
+  :: FPU Math Iteration 1: 0.068s
+  :: FPU Math Iteration 2: 0.068s
+  :: FPU Math Iteration 3: 0.068s
+  :: FPU Math Iteration 4: 0.068s
+  :: FPU Math Iteration 5: 0.068s
+  :: FPU Math Iteration 6: 0.068s
+  :: FPU Math Iteration 7: 0.068s
+  :: FPU Math Iteration 8: 0.069s
+  :: FPU Math Iteration 9: 0.066s
+  :: FPU Math Iteration 10: 0.066s
+  Total time taken: 0.677s
+  --------------------------------------------------------------------------------
+  CPU Fibonacci Test
+  :: CPU Fibonacci Iteration 1: 0.126s
+  :: CPU Fibonacci Iteration 2: 0.114s
+  :: CPU Fibonacci Iteration 3: 0.116s
+  :: CPU Fibonacci Iteration 4: 0.113s
+  :: CPU Fibonacci Iteration 5: 0.110s
+  :: CPU Fibonacci Iteration 6: 0.110s
+  :: CPU Fibonacci Iteration 7: 0.111s
+  :: CPU Fibonacci Iteration 8: 0.111s
+  :: CPU Fibonacci Iteration 9: 0.111s
+  :: CPU Fibonacci Iteration 10: 0.112s
+  Total time taken: 1.134s
+  --------------------------------------------------------------------------------
+  CPU Anagram Hunt
+  :: CPU Anagram Iteration 1: 0.310s
+  :: CPU Anagram Iteration 2: 0.311s
+  :: CPU Anagram Iteration 3: 0.309s
+  :: CPU Anagram Iteration 4: 0.304s
+  :: CPU Anagram Iteration 5: 0.302s
+  :: CPU Anagram Iteration 6: 0.302s
+  :: CPU Anagram Iteration 7: 0.302s
+  :: CPU Anagram Iteration 8: 0.301s
+  :: CPU Anagram Iteration 9: 0.303s
+  :: CPU Anagram Iteration 10: 0.301s
+  Total time taken: 3.045s
+  --------------------------------------------------------------------------------
+  CPU 8 Million Prime Numbers
+  :: Prime Numbers Iteration 1: 1.366s
+  :: Prime Numbers Iteration 2: 1.367s
+  :: Prime Numbers Iteration 3: 1.365s
+  :: Prime Numbers Iteration 4: 1.366s
+  :: Prime Numbers Iteration 5: 1.367s
+  :: Prime Numbers Iteration 6: 1.370s
+  :: Prime Numbers Iteration 7: 1.369s
+  :: Prime Numbers Iteration 8: 1.367s
+  :: Prime Numbers Iteration 9: 1.368s
+  :: Prime Numbers Iteration 10: 1.370s
+  Total time taken: 13.675s
+  --------------------------------------------------------------------------------
+  CPU 3k Pi Digits
+  :: 3K Pi Digits Iteration 1: 1.013s
+  :: 3K Pi Digits Iteration 2: 0.941s
+  :: 3K Pi Digits Iteration 3: 0.907s
+  :: 3K Pi Digits Iteration 4: 0.956s
+  :: 3K Pi Digits Iteration 5: 0.885s
+  :: 3K Pi Digits Iteration 6: 0.932s
+  :: 3K Pi Digits Iteration 7: 0.877s
+  :: 3K Pi Digits Iteration 8: 0.889s
+  :: 3K Pi Digits Iteration 9: 0.903s
+  :: 3K Pi Digits Iteration 10: 0.890s
+  Total time taken: 9.193s
+  --------------------------------------------------------------------------------
+  All test time: 28.460000000000004s
 </pre>
 
 #### Ruby that I compiled myself
 
 <pre>
-	<dollar>sleep 2 ; ruby benchmark.rb</dollar>
-	:: Details:
-	Ruby Version: 2.7.1 (x86_64-linux)
+  <dollar>sleep 2 ; ruby benchmark.rb</dollar>
+  :: Details:
+  Ruby Version: 2.7.1 (x86_64-linux)
 
-	CC: clang
-	CFLAGS: -O3 -pipe -fPIC -march=native -mtune=native -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens
-	--------------------------------------------------------------------------------
-	:: Please stop all your apps, perhaps reboot your system, and run the benchmark
-	:: Don't even move your mouse during the benchmark for consistent result!
-	- Ready?.....................................................................
-	CPU Blowfish Test
-	:: CPU Blowfish Iteration 1: 0.096s
-	:: CPU Blowfish Iteration 2: 0.068s
-	:: CPU Blowfish Iteration 3: 0.067s
-	:: CPU Blowfish Iteration 4: 0.067s
-	:: CPU Blowfish Iteration 5: 0.068s
-	:: CPU Blowfish Iteration 6: 0.067s
-	:: CPU Blowfish Iteration 7: 0.068s
-	:: CPU Blowfish Iteration 8: 0.067s
-	:: CPU Blowfish Iteration 9: 0.071s
-	:: CPU Blowfish Iteration 10: 0.066s
-	Total time taken: 0.705s
-	--------------------------------------------------------------------------------
-	FPU Test
-	:: FPU Math Iteration 1: 0.066s
-	:: FPU Math Iteration 2: 0.066s
-	:: FPU Math Iteration 3: 0.066s
-	:: FPU Math Iteration 4: 0.066s
-	:: FPU Math Iteration 5: 0.066s
-	:: FPU Math Iteration 6: 0.066s
-	:: FPU Math Iteration 7: 0.066s
-	:: FPU Math Iteration 8: 0.068s
-	:: FPU Math Iteration 9: 0.066s
-	:: FPU Math Iteration 10: 0.066s
-	Total time taken: 0.662s
-	--------------------------------------------------------------------------------
-	CPU Fibonacci Test
-	:: CPU Fibonacci Iteration 1: 0.145s
-	:: CPU Fibonacci Iteration 2: 0.141s
-	:: CPU Fibonacci Iteration 3: 0.138s
-	:: CPU Fibonacci Iteration 4: 0.138s
-	:: CPU Fibonacci Iteration 5: 0.140s
-	:: CPU Fibonacci Iteration 6: 0.138s
-	:: CPU Fibonacci Iteration 7: 0.142s
-	:: CPU Fibonacci Iteration 8: 0.137s
-	:: CPU Fibonacci Iteration 9: 0.143s
-	:: CPU Fibonacci Iteration 10: 0.143s
-	Total time taken: 1.405s
-	--------------------------------------------------------------------------------
-	CPU Anagram Hunt
-	:: CPU Anagram Iteration 1: 0.305s
-	:: CPU Anagram Iteration 2: 0.304s
-	:: CPU Anagram Iteration 3: 0.305s
-	:: CPU Anagram Iteration 4: 0.299s
-	:: CPU Anagram Iteration 5: 0.295s
-	:: CPU Anagram Iteration 6: 0.298s
-	:: CPU Anagram Iteration 7: 0.304s
-	:: CPU Anagram Iteration 8: 0.300s
-	:: CPU Anagram Iteration 9: 0.297s
-	:: CPU Anagram Iteration 10: 0.295s
-	Total time taken: 3.002s
-	--------------------------------------------------------------------------------
-	CPU 8 Million Prime Numbers
-	:: Prime Numbers Iteration 1: 1.191s
-	:: Prime Numbers Iteration 2: 1.195s
-	:: Prime Numbers Iteration 3: 1.196s
-	:: Prime Numbers Iteration 4: 1.196s
-	:: Prime Numbers Iteration 5: 1.199s
-	:: Prime Numbers Iteration 6: 1.200s
-	:: Prime Numbers Iteration 7: 1.195s
-	:: Prime Numbers Iteration 8: 1.196s
-	:: Prime Numbers Iteration 9: 1.197s
-	:: Prime Numbers Iteration 10: 1.194s
-	Total time taken: 11.959s
-	--------------------------------------------------------------------------------
-	CPU 3k Pi Digits
-	:: 3K Pi Digits Iteration 1: 0.944s
-	:: 3K Pi Digits Iteration 2: 0.910s
-	:: 3K Pi Digits Iteration 3: 0.905s
-	:: 3K Pi Digits Iteration 4: 0.902s
-	:: 3K Pi Digits Iteration 5: 0.985s
-	:: 3K Pi Digits Iteration 6: 0.920s
-	:: 3K Pi Digits Iteration 7: 0.920s
-	:: 3K Pi Digits Iteration 8: 0.973s
-	:: 3K Pi Digits Iteration 9: 0.906s
-	:: 3K Pi Digits Iteration 10: 0.907s
-	Total time taken: 9.272s
-	--------------------------------------------------------------------------------
-	All test time: 27.005000000000003s
+  CC: clang
+  CFLAGS: -O3 -pipe -fPIC -march=native -mtune=native -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens
+  --------------------------------------------------------------------------------
+  :: Please stop all your apps, perhaps reboot your system, and run the benchmark
+  :: Don't even move your mouse during the benchmark for consistent result!
+  - Ready?.....................................................................
+  CPU Blowfish Test
+  :: CPU Blowfish Iteration 1: 0.096s
+  :: CPU Blowfish Iteration 2: 0.068s
+  :: CPU Blowfish Iteration 3: 0.067s
+  :: CPU Blowfish Iteration 4: 0.067s
+  :: CPU Blowfish Iteration 5: 0.068s
+  :: CPU Blowfish Iteration 6: 0.067s
+  :: CPU Blowfish Iteration 7: 0.068s
+  :: CPU Blowfish Iteration 8: 0.067s
+  :: CPU Blowfish Iteration 9: 0.071s
+  :: CPU Blowfish Iteration 10: 0.066s
+  Total time taken: 0.705s
+  --------------------------------------------------------------------------------
+  FPU Test
+  :: FPU Math Iteration 1: 0.066s
+  :: FPU Math Iteration 2: 0.066s
+  :: FPU Math Iteration 3: 0.066s
+  :: FPU Math Iteration 4: 0.066s
+  :: FPU Math Iteration 5: 0.066s
+  :: FPU Math Iteration 6: 0.066s
+  :: FPU Math Iteration 7: 0.066s
+  :: FPU Math Iteration 8: 0.068s
+  :: FPU Math Iteration 9: 0.066s
+  :: FPU Math Iteration 10: 0.066s
+  Total time taken: 0.662s
+  --------------------------------------------------------------------------------
+  CPU Fibonacci Test
+  :: CPU Fibonacci Iteration 1: 0.145s
+  :: CPU Fibonacci Iteration 2: 0.141s
+  :: CPU Fibonacci Iteration 3: 0.138s
+  :: CPU Fibonacci Iteration 4: 0.138s
+  :: CPU Fibonacci Iteration 5: 0.140s
+  :: CPU Fibonacci Iteration 6: 0.138s
+  :: CPU Fibonacci Iteration 7: 0.142s
+  :: CPU Fibonacci Iteration 8: 0.137s
+  :: CPU Fibonacci Iteration 9: 0.143s
+  :: CPU Fibonacci Iteration 10: 0.143s
+  Total time taken: 1.405s
+  --------------------------------------------------------------------------------
+  CPU Anagram Hunt
+  :: CPU Anagram Iteration 1: 0.305s
+  :: CPU Anagram Iteration 2: 0.304s
+  :: CPU Anagram Iteration 3: 0.305s
+  :: CPU Anagram Iteration 4: 0.299s
+  :: CPU Anagram Iteration 5: 0.295s
+  :: CPU Anagram Iteration 6: 0.298s
+  :: CPU Anagram Iteration 7: 0.304s
+  :: CPU Anagram Iteration 8: 0.300s
+  :: CPU Anagram Iteration 9: 0.297s
+  :: CPU Anagram Iteration 10: 0.295s
+  Total time taken: 3.002s
+  --------------------------------------------------------------------------------
+  CPU 8 Million Prime Numbers
+  :: Prime Numbers Iteration 1: 1.191s
+  :: Prime Numbers Iteration 2: 1.195s
+  :: Prime Numbers Iteration 3: 1.196s
+  :: Prime Numbers Iteration 4: 1.196s
+  :: Prime Numbers Iteration 5: 1.199s
+  :: Prime Numbers Iteration 6: 1.200s
+  :: Prime Numbers Iteration 7: 1.195s
+  :: Prime Numbers Iteration 8: 1.196s
+  :: Prime Numbers Iteration 9: 1.197s
+  :: Prime Numbers Iteration 10: 1.194s
+  Total time taken: 11.959s
+  --------------------------------------------------------------------------------
+  CPU 3k Pi Digits
+  :: 3K Pi Digits Iteration 1: 0.944s
+  :: 3K Pi Digits Iteration 2: 0.910s
+  :: 3K Pi Digits Iteration 3: 0.905s
+  :: 3K Pi Digits Iteration 4: 0.902s
+  :: 3K Pi Digits Iteration 5: 0.985s
+  :: 3K Pi Digits Iteration 6: 0.920s
+  :: 3K Pi Digits Iteration 7: 0.920s
+  :: 3K Pi Digits Iteration 8: 0.973s
+  :: 3K Pi Digits Iteration 9: 0.906s
+  :: 3K Pi Digits Iteration 10: 0.907s
+  Total time taken: 9.272s
+  --------------------------------------------------------------------------------
+  All test time: 27.005000000000003s
 </pre>
 
 So it seems like Ruby is running 1.5seconds faster in this benchmark.

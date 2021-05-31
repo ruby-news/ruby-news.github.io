@@ -6,6 +6,7 @@
 @import "navbar.scss";
 @import "footer.scss";
 @import "fonts.scss";
+@import "preview_image.scss";
 @import "media_queries.scss";
 
 :root {
@@ -48,6 +49,7 @@
     color: var(--heading-text-color);
     font-weight: 600 !important;
     margin: 0;
+    line-height: normal;
   }
 }
 
@@ -74,6 +76,11 @@ h5 {
 
 h6 {
   font-size: 16px;
+}
+
+em {
+  font-family: 'Roboto-italic';
+  font-style: italic;
 }
 
 ::selection {
@@ -411,82 +418,7 @@ pre {
     height: 528px;
     border-radius: 8px;
 
-    .preview-img {
-      animation: fade-in 3s forwards;
-      line-height: 0!important;
-      position: relative;
-      height: 100% !important;
-
-      img.preview-img-1 {
-        object-fit: scale-down;
-        max-height: 300px;
-        z-index: 1;
-        position: relative;
-      }
-
-      img.preview-img-2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: blur(20px);
-      }
-
-      img.fit-cover {
-        object-fit: cover;
-      }
-    }
-
     &:hover { @include cardHoverEffect; }
-  }
-
-  .preview {
-    width: 100%;
-    height: 35%;
-    overflow: hidden;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-    position: relative;
-
-    &::before {
-      content: attr(hover-text-content);
-      text-shadow: 2px 2px 2px #0005;
-      font-size: 30px;
-      font-weight: normal;
-      color: var(--text-white);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #0006;
-      opacity: 0;
-      z-index: 1;
-      transition: var(--default-transition-time);
-      transform: translateY(-25%);
-    }
-
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-
-      & img {
-        transform: scale(1.25);
-      }
-    }
-  }
-
-  .preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--default-transition-time);
   }
 
   .heading .title {
@@ -588,15 +520,11 @@ pre {
   user-select: none;
 
   .page-link, .page-link-disabled, .ellipsis {
-    color: var(--secondary-text-color);
+    color: var(--text-medium);
     background-color: transparent;
     text-decoration: none !important;
-    // border-right: none !important;
-    padding: 8px 16px;
+    padding: 12px;
     transition: var(--default-transition-time);
-    border-radius: 4px;
-    min-width: initial;
-    height: 24px;
     font-weight: 500;
     line-height: 0;
     font-size: 14px;
@@ -611,12 +539,11 @@ pre {
   }
 
   .active  {
-    background-color: var(--primary-color);
-    color: var(--text-white);
+    color: var(--primary-color);
   }
 
   .page-link:hover {
-    background-color: #ddd;
+    transform: scale(0.75);
   }
 }
 
@@ -633,11 +560,22 @@ pre {
   position: relative;
   background-color: #000;
   margin-top: 5rem;
-  height: Min(550px, 90vh);
+  height: 450px;
   display: flex;
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+}
+
+#delaunay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: -1;
 }
 
 .arrows {
@@ -650,42 +588,39 @@ pre {
 .bg-blend {
   width: 100%;
   height: 100%;
-}
 
-.bg-blend .blend {
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/images/site-assets/homepage.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  display: block;
-}
+  .blend {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
 
-.bg-blend .blend::before, .bg-blend .blend::after {
-  font-size: Min(14vw, 120px);
-  font-weight: 900 !important;
-  line-height: normal;
-  white-space: nowrap;
-  background-color: #000;
-  object-fit: scale-down;
-}
+    &::before, &::after {
+      content: attr(content);
+      background-image: url('/assets/images/site-assets/homepage.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent !important;
+      font-size: Min(120px);
+      font-weight: 900 !important;
+      line-height: normal;
+    }
 
-.bg-blend .blend::before {
-  content: attr(content);
-  color: transparent !important;
-  text-shadow: 4px 4px 2px #55fa;
-  mix-blend-mode: lighten;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
 
-.bg-blend .blend::after {
-  content: attr(content);
-  color: #fff !important;
-  mix-blend-mode: multiply;
+    &::after {
+      z-index: -1;
+      filter: blur(6px);
+    }
+  }
 }
 
 .appear {

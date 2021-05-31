@@ -55,22 +55,28 @@
   <script src="/assets/javascript/top10.js"></script>
   <script src="/assets/javascript/material.min.js"></script>
 
+  <!-- Load Extra JS Files From Page -->
+  {% for js_file in page.js %}
+    <script src="{{ js_file }}"></script>
+  {% endfor %}
+
   <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
   {% include loader.css.html %}
   {% include arrow_animation.css.html %}
 </head>
 
 <body>
+
   <!-- Loader Should not be Fetched from Anywhere, should be directly on body -->
   {% include loader.html %}
 
-  <!-- Body of Rubynews -->
+  <!-- Body of Rubynews Top 10 -->
   <div class="wrapper">
     <header class="css-navbar">
       {% include navbar-white.html %}
     </header>
 
-    <main class="mt-5rem">
+    <main>
       {{ content }}
     </main>
 
