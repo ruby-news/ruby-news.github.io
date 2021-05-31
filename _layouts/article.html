@@ -1,8 +1,11 @@
 <!Doctype HTML>
+{% assign article_date = page.date | date: "%Y-%m-%d" %}
+{% assign preview_image_src= site.url | append: "/post_images/" | append: article_date | append: "/" | append: page.preview_image %}
 
 <html>
   <head>
     {% include meta_tags.html %}
+    <meta name="og:image" itemprop="image" content="{{ preview_image_src }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
@@ -92,7 +95,6 @@
 
       <div id="progress-bg"></div>
       <div id="progress"></div>
-      {% assign article_date = page.date | date: "%Y-%m-%d" %}
 
       <div class="popup-modal" id="subscribeModal">
         <div class="close-popup mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect" id="closeSubscribeModal">
@@ -160,7 +162,7 @@
 
               <div class="lazyload">
                 <div
-                  src="/post_images/{{ article_date }}/{{ page.preview_image }}"
+                  src="{{ preview_image_src }}"
                   loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"
                   full-background="{{ full_bg }}"
                   {% if page.round_borders %}
