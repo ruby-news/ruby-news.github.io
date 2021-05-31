@@ -102,17 +102,21 @@ document.addEventListener('DOMContentLoaded', function() {
     for(let i of document.querySelectorAll(`.appear-${direction}`)) {
       let delay = i.getAttribute('slide-delay') || 125
 
-      i.observer = new IntersectionObserver(e => {
-        if(e[0].isIntersecting) {
-          if(!i.observed) {
-            i.observed = true
-            i.style.animation = `appear-${direction} 0.5s ease forwards ${delay}ms`
-            if(i.observer) i.observer.unobserve(i)
+      if(typeof(IntersectionObserver) != "undefined") {
+        i.observer = new IntersectionObserver(e => {
+          if(e[0].isIntersecting) {
+            if(!i.observed) {
+              i.observed = true
+              i.style.animation = `appear-${direction} 0.5s ease forwards ${delay}ms`
+              if(i.observer) i.observer.unobserve(i)
+            }
           }
-        }
-      })
+        })
 
-      i.observer.observe(i)
+        i.observer.observe(i)
+      } else {
+        i.style.animation = `appear-${direction} 0.5s ease forwards ${delay}ms`
+      }
     }
   }
 
@@ -125,8 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const copyButtons = document.querySelectorAll('.copy')
   for(let copyButton of copyButtons) {
     let text = copyButton.getAttribute('text')
-
-    copyButton.onclick = () => {
+    let copyFunc = () => {
       let textArea = document.createElement('textarea')
       textArea.style.position = 'fixed'
       textArea.style.top = '0'
@@ -156,6 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       document.body.removeChild(textArea)
     }
+
+    copyButton.addEventListener('touchStart', () => { copyFunc() })
+    copyButton.onclick = () => { copyFunc() }
   }
 
   // Total posts counter

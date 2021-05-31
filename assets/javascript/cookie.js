@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
   ;(() => {
     if(!cookieContainer || !accept || !custom || !reject) return
 
+    reject.addEventListener('touchstart', () => {
+      dismissCookie()
+    })
+
     reject.onclick = () => {
       dismissCookie()
     }
@@ -33,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disqus = document.getElementById('disqusCookieToggler')
     let services = [google, disqus]
 
-    accept.onclick = () => {
+    let acceptEvent = () => {
       localStorage.cookieAccept = basic && basic.checked ? 1 : 0
 
       if(localStorage.cookieAccept == 1) {
@@ -47,10 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
       dismissCookie()
     }
 
+    accept.addEventListener('touchstart',  () => { acceptEvent() })
+    accept.onclick = () => { acceptEvent() }
+
+
     // Show the cookie options
     custom.collapsed = true
 
-    custom.onclick = () => {
+    let customEvent = () => {
       if(reject) reject.remove()
 
       let cookieSettings = document.getElementById("moreCookieSettings")
@@ -68,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
         custom.collapsed = true
       }
     }
+
+    custom.addEventListener('touchstart', () => { customEvent() })
+    custom.onclick = () => { customEvent() }
 
     ;(() => {
       for(let service of services) {

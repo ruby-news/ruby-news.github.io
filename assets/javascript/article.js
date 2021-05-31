@@ -8,22 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Handle subscribe modal
   const sM = document.getElementById('subscribeModal')
   const sMC = document.getElementById('closeSubscribeModal')
-  sM.style.transform = 'translate(-50%, -50%) scale(0)'
 
   // Article read progress
   const articleContent = document.getElementById('articleContent')
   const progressBar = document.getElementById('progress')
 
   if (sM && sMC) {
-    sMC.onclick = () => {
+    let sMCRemove = () => {
       sM.style.opacity = 0
       sM.style.transform = 'translate(-50%, -50%) scale(0)'
 
       setTimeout(() => {
-        let parentNode = sM.parentNode
-        if(parentNode) parentNode.removeChild(sM)
+        if(sM) sM.remove()
       }, 3000)
     }
+
+    sMC.addEventListener('touchstart', () => { sMCRemove() })
+    sMC.onclick = () => { sMCRemove() }
   }
 
   ;(() => {
@@ -33,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let endTime = null
 
     window.onscroll = () => {
-      let bcr = articleContent.getBoundingClientRect()
-
       let contentHeight = articleContent.clientHeight
       let offsetTop = articleContent.offsetTop
 
@@ -44,7 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
       percentComplete = percentComplete < 0 ? 0 : percentComplete > 100 ? 100 : percentComplete
       progressBar.style.width = `${percentComplete}%`
 
-      if (sM && percentComplete === 100) {
+      sM.visible = false
+
+      if (sM && !sM.visible && percentComplete === 100) {
+        sM.visible = true
         endTime ??= Date.now()
 
         if (endTime - startTime > 60000) {
