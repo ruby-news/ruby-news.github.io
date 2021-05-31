@@ -32,7 +32,19 @@
   }
 
   & #submitEmail {
-    display: none ;
+    display: none;
+  }
+
+  & #submitFormLabel {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #submit {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   & form.flex-center {
