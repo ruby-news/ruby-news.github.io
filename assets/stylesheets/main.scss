@@ -628,19 +628,19 @@ pre {
 
     &::before, &::after {
       content: attr(content);
-      background-image: url('/assets/images/site-assets/homepage.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent !important;
       font-size: 120px;
       font-weight: 900 !important;
       line-height: normal;
     }
 
     &::before {
+      background-repeat: no-repeat;
+      background-image: url('/assets/images/site-assets/homepage.jpg');
+      background-position: center;
+      background-size: cover;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent !important;
       position: absolute;
       top: 0;
       left: 0;
@@ -648,8 +648,9 @@ pre {
     }
 
     &::after {
+      color: #f55;
       z-index: -1;
-      filter: blur(6px);
+      text-shadow: 2px 2px 0px #FF0B54;
     }
   }
 }
