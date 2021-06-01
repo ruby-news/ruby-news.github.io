@@ -58,4 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   })()
+
+  // Disable translation on all pre and code tags
+  const pres = Array.from(document.getElementsByTagName('pre'))
+  const codes = Array.from(document.querySelectorAll('code'))
+
+  for(let i of pres.concat(codes)) {
+    i.setAttribute('translate', 'no')
+  }
 })
