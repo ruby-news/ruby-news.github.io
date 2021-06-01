@@ -195,6 +195,25 @@ document.addEventListener('DOMContentLoaded', function() {
     loadAnalytics()
   }
 
+  // Show delaunay only when the user intersects it (makes scrolling better on mobile devices)
+  const delaunay = document.getElementById('delaunay')
+
+  if(delaunay && typeof(IntersectionObserver)) {
+    new IntersectionObserver(e => {
+      if(e[0].isIntersecting) {
+        delaunay.style.visibility = 'visible'
+
+        let delaunayCanvas = document.querySelector('#delaunay canvas')
+        if(delaunayCanvas) delaunayCanvas.style.display = 'block'
+      }
+      else {
+        delaunay.style.visibility = 'hidden'
+        let delaunayCanvas = document.querySelector('#delaunay canvas')
+        if(delaunayCanvas) delaunayCanvas.style.display = 'none'
+      }
+    }).observe(delaunay)
+  }
+
   // Show the subscription modal only when the user spends > 1 minute on the website
   // And also, don't show the modal for 2 weeks when the user dismisses it
 })

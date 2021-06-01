@@ -37,13 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
       let contentHeight = articleContent.clientHeight
       let offsetTop = articleContent.offsetTop
 
-      console.log(contentHeight, offsetTop)
-
       let bottom = contentHeight + offsetTop - window.innerHeight
-      // console.log(bottom)
       let percentComplete = (window.scrollY * 100) / (bottom + 80)
-      // console.log(percentComplete)
-
 
       percentComplete = percentComplete < 0 ? 0 : percentComplete > 100 ? 100 : percentComplete
       progressBar.style.width = `${percentComplete}%`
@@ -63,4 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   })()
+
+  // Disable translation on all pre and code tags
+  const pres = Array.from(document.getElementsByTagName('pre'))
+  const codes = Array.from(document.querySelectorAll('code'))
+
+  for(let i of pres.concat(codes)) {
+    i.setAttribute('translate', 'no')
+  }
 })
