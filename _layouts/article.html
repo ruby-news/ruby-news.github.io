@@ -40,7 +40,8 @@
       let stylesheets = [
         "/assets/stylesheets/material.min.css",
         "/assets/stylesheets/main.css",
-        "/assets/stylesheets/articles.css"
+        "/assets/stylesheets/articles.css",
+        "/assets/stylesheets/subscribe-form.css"
       ]
 
       // Load other stylesheets
@@ -123,22 +124,7 @@
             <p class="ta-center" style="color: #444">If you liked this article, you can subscribe to our weekly email digest! It's completely free of cost. You can also unsubscribe any time!</p>
           </div>
 
-          <div class="subscribe-container">
-            <div class="form-wrapper">
-              <form action="#" class="flex-col-center-h">
-                <div class="p-1rem flex-row-center-h">
-                  <input type="email" maxlength="200" class="email-field b-rad-8px w-100p" placeholder="Enter your email here">
-                </div>
-
-                <label for="submitEmail" class="w-100p">
-                  <input type="submit" id="submitEmail">
-                  <button class="btn-transparent w-100p mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                    Subscribe
-                  </button>
-                </label>
-              </form>
-            </div>
-          </div>
+          {% include mailchimp_form.html %}
         </div>
       </div>
 

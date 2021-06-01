@@ -26,6 +26,14 @@ $code-bg: #222;
   }
 }
 
+/*
+  Hide text in submit form modal
+*/
+
+.submit-form-notice {
+  display: none;
+}
+
 .btn-share {
   background-color: transparent !important;
   width: 24px !important;
