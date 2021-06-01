@@ -139,4 +139,15 @@ These fields have a default value, and you may or may not include them.
 
 ---
 
-<h3 id="2">Writing a new Post - Front Matter Guide</h3>
+<h3 id="3">Uploading Images</h3>
+Images are very easy to mess up, and it's hard to track which image belongs to which article - if we have tonnes of unneeded images, we can't find them.
+
+To prevent this situation, we have a very specific way to upload images.
+Neverthless, uploading an image is simple, you need to keep these points in mind:
+
+* Go inside post_images
+* Create a new directory as the date of your post. For example: `2021-05-18`
+* Upload your images.
+* To set the preview image, upload the image, and then in the post set preview_image: "main.jpg"
+
+ They have

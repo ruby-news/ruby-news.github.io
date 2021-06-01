@@ -276,10 +276,34 @@ main {
   margin: 0 auto 4rem auto;
 }
 
+/*
+  Fonts
+*/
+
+.font-montseratt {
+  font-family: 'Montserrat' !important;
+}
+
+.font-suisseintl {
+  font-family: 'SuisseIntl' !important;
+}
+
+.font-roboto {
+  font-family: 'Roboto' !important;
+}
+
+.font-jetbrains-mono {
+  font-family: 'Jetbrains Mono' !important;
+}
+
 code {
   font-family: 'Jetbrains Mono', monospace;
   font-size: 14px;
 }
+
+/*
+  Other styles
+*/
 
 pre {
   font-family: 'Jetbrains Mono', monospace;
@@ -468,6 +492,7 @@ pre {
     -webkit-box-orient: vertical;
     box-orient: vertical;
     overflow: hidden;
+
     color: var(--text-medium) ;
   }
 
@@ -478,9 +503,10 @@ pre {
   }
 
   .tags ul li {
-    font-size: 12px;
+    font-family: 'Montserrat';
+    font-size: 14px;
     font-weight: 500;
-    color: var(--text-medium);
+    color: var(--primary-color);
     padding: 8px;
     border: 1px solid var(--primary-color);
     margin: 4px;

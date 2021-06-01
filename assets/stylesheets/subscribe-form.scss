@@ -19,8 +19,8 @@
   input.email-field {
     color: var(--text-medium);
     border: 1px solid var(--text-gray) ;
-    padding: 8px;
-    font-size: 20px;
+    padding: 4px;
+    font-size: 16px;
     font-weight: 600;
     transition: var(--default-transition-time);
     border-radius: 4px;
@@ -45,6 +45,8 @@
   #submit {
     padding: 0 !important;
     margin: 0 !important;
+    font-size: 16px;
+    padding: 4px !important;
   }
 
   & form.flex-center {
