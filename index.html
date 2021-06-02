@@ -2,7 +2,7 @@
 layout: rubynews
 
 # These fields are fetched from the rubynews layout to generate meta tags
-description: Ruby Weekly News Digest
+description:
 author: https://ruby.news
 keywords: ruby rubynews weekly digest
 
@@ -31,7 +31,7 @@ js:
     <!-- Show first 2 posts -->
     {% assign maxFirstPosts = 2 %}
     {% assign counter = 0 %}
-    {% assign articles = paginator.posts %}
+    {% assign articles = site.articles | sort: 'date' | reverse %}
 
     {% for article in articles %}
       {% assign counter = counter | plus: 1 %}
@@ -43,14 +43,12 @@ js:
     {% endfor %}
 
     <!-- Show the Email submit form -->
-    {% if paginator.page == 1 %}
-      {% include submit_form_card.html %}
-    {% endif %}
+    {% include submit_form_card.html %}
 
     <!-- Show the rest posts -->
     {% assign counter = 0 %}
 
-    {% for article in articles %}
+    {% for article in articles limit: 9 %}
       {% if counter < maxFirstPosts %}
         {% assign counter = counter | plus: 1 %}
         {% continue %}
@@ -61,5 +59,3 @@ js:
     {% endfor %}
   </div>
 </div>
-
-{% include paginator.html %}

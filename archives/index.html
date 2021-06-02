@@ -1,30 +1,51 @@
 ---
-layout: top10
+layout: rubynews
 
 # These fields are fetched from the rubynews layout to generate meta tags
-description:
+description: Ruby Weekly News Digest
 author: https://ruby.news
 keywords: ruby rubynews weekly digest
 
 # Extra scss / css file(s), don't use .css extension
 # Should be an YAML Array
-# stylesheets:
+stylesheets:
+  - /assets/stylesheets/subscribe-form
 
 # Extra javascript file(s)
 js:
   - /assets/javascript/particles.min.js
   - /assets/javascript/delaunay-settings.js
 ---
+
 {% include ruby_is_alive_top10.html %}
+
+<h2 style="width:75%;margin:4rem auto 0 auto" class="ta-center">
+  Latest Ruby news from the world
+</h2>
 
 <!-- Scroll to this section to have adequate margin to top of the page-content section -->
 <div  class="mb-4rem" id="mainContent"></div>
 
 <div class="page-content">
   <div class="grid-responsive-max-3x3">
-    <!-- Show all the posts -->
-    {% for article in site.top10 %}
+    <!-- Show first 2 posts -->
+    {% assign maxFirstPosts = 2 %}
+    {% assign counter = 0 %}
+    {% assign articles = paginator.posts %}
+
+    <!-- Show the rest posts -->
+    {% assign counter = 0 %}
+
+    {% for article in articles %}
+      {% if counter < maxFirstPosts %}
+        {% assign counter = counter | plus: 1 %}
+        {% continue %}
+      {% endif %}
+
       {% include indexpage_item.html %}
+
     {% endfor %}
   </div>
 </div>
+
+{% include paginator.html %}
