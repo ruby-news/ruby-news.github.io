@@ -18,9 +18,10 @@ sass:
 
 # Pagination
 paginate: 10
+paginate_path: "/archives/page:num/"
 
 collections:
-  top10:
+  articles:
     output: true
 
 # Some default webrick headers

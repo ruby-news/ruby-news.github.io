@@ -83,17 +83,16 @@ $navbar-margin: 2rem;
   }
 
   .menu-items > ul > li > a {
+    font-family: 'Montserrat';
     color: var(--navbar-text);
     text-decoration: none;
-    text-transform: uppercase;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.25s ease;
   }
 
   .menu-items > ul > li > a:hover {
     color: var(--secondary-text-color);
-
   }
 
   .navbar-inline-flex {

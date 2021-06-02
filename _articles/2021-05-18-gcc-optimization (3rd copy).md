@@ -3,12 +3,36 @@ active: "articles"
 layout: article
 date: 2021-05-18 10:22:58 +0530
 
+
 title:  "How to Make Ruby Fast with GCC Optimization"
 description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 preview_image: "main.jpg"
 tags: Ruby Optimization GCC
 author: 'Ruby News'
+
+
+###########################################
+#
+# Allows you to control behaviour on the index page cards
+# > Background shown on index page as list, default: true
+# > Blurring is only shown when full_background is set to false
+#    and the image doesn't fit the card. This is helpful for
+#    preview images with transparent background
+#    default: true
+preview_full_background: true
+preview_blur: false
+
+
+# Allows you to control behaviour on the article page
+# > Background shown on index page as list
+# > Blurring is only shown when full_background is set to false,
+#    and the image doesn't fit the grid
+#    article_full_background: false
+# > round_borders allows you to round the border of the home image,
+#    defualts to false
+article_preview_blur: false
+round_borders: true
 ---
 
 <initial>R</initial>uby is quite fast compared to Python or Perl:
@@ -64,11 +88,11 @@ You can also specify the compiler to the CC environment variable, for example CC
 
 <grid-2>
   Using different flags like -ffast-math or -Ofast will make ruby fail to round numbers, say 3.14159.round(2) will return 3.139999999999999.
-  <img src="/assets/posts/images/3/ffast-math.jpg">
+  <img src="/post_images/2021-05-18/ffast-math.jpg">
 </grid-2>
 
 <grid-2>
-  <img src="/assets/posts/images/3/ffast-math-rails.jpg">
+  <img src="/post_images/2021-05-18/ffast-math-rails.jpg">
   Here's how Rails looks after using Ofast optimization level! 🤦‍♂️🤦‍♂️
 </grid-2>
 

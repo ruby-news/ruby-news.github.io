@@ -120,6 +120,12 @@ break {
         background: linear-gradient(45deg, #ff0b54, #f33);
       }
 
+      td {
+        vertical-align: middle;
+        color: #fff;
+        font-weight: 600;
+      }
+
       th {
         color: #fff;
         font-size: 24px;
@@ -130,6 +136,7 @@ break {
     }
 
     td {
+      vertical-align: top;
       padding: 12px;
       text-align: left;
     }
@@ -468,7 +475,7 @@ break {
 
   .subscribe-container {
     input.email-field {
-      font-size: 16px !important;
+      font-size: 14px !important;
       height: 24px !important;
     }
 

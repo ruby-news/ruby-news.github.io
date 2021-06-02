@@ -31,13 +31,13 @@
 
     <div class="page-content-body">
       <div class="p-2rem">
-        <div class="date mt-1rem mb-1rem">
+        <div class="date mt-1rem mb-1rem font-montseratt">
           {{ article.date | date: '%-d %B %Y'}}
         </div>
 
         <div class="heading mb-1rem">
           {% if article.link %}
-            <h4 class="line-clamp-3">
+            <h4 class="line-clamp-3 font-montseratt">
               {{ article.title }}
             </h4>
             <img src="/assets/images/icons/external-link.svg" class="icon-16px">
@@ -50,12 +50,12 @@
         </div>
 
         <div class="pb-1rem">
-          <div class="description">
+          <div class="description font-roboto">
             {{ article.description }}
           </div>
         </div>
 
-        <div class="author">
+        <div class="author font-suisseintl">
           {{ article.author }}
         </div>
 
