@@ -670,18 +670,21 @@ pre {
 .floaters {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 0 2rem 0 2rem;
+  margin-top: 8rem;
+  margin-bottom: 3rem;
 
   .right {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: center;
   }
 
   .left {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
   }
 }

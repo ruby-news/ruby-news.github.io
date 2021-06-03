@@ -11,28 +11,29 @@ keywords: ruby rubynews weekly digest
 # Should be an YAML Array
 stylesheets:
   - /assets/stylesheets/subscribe-form
+  - /assets/stylesheets/gsc
 
 # Extra javascript file(s)
-js:
-  - /assets/javascript/particles.min.js
-  - /assets/javascript/delaunay-settings.js
+# js:
 ---
 
-<div class="mt-5rem">
-  <div class="floaters mt-5rem mb-5rem pl-2rem pr-2rem">
-    <h5 class="right">
-      Archived Posts
-    </h5>
+<div class="page-content">
+  <div class="mt-5rem">
+    <div class="floaters">
+      <h5 class="left">
+        Archived Posts
+      </h5>
 
-    <div class="left">
-        <div style="height:60px">
-          <div class="gcse-search"></div>
-        </div>
+      <div class="right">
+          <div style="height:60px">
+            <div id="observeSearch" style="width:100%;min-width:300px">
+              <div class="gcse-search"></div>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="page-content">
   <div class="grid-responsive-max-3x3">
     <!-- Show first 2 posts -->
     {% assign articles = paginator.posts %}

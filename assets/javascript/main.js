@@ -214,6 +214,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }).observe(delaunay)
   }
 
-  // Show the subscription modal only when the user spends > 1 minute on the website
-  // And also, don't show the modal for 2 weeks when the user dismisses it
+  /*
+    TODO
+    // Show the subscription modal only when the user spends > 1 minute on the website
+    // And also, don't show the modal for 2 weeks when the user dismisses it
+  */
+
+  // Alter google custom search look and feel
+  function gscInputMod() {
+    const gscInput = document.querySelector('input.gsc-input')
+    if(gscInput) gscInput.placeholder = 'Search Ruby News'
+  }
+
+  let mutationObserver = new MutationObserver(() => {
+    gscInputMod()
+  })
+
+  let observe = document.getElementById('observeSearch')
+
+  mutationObserver.observe(observe, {
+    childList: true,
+    substree: false,
+    attributes: false,
+    characterData: false
+  })
 })
