@@ -10,9 +10,9 @@
 <div class="card-wrapper">
   <div class="card">
       {% if article.link %}
-        <div class="preview lazyload" hover-text-content="Read Article &#x1f517;">
+        <div class="read-article-external lazyload" hover-text-content="Read Article">
       {% else %}
-        <div class="preview lazyload" hover-text-content="Read Article">
+        <div class="read-article lazyload" hover-text-content="Read Article">
       {% endif %}
 
       {% assign full_bg = true %}
@@ -40,8 +40,6 @@
             <h4 class="line-clamp-3 font-montseratt">
               {{ article.title }}
             </h4>
-            <img src="/assets/images/icons/external-link.svg" class="icon-16px">
-
           {% elsif article.file %}
             <h4 class="line-clamp-3">{{ article.title }}</h4>
           {% else %}
