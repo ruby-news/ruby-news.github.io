@@ -666,3 +666,22 @@ pre {
   font-size: 40px;
   font-family: 'Jetbrains Mono';
 }
+
+.floaters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}

@@ -18,14 +18,19 @@ js:
   - /assets/javascript/delaunay-settings.js
 ---
 
-{% include ruby_is_alive_top10.html %}
+<div class="mt-5rem">
+  <div class="floaters mt-5rem mb-5rem pl-2rem pr-2rem">
+    <h5 class="right">
+      Archived Posts
+    </h5>
 
-<h2 style="width:75%;margin:4rem auto 0 auto" class="ta-center">
-  Archived Posts
-</h2>
-
-<!-- Scroll to this section to have adequate margin to top of the page-content section -->
-<div  class="mb-4rem" id="mainContent"></div>
+    <div class="left">
+        <div style="height:60px">
+          <div class="gcse-search"></div>
+        </div>
+    </div>
+  </div>
+</div>
 
 <div class="page-content">
   <div class="grid-responsive-max-3x3">
@@ -37,5 +42,7 @@ js:
     {% endfor %}
   </div>
 </div>
+
+<script async src="https://cse.google.com/cse.js?cx=f8fb562776e23cc4e"></script>
 
 {% include paginator.html %}
