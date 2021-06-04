@@ -36,7 +36,11 @@ stylesheets:
   <div class="mt-5rem"></div>
 
   <h4 class="mb-4rem ta-center">
-    {{ articles.last.date | date: '%b %Y' }} - {{ articles.first.date | date: '%b %Y' }}
+    {% if articles.size > 1 %}
+      {{ articles.last.date | date: '%b %Y' }} - {{ articles.first.date | date: '%b %Y' }}
+    {% else %}
+      {{ articles.last.date | date: '%b %Y' }}
+    {% endif %}
   </h4>
 
   <div class="grid-responsive-max-3x3">
