@@ -1,0 +1,129 @@
+<!Doctype HTML>
+{% assign article_date = page.date | date: "%Y-%m-%d" %}
+{% assign preview_image_src= site.url | append: "/post_images/" | append: article_date | append: "/" | append: page.preview_image %}
+
+<html>
+  <head>
+    {% include meta_tags.html %}
+    <meta name="og:image" itemprop="image" content="{{ preview_image_src }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
+    <link rel="shortcut icon" type="image/png" sizes="80x80" href="/assets/images/logo/logo80.png">
+    <link rel="shortcut icon" type="image/png" sizes="64x64" href="/assets/images/logo/logo64.png">
+    <link rel="shortcut icon" type="image/png" sizes="48x48" href="/assets/images/logo/logo48.png">
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo32.png">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/assets/images/logo/logo16.png">
+
+    <title>RubyNEA</title>
+
+    <!-- Any CDN Links? -->
+    <!-- -->
+    <!-- -->
+
+    <!-- Stylesheets -->
+    <!-- Preload required stylesheets -->
+    <link rel="preload" as="style" href="/assets/stylesheets/material.min.css">
+    <link rel="preload" as="style" href="/assets/stylesheets/main.css">
+    <link rel="preload" as="style" href="/assets/stylesheets/articles.css">
+
+    <!-- Load all the stylesheet synchronously -->
+    <!-- Don't wait for the stylesheets before showing the loader -->
+    <!-- With direct link tag, stylesheets loading can be ignored by the loader -->
+    <script>
+      // Paste stylesheet links here!
+      // Keep things like materialLite or bootstrap at first to prevent
+      // your own style from overriding!
+      // CSS Libraries are quite notorious
+      // For even defining their own body fonts!
+
+      let stylesheets = [
+        "/assets/stylesheets/material.min.css",
+        "/assets/stylesheets/main.css",
+        "/assets/stylesheets/articles.css"
+      ]
+
+      // Load other stylesheets
+      const otherStylesheets = "{{ page.stylesheets }}".split(',').map(x => x.trim())
+      if (otherStylesheets) stylesheets = stylesheets.concat(otherStylesheets)
+
+      // Append all stylesheets to head while the loader is shown
+      for(let stylesheetLink of stylesheets) {
+        if (stylesheetLink) {
+          let link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.type = 'text/css'
+          link.href = stylesheetLink.substr(-4) === '.css' ? stylesheetLink : stylesheetLink + '.css'
+
+          document.head.appendChild(link)
+        }
+      }
+    </script>
+
+    <!-- Javascript -->
+    <link rel="preload" as="script" href="/assets/javascript/main.js">
+    <link rel="preload" as="script" href="/assets/javascript/article.js">
+    <link rel="preload" as="script" href="/assets/javascript/confetti.js">
+    <link rel="preload" as="script" href="/assets/javascript/material.min.js">
+
+    <script src="/assets/javascript/main.js"></script>
+    <script src="/assets/javascript/article.js"></script>
+    <script src="/assets/javascript/material.min.js"></script>
+    <script src="/assets/javascript/confetti.js"></script>
+
+    <!-- Loader Related CSS, Should be a Partial or Code inside Head -->
+    {% include loader.css.html %}
+    {% include arrow_animation.css.html %}
+
+    <style>
+      .wrapper {
+        background-color: #000;
+      }
+
+      .wrapper * {
+        color: var(--text-white) !important;
+      }
+
+      .blog-contents {
+        width: 100%;
+        overflow: hidden !important;
+      }
+    </style>
+	</head>
+
+	<body>
+		{% if page.js %}
+			{% for javascript in page.js %}
+				<script src="{{ javascript }}.js"></script>
+			{% endfor %}
+		{% endif %}
+		<!-- End of loading all necessary files and libraries -->
+
+    {% include loader.html %}
+
+    <!-- Body of Ruby News -->
+    <div class="wrapper">
+      <header class="css-navbar">
+        {% include navbar.html %}
+      </header>
+
+      <main>
+        {% include cookie.html %}
+
+        <div class="blog-contents">
+
+          <break></break>
+          <div id="articleContent">
+            {{ content }}
+          </div>
+
+          <div class="mt-2rem"></div>
+        </div>
+      </main>
+
+      <footer>
+        {% include footer.html %}
+      </footer>
+    </div>
+	</body>
+</html>
