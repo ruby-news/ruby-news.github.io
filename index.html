@@ -32,7 +32,7 @@ js:
     <!-- Show first 2 posts -->
     {% assign maxFirstPosts = 2 %}
     {% assign counter = 0 %}
-    {% assign articles = site.articles | sort: 'date' | reverse %}
+    {% assign articles = site.posts | sort: 'date' | reverse %}
 
     {% for article in articles %}
       {% assign counter = counter | plus: 1 %}
