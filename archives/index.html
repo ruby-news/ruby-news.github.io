@@ -18,22 +18,22 @@ stylesheets:
 ---
 {% assign articles = paginator.posts | sort: 'date' | reverse %}
 
-<div class="page-content">
-  <div class="mt-5rem">
-    <div class="floaters">
-      <h5 class="left">
-        Archived Posts
-      </h5>
+<div class="floaters">
+  <h5 class="left">
+    Archived Posts
+  </h5>
 
-      <div class="right">
-          <div style="height:60px">
-            <div id="observeSearch" style="width:100%;min-width:300px">
-              <div class="gcse-search"></div>
-            </div>
-          </div>
+  <div class="right">
+      <div style="height:60px">
+        <div id="observeSearch" style="width:100%;min-width:300px">
+          <div class="gcse-search"></div>
+        </div>
       </div>
-    </div>
   </div>
+</div>
+
+<div class="page-content">
+  <div class="mt-5rem"></div>
 
   <h4 class="mb-4rem ta-center">
     {{ articles.last.date | date: '%b %Y' }} - {{ articles.first.date | date: '%b %Y' }}
