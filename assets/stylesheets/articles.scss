@@ -117,18 +117,18 @@ break {
       border-top-right-radius: 8px;
 
       tr {
-        background: linear-gradient(45deg, #ff0b54, #f33);
+        background-color: var(--white);
       }
 
       td {
         vertical-align: middle;
-        color: #fff;
+        color: #000;
         font-weight: 600;
       }
 
       th {
-        color: #fff;
-        font-size: 24px;
+        color: #000;
+        font-size: 18px;
         font-weight: bold;
         padding: 12px;
         text-align: left;
@@ -139,10 +139,7 @@ break {
       vertical-align: top;
       padding: 12px;
       text-align: left;
-    }
-
-    tr:nth-of-type(odd) {
-      background-color: #efefef;
+      border-bottom: 1px solid #0004;
     }
   }
 
