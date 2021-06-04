@@ -1,14 +1,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="{{ page.description }}">
-<meta name="author" content="{{ page.author }}">
+{% if page.author %}
+  <meta name="author" content="{{ page.author }}">
+{% else %}
+  <meta name="author" content="Ruby News">
+{% endif %}
 <meta name="keywords" content="{{ page.keywords }}">
 <meta name="revisit-after" content="3-days">
-<meta name="robots" content="{{ page.description }}">
+
+{% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  <meta name="robots" content="{{ page.description }}">
+  <meta name="og:description" content="{{ page.description }}">
+{% else %}
+  <meta name="description" content="{{ page.tile }}">
+  <meta name="robots" content="{{ page.tile }}">
+  <meta name="og:description" content="{{ page.tile }}">
+{% endif %}
+
 <meta name="title" content="{{ page.title }}">
 
 <!-- Open Graphics Tags -->
-<meta name="og:description" content="{{ page.description }}">
 <meta name="og:title" content="{{ page.title }}">
 <meta name="og:type" content="website">
 <meta name="og:url" content="{{ site.url }}">

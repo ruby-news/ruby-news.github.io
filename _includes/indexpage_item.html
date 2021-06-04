@@ -49,12 +49,20 @@
 
         <div class="pb-1rem">
           <div class="description font-roboto">
-            {{ article.description }}
+            {% if article.description %}
+              {{ article.description }}
+            {% else %}
+              {{ article.title }}
+            {% endif %}
           </div>
         </div>
 
         <div class="author font-suisseintl">
-          {{ article.author }}
+          {% if article.author %}
+            {{ article.author }}
+          {% else %}
+            Ruby News
+          {% endif %}
         </div>
 
         {% if article.tags %}
