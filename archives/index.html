@@ -16,6 +16,7 @@ stylesheets:
 # Extra javascript file(s)
 # js:
 ---
+{% assign articles = paginator.posts | sort: 'date' | reverse %}
 
 <div class="page-content">
   <div class="mt-5rem">
@@ -34,10 +35,11 @@ stylesheets:
     </div>
   </div>
 
-  <div class="grid-responsive-max-3x3">
-    <!-- Show first 2 posts -->
-    {% assign articles = paginator.posts %}
+  <h4 class="mb-4rem ta-center">
+    {{ articles.last.date | date: '%b %Y' }} - {{ articles.first.date | date: '%b %Y' }}
+  </h4>
 
+  <div class="grid-responsive-max-3x3">
     {% for article in articles %}
       {% include indexpage_item.html %}
     {% endfor %}
