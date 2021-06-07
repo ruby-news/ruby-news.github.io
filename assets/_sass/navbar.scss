@@ -189,7 +189,7 @@ $navbar-margin: 2rem;
     transition: 0.25s;
     position: relative;
     height: 100% !important;
-    z-index: 0;
+    z-index: 1000;
     display: grid;
     grid-template-columns: 3fr 1fr;
   }
@@ -203,6 +203,7 @@ $navbar-margin: 2rem;
       right: 5%;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 10000;
     }
 
     #nav-check:not(:checked) ~ .menu-links {
