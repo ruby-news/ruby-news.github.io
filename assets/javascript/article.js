@@ -30,8 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
   ;(() => {
     if(!articleContent) return
     if(!progressBar) return
+    if(!sM) return
 
     let endTime = null
+    sM.visible = false
 
     window.onscroll = () => {
       let contentHeight = articleContent.clientHeight
@@ -43,9 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       percentComplete = percentComplete < 0 ? 0 : percentComplete > 100 ? 100 : percentComplete
       progressBar.style.width = `${percentComplete}%`
 
-      sM.visible = false
-
-      if (sM && !sM.visible && percentComplete === 100) {
+      if (!sM.visible && percentComplete === 100) {
         sM.visible = true
         if(!endTime) endTime = Date.now()
 
