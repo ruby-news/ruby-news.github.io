@@ -232,10 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let observe = document.getElementById('observeSearch')
 
-  mutationObserver.observe(observe, {
-    childList: true,
-    substree: false,
-    attributes: false,
-    characterData: false
-  })
+  if (observe) {
+    mutationObserver.observe(observe, {
+      childList: true,
+      substree: false,
+      attributes: false,
+      characterData: false
+    })
+  }
 })
