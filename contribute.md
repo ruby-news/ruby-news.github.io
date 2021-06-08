@@ -13,7 +13,7 @@ author: 'Ruby News'
 
 ### Welcome to Ruby News Contribution Guide!
 
-<initial>R</initial>uby News is a webiste where we weekly tips, tricks and guides about the Ruby programming language!
+<initial>R</initial>uby News is a website where we weekly tips, tricks and guides about the Ruby programming language!
 
 Not only this site is open source, but anyone can contribute to Ruby News!
 
@@ -38,7 +38,7 @@ Here in this guide, we are going to take a look at how we can contribute article
 An article can be either in **HTML** or **Markdown** format
 
 ##### 1. HTML:
-HTML formatting can be easy but it can consume a lot of time becuase all the tags
+HTML formatting can be easy but it can consume a lot of time because all the tags
 
 * HTML files have .html extension.
 * HTML documents have opening and closing tags, and sometimes empty tags
@@ -48,7 +48,7 @@ HTML formatting can be easy but it can consume a lot of time becuase all the tag
 We recommend using markdown because:
 
 * Markdown files can have either .md or .markdown extension.
-* It's Simple and fast to finish an article in markdown.
+* It's simple enough hence faster to write an article in markdown.
 * It doesn't need any opening and closing tag.
 * Uniform styles are automatically fetched from our codebase.
 
@@ -69,7 +69,7 @@ To write a new post:
 * The file should have a front-matter - front-matters are simple YAML code that determines
   the post title, date, description, the preview image, etc.
 
-  All files should start with this lines of code:
+  All files should start with these lines of code:
 
 ```
 ---
@@ -87,9 +87,9 @@ author: 'Ruby News'
 ###########################################
 #
 # Allows you to control behaviour on the index page cards
-# > Background shown on index page as list, default: true
+# > Background shown on the index page as a list, default: true
 # > Blurring is only shown when full_background is set to false
-#    and the image doesn't fit the card. This is helpful for
+#    and the image don't fit the card. This is helpful for
 #    preview images with transparent background
 #    default: true
 preview_full_background: false
@@ -97,7 +97,7 @@ preview_blur: true
 
 
 # Allows you to control behaviour on the article page
-# > Background shown on index page as list
+# > Background shown on index page as a list
 # > Blurring is only shown when full_background is set to false,
 #    and the image doesn't fit the grid
 #    article_full_background: false
@@ -115,10 +115,10 @@ Right, the code is wrapped inside `---`.
 1. layout: The `layout` line determines the layout - it's always `article`
 2. title: The `title` mentions the title of the post. This defaults to the post title, if not provided.
 3. description: Description describes the articles in few words. The default is the post title if not provided.
-4. file: The file name! It's actually the filename without the date. For example,
+4. file: The file name! It's the filename without the date. For example,
     If your file name is `2021-05-18-hello-world.md`, then your file name is `hello-world`
-    If it's not a file, then it could be a hyper link! In that case, clicking on the link will take you to other page in a new browser tab.
-5. preview_image: This field determines the image to be shown in the index page! We will soon see where to upload images and assets.
+    If it's not a file, then it could be a hyperlink! In that case, clicking on the link will take you to another page in a new browser tab.
+5. preview_image: This field determine the image to be shown in the index page! We will soon see where to upload images and assets.
 6. tags: `tags` helps you to better categorize your post!
 7. author: This field determines the author name. It could be your name.
 
@@ -132,7 +132,7 @@ article_preview_blur: true
 round_borders: false
 ```
 
-These fields determines the image styling done on the index page and in your post!
+These fields determine the image styling done on the index page and in your post!
 These fields have a default value, and you may or may not include them.
 
 ---
@@ -141,7 +141,7 @@ These fields have a default value, and you may or may not include them.
 Images are very easy to mess up, and it's hard to track which image belongs to which article - if we have tonnes of unneeded images, we can't find them.
 
 To prevent this situation, we have a very specific way to upload images.
-Neverthless, uploading an image is simple, you need to keep these points in mind:
+Nevertheless, uploading an image is simple, you need to keep these points in mind:
 
 * Go inside post_images
 * Create a new directory as the date of your post. For example: `2021-05-18`
@@ -151,7 +151,7 @@ Neverthless, uploading an image is simple, you need to keep these points in mind
 ---
 
 <h3 id="4">Markdown Cheatsheet</h3>
-The articles that you upload should be a markdown, markdown files ends with .md or .markdown extension.
+The articles that you upload should be a markdown, markdown files end with .md or .markdown extension.
 
 Here's a cheatsheet of markdown from
 ##### Basic Syntax:
@@ -318,12 +318,12 @@ Make sure to close tags properly when required.
 After you wrote an article, you need to push it to the codebase. For pushing an article to the codebase:
 
 * You can fork the project, and write some articles there:
-  + All the articles goes to `_posts/` directory
+  + All the articles go to `_posts/` directory
   + All the images goes to `_images/yyyy-mm-dd/` directory, where the yyyy is your post year, mm is the month and dd is the date.
 
 * If your git skill is a bit rusty, feel free to drag-drop articles to your forked copy of this repo. And send us a Pull Request.
 
 * You will be an author of that article once your contribution is merged by the moderators.
-* You don't have to worry SEO and search features, everything is just automatic :)
+* You don't have to worry about SEO and search features, everything is just automatic :)
 
 ##### Let us know your thoughts below in the comments!
