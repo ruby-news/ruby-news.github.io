@@ -88,14 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Navbar close on escape button on small desktops
   const navButton = document.getElementById('nav-check')
-  document.onkeydown = function(evt) {
+  document.addEventListener('keydown', function(evt) {
     evt = evt || window.event
 
     if(
       (navButton.checked && "key" in evt) &&
       (evt.key == 'Escape' || evt.key == 'Esc')
     ) navButton.checked = false
-  }
+  })
 
   // Scroll elements into view when the element is intersecting
   function observeComponents(direction) {
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const escapeRemove = document.querySelectorAll('.esc-remove')
   const escapeCollapse = document.querySelectorAll('.esc-collapse')
 
-  document.onkeydown = function(evt) {
+  document.addEventListener('keydown', function(evt) {
     evt = evt || window.event
 
     // Remove classes with esc-remove to close with escape key press
@@ -262,8 +262,5 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => { if(i) i.remove() }, 3000)
       }
     }
-
-  }
-
-
+  })
 })
