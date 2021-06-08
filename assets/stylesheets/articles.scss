@@ -312,7 +312,7 @@ break {
 
     & file {
       display: block ;
-      color: #000 ;
+      color: var(--text-white);
       font-size: 12px ;
       width: 100%;
       font-weight: bold ;
@@ -321,7 +321,7 @@ break {
 
     file::before {
       content: '' ;
-      background: url("/assets/articles/base-images/text-x-generic.svg") no-repeat ;
+      background: url("/assets/images/icons/text-x-generic.svg") no-repeat ;
       background-size: cover ;
       height: 24px ;
       width: 24px ;
