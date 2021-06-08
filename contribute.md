@@ -26,7 +26,7 @@ Here in this guide, we are going to take a look at how we can contribute article
 | Section                                                          |
 --------------------------------------------------------|
 | [File formats](#1)                                            |
-| [Writing a new Post - Front Matter Guide](#2)   |
+| [Uploading a new Post and Link - Front Matter Guide](#2)   |
 | [Uploading Images](#3)                                     |
 | [Markdown Cheatsheet](#4)       |
 | [Markdown with Specific HTML Tags](#5)       |
@@ -52,7 +52,7 @@ We recommend using markdown because:
 * It doesn't need any opening and closing tag.
 * Uniform styles are automatically fetched from our codebase.
 
-<h3 id="2">Writing a new Post - Front Matter Guide</h3>
+<h3 id="2">Uploading a new Post and Link - Front Matter Guide</h3>
 We would prefer markdown files for article creation.
 
 To write a new post:
@@ -135,6 +135,35 @@ round_borders: false
 These fields determine the image styling done on the index page and in your post!
 These fields have a default value, and you may or may not include them.
 
+
+##### Uploading only links:
+To upload links only:
+
+* Create a `.md` file inside _posts directory, with the format `yyyy-mm-dd-post-name.md`
+* Create an image directory inside posts_images/yyyy-mm-dd, with the same year, month and date, unless the folder already exists.
+
+Put the contents:
+
+```
+---
+active: "articles"
+layout: article
+
+link: https://some-website.net
+tags: Testing
+preview_image: "main.jpg"
+author: 'Author Name'
+
+# Background shown on index page as list
+# preview_full_background: false
+# preview_blur: true
+---
+```
+
+As a regular article, the preview_image will get automatically fetched from `posts_images/yyyy-mm-dd/main.jpg`.
+
+Clicking on the link will take the user to the link in a new browser tab.
+
 ---
 
 <h3 id="3">Uploading Images</h3>
@@ -153,22 +182,21 @@ Nevertheless, uploading an image is simple, you need to keep these points in min
 <h3 id="4">Markdown Cheatsheet</h3>
 The articles that you upload should be a markdown, markdown files end with .md or .markdown extension.
 
-Here's a cheatsheet of markdown from
+Here's a cheatsheet of markdown from [markdownguide.org](https://www.markdownguide.org/cheat-sheet/)
 ##### Basic Syntax:
 
 | Element                                                   | Markdown Syntax                                           |
 | --------------------------------------------------------- | --------------------------------------------------------- |
-| [Heading](</basic-syntax/#headings>)                      | `# H1<br> ## H2<br> ### H3`                               |
-| [Bold](</basic-syntax/#bold>)                             | `**bold text**`                                           |
-| [Italic](</basic-syntax/#italic>)                         | `*italicized text*`                                       |
-| [Blockquote](</basic-syntax/#blockquotes-1>)              | `&gt; blockquote`                                         |
-| [Ordered List](</basic-syntax/#ordered-lists>)            | ` 1. First item<br> 2. Second item<br> 3. Third item<br>` |
-| [Unordered List](</basic-syntax/#unordered-lists>)        | ` - First item<br> - Second item<br> - Third item<br>`    |
-
-| [Code](</basic-syntax/#code>)                             | ``code``                                                  |
-| [Horizontal Rule](</basic-syntax/#horizontal-rules>)      | `---`                                                     |
-| [Link](</basic-syntax/#links>)                            | `[title](https://www.example.com)`                        |
-| [Image](</basic-syntax/#images-1>)                        | `![alt text](image.jpg)`                                  |
+| Heading                      | `# H1<br> ## H2<br> ### H3`                               |
+| Bold                             | `**bold text**`                                           |
+| Italic                         | `*italicized text*`                                       |
+| Blockquote              | `&gt; blockquote`                                         |
+| Ordered List            | 1. First item<br> 2. Second item<br> 3. Third item<br> |
+| Unordered List        | - First item<br> - Second item<br> - Third item<br>   |
+| Code                             | ``` `code` ```                                                  |
+| Horizontal Rule      | `---`                                                     |
+| Link                            | `[title](https://www.example.com)`                        |
+| Image                        | `![alt text](image.jpg)`                                  |
 
 ##### Extended Syntax:
 
@@ -181,7 +209,7 @@ Here's a cheatsheet of markdown from
   </thead>
   <tbody>
     <tr>
-      <td><a href="/extended-syntax/#tables">Table</a></td>
+      <td>Table</td>
       <td><code>
           | Syntax      | Description |<br>
           | ----------- | ----------- |<br>
@@ -190,7 +218,7 @@ Here's a cheatsheet of markdown from
       </code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#fenced-code-blocks">Fenced Code Block</a></td>
+      <td>Fenced Code Block</td>
       <td><code>```<br>
       {<br>
       &nbsp;&nbsp;"firstName": "John",<br>
@@ -201,7 +229,7 @@ Here's a cheatsheet of markdown from
       </code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#footnotes">Footnote</a></td>
+      <td>Footnote</td>
       <td><code>
         Here's a sentence with a footnote. [^1]<br><br>
 
@@ -209,22 +237,22 @@ Here's a cheatsheet of markdown from
       </code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#heading-ids">Heading ID</a></td>
+      <td>Heading ID</td>
       <td><code>### My Great Heading {#custom-id}</code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#definition-lists">Definition List</a></td>
+      <td>Definition List</td>
       <td><code>
         term<br>
         : definition
       </code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#strikethrough">Strikethrough</a></td>
+      <td>Strikethrough</td>
       <td><code>~~The world is flat.~~</code></td>
     </tr>
     <tr>
-      <td><a href="/extended-syntax/#task-lists">Task List</a></td>
+      <td>Task List</td>
       <td><code>
         - [x] Write the press release<br>
         - [ ] Update the website<br>
