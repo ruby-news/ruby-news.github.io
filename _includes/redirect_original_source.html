@@ -1,0 +1,29 @@
+<div class="p-1rem pt-6rem">
+  <h6>You are being redirected to
+    <a href="{{ page.link }}">{{ page.link }}</a>
+  </h6>
+
+  <div class="ta-center" style="margin-top:40px">
+    <span style="color:#fff;background-color:#FF0B54;border-radius:50%/50%;padding:20px"
+      class="counter">
+        3
+    </span>
+  </div>
+</div>
+
+<script>
+  const counters = Array.from(document.getElementsByClassName('counter'))
+  let counter = 3
+
+  let counterInterval = setInterval(() => {
+    for (let i of counters) {
+      i.innerHTML = --counter
+
+      if (counter < 1) {
+        clearInterval(counterInterval)
+        window.location.replace("{{ page.link }}")
+      }
+    }
+  }, 1000)
+
+</script>
