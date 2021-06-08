@@ -642,15 +642,19 @@ pre {
       -webkit-background-clip: text;
       color: transparent !important;
       position: absolute;
-      top: 0;
-      left: 0;
+      top: -2px;
+      left: -2px;
       z-index: 1;
     }
 
     &::after {
-      color: #f55;
+      color: transparent;
       z-index: -1;
-      text-shadow: 2px 2px 0px #FF0B54;
+      background: linear-gradient(45deg, #22f, #f55, #44f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      opacity: 0.2;
+      animation: fade-in 2s ease forwards;
     }
   }
 }
