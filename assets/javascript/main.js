@@ -240,4 +240,30 @@ document.addEventListener('DOMContentLoaded', function() {
       characterData: false
     })
   }
+
+  // Remove classes with esc-remove, esc-collapse to close with escape key press
+  const escapeRemove = document.querySelectorAll('.esc-remove')
+  const escapeCollapse = document.querySelectorAll('.esc-collapse')
+
+  document.onkeydown = function(evt) {
+    evt = evt || window.event
+
+    // Remove classes with esc-remove to close with escape key press
+    for(let i of escapeRemove) {
+      if((i && "key" in evt) && (evt.key == 'Escape' || evt.key == 'Esc'))
+        i.remove()
+    }
+
+    // Remove classes with esc-collapse to close with escape key press
+    for(let i of escapeCollapse) {
+      if((i && "key" in evt) && (evt.key == 'Escape' || evt.key == 'Esc')) {
+        i.style.opacity = 0
+
+        setTimeout(() => { if(i) i.remove() }, 3000)
+      }
+    }
+
+  }
+
+
 })
