@@ -16,6 +16,10 @@
   z-index: 100000;
   overflow: hidden;
 
+  & * {
+    color: #222 !important;
+  }
+
   .cookie-relative {
     position: relative;
     width:100%;

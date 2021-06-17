@@ -12,7 +12,7 @@
       </div>
 
       <div>
-        <p style="color:#222!important">We use cookies to personalise content, to provide social media features and to analyse our traffic.</p>
+        <p>We use cookies to personalise content, to provide social media features and to analyse our traffic.</p>
       </div>
     </div>
 
@@ -83,11 +83,13 @@
   </div>
 </div>
 
+<!-- Don't show cookie container when it's already accepted -->
+<!-- Avoid this code to be fetched from a different file -->
 <script>
-if(localStorage.cookieAccept == 1) {
-  let _cookieContainer = document.getElementById('cookieContainer')
-  if(_cookieContainer) cookieContainer.remove()
-}
+  if(localStorage.cookieAccept == 1) {
+    let _cookieContainer = document.getElementById('cookieContainer')
+    if(_cookieContainer) cookieContainer.remove()
+  }
 </script>
 
 <link rel="stylesheet" href="/assets/stylesheets/cookie.css">
