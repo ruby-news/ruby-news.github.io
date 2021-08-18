@@ -10,5 +10,5 @@ file: "contribute"
 tags: Contact RubyNews
 author: 'Ruby News'
 ---
-
-### Contact Ruby News
+<h3 align="center">Contact Ruby News</h3>
+<h1 align="center" style="margin-top: 100px;">👋 hello@ruby.news</h1>
