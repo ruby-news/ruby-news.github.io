@@ -2,13 +2,13 @@
 active: "articles"
 layout: article
 
-title:  "Modern JavaScript in Rails 7 without Webpack"
-description: "No need for transpiling to write JavaScript, no need for bundling to package all your modules. No need for any JavaScript toolchain to turn your source code into anything else. An entire class of complexity stands at the precipice."
-file: "Modern-JavaScript-in-Rails-7-without-Webpack"
-link: https://world.hey.com/dhh/modern-web-apps-without-javascript-bundling-or-transpiling-a20f2755
-preview_image: "Modern-JavaScript-in-Rails-7-without-Webpack.png"
-tags: Rails7, JS, DHH
-author: 'DHH'
+title:  "How to Build a Twitter Clone with Rails and Hotwire"
+description: "All you need is the Rails install, gem install, and javascript package installs, and you could make it through this tutorial in less than 10 minutes"
+file: "How-to-Build-a-Twitter-Clone-with-Rails-and-Hotwire"
+link: https://robrace.dev/build-a-twitter-clone-with-rails-hotwire/
+preview_image: "How-to-Build-a-Twitter-Clone-with-Rails-and-Hotwire.png"
+tags: Hotwire
+author: 'Rob Race'
 
 
 ###########################################
