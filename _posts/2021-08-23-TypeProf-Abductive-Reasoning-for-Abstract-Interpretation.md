@@ -34,8 +34,6 @@ article_preview_blur: true
 round_borders: false
 ---
 
-<img width="250" src="/post_images/2021-08-23/ruby-typeprof-2.png">
-
 > *When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck* - **Heim, Michael. Exploring Indiana Highways**
 
 TypeProf is a Ruby interpreter that abstractly executes Ruby programs at the type level. It executes a given program and observes what types are passed to and returned from methods and what types are assigned to instance variables. All values are, in principle, abstracted to the class to which the object belongs, not the object itself.
