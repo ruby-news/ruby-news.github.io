@@ -9,18 +9,20 @@
 <meta name="revisit-after" content="3-days">
 
 {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
   <meta name="description" property="og:description" content="{{ page.description }}">
   <meta name="robots" content="{{ page.description }}">
 {% else %}
+  <meta name="description" content="{{ page.title }}">
   <meta name="description" property="og:description" content="{{ page.title }}">
   <meta name="robots" content="{{ page.title }}">
 {% endif %}
 
 <!-- Open Graphics Tags -->
+<meta property="og:site_name" content="Ruby News">
 <meta name="title" property="og:title" content="{{ page.title }}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{{ site.url }}">
-<meta property="og:site_name" content="{{ site.url }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="en_AU">
 <meta property="og:locale:alternate" content="en_CA">
