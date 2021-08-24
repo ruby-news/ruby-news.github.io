@@ -150,17 +150,19 @@
                   {% assign blurred_bg = false %}
                 {% endif %}
 
-                <div class="lazyload">
-                  <div
-                    src="{{ preview_image_src }}"
-                    loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"
-                    full-background="{{ full_bg }}"
-                    {% if page.round_borders %}
-                      style="border-radius:8px"
-                    {% endif %}
-                  ></div>
-                  <div class="lazyload-anim"></div>
-                </div>
+                {% if page.show_preview_image_on_article %}
+                  <div class="lazyload">
+                    <div
+                      src="{{ preview_image_src }}"
+                      loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}"
+                      full-background="{{ full_bg }}"
+                      {% if page.round_borders %}
+                        style="border-radius:8px"
+                      {% endif %}
+                    ></div>
+                    <div class="lazyload-anim"></div>
+                  </div>
+                {% endif %}
 
                 <break></break>
                 <h2>{{ page.title }}</h2>

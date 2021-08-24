@@ -83,6 +83,8 @@ preview_image: "main.jpg"
 tags: Ruby Optimization GCC
 author: 'Ruby News'
 
+#Show preview image on article? If you have another image to insert, set this flag to false
+show_preview_image_on_article: false
 
 ###########################################
 #
@@ -94,7 +96,6 @@ author: 'Ruby News'
 #    default: true
 preview_full_background: false
 preview_blur: true
-
 
 # Allows you to control behaviour on the article page
 # > Background shown on index page as a list
