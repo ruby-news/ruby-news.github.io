@@ -71,7 +71,7 @@ To write a new post:
 
   All files should start with these lines of code:
 
-```
+```yaml
 ---
 layout: article
 
@@ -145,7 +145,7 @@ To upload links only:
 
 Put the contents:
 
-```
+```yaml
 ---
 active: "articles"
 layout: article
@@ -220,7 +220,7 @@ Here's a cheatsheet of markdown from [markdownguide.org](https://www.markdowngui
     </tr>
     <tr>
       <td>Fenced Code Block</td>
-      <td><code>```<br>
+      <td><code>```json<br>
       {<br>
       &nbsp;&nbsp;"firstName": "John",<br>
       &nbsp;&nbsp;"lastName": "Smith",<br>
@@ -268,7 +268,7 @@ But you can also integrate HTML into markdown!
 If you want to align an image with text, you can add this:
 
 ##### HTML:
-```
+```html
 <grid-2>
   <div>Column 1</div>
   <div>Column 2</div>
@@ -286,7 +286,7 @@ This way, you can add text beside images.
 
 Other tags include <pre> with dollar ($) or hash (#) sign, which is not user-selectable while copying codes:
 
-```
+```html
 <pre><dollar>echo "hello world!"</dollar></pre>
 
 <pre>
@@ -305,7 +305,7 @@ Other tags include <pre> with dollar ($) or hash (#) sign, which is not user-sel
 
 You can also add file names with pre tags:
 
-```
+```html
 <pre>
   <file>app/javascript/packs/application.js</file>
   require("@rails/ujs").start()
