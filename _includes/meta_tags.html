@@ -11,19 +11,19 @@
 {% if page.description %}
   <meta name="description" content="{{ page.description }}">
   <meta name="robots" content="{{ page.description }}">
-  <meta name="og:description" content="{{ page.description }}">
+  <meta property="og:description" content="{{ page.description }}">
 {% else %}
-  <meta name="description" content="{{ page.tile }}">
-  <meta name="robots" content="{{ page.tile }}">
-  <meta name="og:description" content="{{ page.tile }}">
+  <meta name="description" content="{{ page.title }}">
+  <meta name="robots" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.title }}">
 {% endif %}
 
 <meta name="title" content="{{ page.title }}">
 
 <!-- Open Graphics Tags -->
-<meta name="og:title" content="{{ page.title }}">
-<meta name="og:type" content="website">
-<meta name="og:url" content="{{ site.url }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}">
 
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
