@@ -150,7 +150,7 @@
                   {% assign blurred_bg = false %}
                 {% endif %}
 
-                {% if page.show_preview_image_on_article %}
+                {% if page.show_preview_image_on_article != false %}
                   <div class="lazyload">
                     <div
                       src="{{ preview_image_src }}"
