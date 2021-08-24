@@ -9,19 +9,15 @@
 <meta name="revisit-after" content="3-days">
 
 {% if page.description %}
-  <meta name="description" content="{{ page.description }}">
+  <meta name="description" property="og:description" content="{{ page.description }}">
   <meta name="robots" content="{{ page.description }}">
-  <meta property="og:description" content="{{ page.description }}">
 {% else %}
-  <meta name="description" content="{{ page.title }}">
+  <meta name="description" property="og:description" content="{{ page.title }}">
   <meta name="robots" content="{{ page.title }}">
-  <meta property="og:description" content="{{ page.title }}">
 {% endif %}
 
-<meta name="title" content="{{ page.title }}">
-
 <!-- Open Graphics Tags -->
-<meta property="og:title" content="{{ page.title }}">
+<meta name="title" property="og:title" content="{{ page.title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}">
 <meta property="og:site_name" content="{{ site.url }}">
