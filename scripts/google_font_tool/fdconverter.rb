@@ -4,7 +4,8 @@ sass = IO.read(File.join(__dir__, 'sample.scss.txt'))
 filename = File.basename(__FILE__)
 Dir.children(__dir__).each { |x|
   next if x == filename
-  File.delete(x) if File.exist?(x)
+  p x
+  File.delete(x) if File.exist?(x) && !File.directory?(x)
 }
 
 require 'net/https'
