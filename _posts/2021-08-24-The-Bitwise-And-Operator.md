@@ -224,8 +224,8 @@ Ignore the sticky bits 100, and let's concentrate on 754. We can still extract i
 
 ```ruby
 7 & 33260 / 64    # => 7    # For owner
-7 & 33260 / 8     # => 5     # For group
-7 & 33260         # => 4      # For others
+7 & 33260 / 8     # => 5    # For group
+7 & 33260         # => 4    # For others
 ```
 
 Isn't this magical?
