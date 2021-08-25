@@ -7,8 +7,9 @@ title:  "Demystifying the Bitwise AND Operator"
 description: "Bitwise AND Operator in Ruby"
 file: "Bitwise AND Operators in Ruby"
 preview_image: "bitwise-and.jpg"
-tags: Ruby TypeProf
-author: 'Ruby News'
+tags: Bitwise AND
+author: 'Sourav Goswami'
+author_image_link: 'https://avatars.githubusercontent.com/u/37468605?v=4'
 
 
 ###########################################
