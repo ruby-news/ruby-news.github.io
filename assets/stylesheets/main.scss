@@ -294,7 +294,7 @@ main {
 }
 
 code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace !important;
   font-size: 14px;
 }
 
@@ -303,7 +303,7 @@ code {
 */
 
 pre {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace !important;
   font-size: 14px;
   margin: 12px 0;
   text-align: justify;
