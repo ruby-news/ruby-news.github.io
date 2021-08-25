@@ -180,16 +180,20 @@
                 <div class="author-details">
                   <author-image>
                     {% if page.author %}
-                      {% assign author_image = page.author | split: ' ' | join: '_' | downcase | append: '.jpg' %}
-                      <img src="/authors/{{ author_image }}">
+                      {% if page.author_image_link %}
+                        <img src="{{ page.author_image_link }}">
+                      {% else %}
+                        {% assign author_image = page.author | split: ' ' | join: '_' | downcase | append: '.jpg' %}
+                        <img src="/authors/{{ author_image }}">
+                      {% endif %}
                     {% else %}
                       <img src="/authors/default.jpg">
                     {% endif %}
                   </author-image>
 
                   <about-post>
-                    {% if page.author_name %}
-                      {{ page.author_name }}
+                    {% if page.author %}
+                      {{ page.author }}
                     {% else %}
                       Ruby News
                     {% endif %}
