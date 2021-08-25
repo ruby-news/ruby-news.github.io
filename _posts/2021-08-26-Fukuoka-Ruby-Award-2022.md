@@ -16,9 +16,10 @@ preview_full_background: false
 preview_blur: true
 article_preview_blur: true
 round_borders: false
+---
 
 2022 Fukuoka Ruby Award Competition - Grand Prize - 1 Million Yen ($9k)
-Entry Deadline: December 3, 2021. 
+Entry Deadline: December 3, 2021.
 
 The contestant application (program) must have been developed or updated in the past year or so. Could be open source or closed/commercial applications, systems, business models, or activities that utilize the features of the Ruby programming language.
 
