@@ -4,8 +4,8 @@ layout: article
 date: 2021-08-24 10:20:00
 
 title:  "Demystifying the Bitwise AND Operator"
-description: "TypeProf is a Ruby interpreter that abstractly executes Ruby programs at the type level, acting as a new type analysis tool"
-file: "TypeProf-Abductive-Reasoning-for-Abstract-Interpretation"
+description: "Bitwise AND Operator in Ruby"
+file: "Bitwise AND Operators in Ruby"
 preview_image: "bitwise-and.jpg"
 tags: Ruby TypeProf
 author: 'Ruby News'
