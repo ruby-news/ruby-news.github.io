@@ -293,12 +293,8 @@ main {
   font-family: 'Roboto' !important;
 }
 
-.font-jetbrains-mono {
-  font-family: 'Jetbrains Mono' !important;
-}
-
 code {
-  font-family: 'Jetbrains Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
 }
 
@@ -307,7 +303,7 @@ code {
 */
 
 pre {
-  font-family: 'Jetbrains Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
   margin: 12px 0;
   text-align: justify;
