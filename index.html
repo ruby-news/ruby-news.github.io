@@ -17,7 +17,6 @@ js:
   - /assets/javascript/particles.min.js
   - /assets/javascript/delaunay-settings.js
 ---
-
 {% include ruby_is_alive.html %}
 
 <h2 style="width:75%;margin:4rem auto 0 auto" class="ta-center">
@@ -33,6 +32,12 @@ js:
     {% assign maxFirstPosts = 2 %}
     {% assign counter = 0 %}
     {% assign articles = site.posts | sort: 'date' | reverse %}
+
+    {% comment %}
+      <!-- prev_counter is only used to generate random number when image is blank -->
+    {% endcomment %}
+    {% assign prev_counter = 0 %}
+    {% assign max_images = 7 %}
 
     {% for article in articles %}
       {% assign counter = counter | plus: 1 %}

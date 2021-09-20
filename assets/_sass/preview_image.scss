@@ -53,13 +53,17 @@
     transform: translateY(-25%);
   }
 
+  & .auto-text {
+    transition: var(--default-transition-time);
+  }
+
   &:hover {
     &::before {
       transform: translateY(0);
       opacity: 1;
     }
 
-    & img {
+    & img, .auto-text {
       transform: scale(1.25);
     }
   }

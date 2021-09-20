@@ -689,3 +689,18 @@ pre {
     justify-content: center;
   }
 }
+
+.auto-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 2px 2px 2px #0004;
+  text-align: center;
+}

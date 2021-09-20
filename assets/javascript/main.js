@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let animObj = children[1]
     if(!animObj) continue
 
+    let autoTextAttr = img.getAttribute('auto-text')
+
     animObj.style.animation = 'lazyloadAnim 2s linear infinite'
     let image = new Image()
 
@@ -80,6 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 
     image.src = img.getAttribute('src')
+
+    // Automatic text
+    if(autoTextAttr) {
+      image.setAttribute('style', 'filter: blur(2px)')
+      let autoText = document.createElement('div')
+      autoText.innerText = autoTextAttr
+      autoText.setAttribute('class', 'auto-text')
+      lazyload.appendChild(autoText)
+    }
+
   }
 
   // Inject years
