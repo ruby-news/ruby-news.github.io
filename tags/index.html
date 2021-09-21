@@ -18,6 +18,7 @@ stylesheets:
 js:
   - /assets/javascript/flickity.pkgd.min.js
 ---
+
 <div class="floaters">
   <h5 class="left">
     Tags
@@ -78,25 +79,29 @@ js:
         {% if last_tag != tag %}
           {% assign last_tag = tag %}
           </div>
-          <h4 id="{{ tagDowncased }}">{{ tag }}</h4>
+          <a class="link" href="#{{ tagDowncased }}" id="{{ tagDowncased }}" class=""><h4 class="mt-4rem mb-1rem"># {{ tag }}</h4></a>
           <div class="js-flickity gallery" data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
         {% endif %}
 
         {% comment %}
-          {% if article.preview_image %}
-            <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
-          {% else %}
-            {% include generate_random_image.html %}
-          {% endif %}
-            {% include generate_random_image.html %}
         {% endcomment %}
 
           <!-- <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div> -->
 
+
         <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
-          {{ article.preview_image }}
-          <img class="card-images" src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}">
-          {{ article_title }}
+          <div class="lazyload" style="height: 90% !important">
+
+            {% if article_image %}
+              <div src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+            {% else %}
+              {% include generate_random_image.html %}
+            {% endif %}
+
+
+            <div class="lazyload-anim"></div>
+          </div>
+            <div class="overflow-ellipsis">{{ article_title }}dfsajkdfsajkadfsjkadfsjkfsdjkdfsajkladfslkadfsl</div>
         </a>
 
     {% endfor %}
@@ -109,10 +114,11 @@ js:
   }
 
   .gallery-cell {
-    width: 370px;
-    height: 528px;
+    width: 160px;
+    height: 210px;
     margin-right: 10px;
     border-radius: 6px;
+    overflow: hidden;
     box-shadow: -2px -2px 8px #2224;
   }
 
@@ -128,6 +134,10 @@ js:
     color: #000 ; */
   }
 
+  a.link {
+    text-decoration: none;
+  }
+
   ol.flickity-page-dots {
     display: none;
   }
@@ -140,6 +150,17 @@ js:
     height: 100%;
     border-radius: 8px;
     user-select: none;
+  }
+
+  .overflow-ellipsis {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 1;
+    color: var(--text-dark);
   }
 </style>
 
