@@ -1,11 +1,19 @@
----
----
-
 {% comment %}
 	<!-- Generate a random image for posts, that should stay same for it's lifetime (unless modified the time) -->
 {% endcomment %}
+
+{% if article.title %}
+  {% assign article_title = article.title %}
+{% else %}
+  {% assign article_title = article_title %}
+{% endif %}
+
 {% unless max_image %}
   {% assign max_images = 7 %}
+{% endunless %}
+
+{% unless prev_counter %}
+  {% assign prev_counter = 0 %}
 {% endunless %}
 
 {% assign time1 = article.date | date: '%H.%M' %}
@@ -17,4 +25,4 @@
 {% assign random_index = time1 | plus: time2 | plus: time3 | plus: time4 | round | modulo: max_images | minus: prev_counter_2 | abs %}
 {% assign prev_counter = random_index %}
 
-<div src="/default_images/image-{{ random_index}}.jpg" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}" auto-text="{{ article.title }}"></div>
+<div src="/default_images/image-{{ random_index}}.jpg" loading="lazy" class="preview-img " blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}" auto-text="{{ article_title }}"></div>
