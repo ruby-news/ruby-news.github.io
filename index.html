@@ -36,8 +36,6 @@ js:
     {% comment %}
       <!-- prev_counter is only used to generate random number when image is blank -->
     {% endcomment %}
-    {% assign prev_counter = 0 %}
-    {% assign max_images = 7 %}
 
     {% for article in articles %}
       {% assign counter = counter | plus: 1 %}
