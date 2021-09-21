@@ -1,0 +1,157 @@
+---
+layout: archives
+
+# These fields are fetched from the rubynews layout to generate meta tags
+description: Ruby Weekly News Digest Archives
+title: Ruby News Archives
+author: https://ruby.news
+keywords: ruby rubynews weekly digest
+
+# Extra scss / css file(s), don't use .css extension
+# Should be an YAML Array
+stylesheets:
+  - /assets/stylesheets/subscribe-form
+  - /assets/stylesheets/gsc
+  - /assets/stylesheets/flickity
+
+# Extra javascript file(s)
+js:
+  - /assets/javascript/flickity.pkgd.min.js
+---
+<div class="floaters">
+  <h5 class="left">
+    Tags
+  </h5>
+
+  <div class="right">
+      <div style="height:60px">
+        <div id="observeSearch" style="width:100%;min-width:300px">
+          <div class="gcse-search"></div>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% assign articles = site.posts %}
+{% assign allTags = '' %}
+{% assign allURL = '' %}
+
+{% for article in articles %}
+  {% for tag in article.tags %}
+    {% comment %} Make sure a nasty \n tag in article doesn't spoil the operation {% endcomment %}
+
+    {% assign articleTag = tag | downcase | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
+    {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
+
+    {% unless articleTag == "" %}
+      {% assign allTags = allTags | append: "<%>" | append: articleTag | append: "<%>" | append: article.url | append: "<%>" %}
+      {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
+    {% endunless %}
+
+  {% endfor %}
+{% endfor %}
+
+{% assign allURL = allURL | downcase %}
+{% assign sortedTags = allTags | split: "\n" | sort | uniq %}
+
+  <!--
+      <div class="js-flickity gallery">
+      <div class="gallery-cell">{{ tag }}</div>
+  </div> -->
+
+{% assign last_tag = "" %}
+
+<div class="page-content">
+<div>
+    {% for items in sortedTags %}
+        {% assign tag_url = items | split: "<%>" | shift %}
+
+        {% assign tagDowncased = tag_url[0] %}
+        {% assign tag = tagDowncased | capitalize %}
+        {% assign article_url = tag_url[1] %}
+        {% assign article_title = tag_url[2] %}
+        {% assign article_date = tag_url[3] | date: "%Y-%m-%d" %}
+        {% assign article_image = tag_url[4] %}
+
+        {% comment %} If last tag continues, don't show a new heading {% endcomment %}
+
+        {% if last_tag != tag %}
+          {% assign last_tag = tag %}
+          </div>
+          <h4 id="{{ tagDowncased }}">{{ tag }}</h4>
+          <div class="js-flickity gallery" data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
+        {% endif %}
+
+        {% comment %}
+          {% if article.preview_image %}
+            <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+          {% else %}
+            {% include generate_random_image.html %}
+          {% endif %}
+            {% include generate_random_image.html %}
+        {% endcomment %}
+
+          <!-- <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div> -->
+
+        <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
+          {{ article.preview_image }}
+          <img class="card-images" src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}">
+          {{ article_title }}
+        </a>
+
+    {% endfor %}
+</div>
+</div>
+
+<style>
+  .gallery {
+    background-color: transparent ;
+  }
+
+  .gallery-cell {
+    width: 370px;
+    height: 528px;
+    margin-right: 10px;
+    border-radius: 6px;
+    box-shadow: -2px -2px 8px #2224;
+  }
+
+  .gallery-cell::before {
+    /* content: attr(title) ;
+    display: block ;
+    text-align: center ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 20px ;
+    color: #000 ; */
+  }
+
+  ol.flickity-page-dots {
+    display: none;
+  }
+
+  .gallery-cell {}
+
+  .card-images {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    user-select: none;
+  }
+</style>
+
+<script>
+  var flkty = new Flickity('.js-flickity', {
+    cellAlign: 'left',
+    groupCells: true,
+    imagesLoaded: true,
+    percentPosition: false,
+    contain: true,
+    pageDots: false
+  })
+</script>
+
+<script async src="https://cse.google.com/cse.js?cx=f8fb562776e23cc4e"></script>
