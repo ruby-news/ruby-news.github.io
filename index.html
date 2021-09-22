@@ -36,8 +36,6 @@ js:
     {% comment %}
       <!-- prev_counter is only used to generate random number when image is blank -->
     {% endcomment %}
-    {% assign prev_counter = 0 %}
-    {% assign max_images = 7 %}
 
     {% for article in articles %}
       {% assign counter = counter | plus: 1 %}
@@ -65,3 +63,20 @@ js:
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const clickableTags = document.getElementsByClassName('tag-clickable')
+    console.log(clickableTags)
+
+    for(let cT of clickableTags) {
+      let tagURL = cT.getAttribute('tag-url')
+
+
+      cT.onclick = (e) => {
+        e.preventDefault()
+        if (tagURL) window.location.href = tagURL
+      }
+    }
+  })
+</script>

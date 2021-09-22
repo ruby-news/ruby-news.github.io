@@ -1,0 +1,242 @@
+---
+layout: archives
+
+# These fields are fetched from the rubynews layout to generate meta tags
+description: Ruby Weekly News Digest Archives
+title: Ruby News Archives
+author: https://ruby.news
+keywords: ruby rubynews weekly digest
+
+# Extra scss / css file(s), don't use .css extension
+# Should be an YAML Array
+stylesheets:
+  - /assets/stylesheets/subscribe-form
+  - /assets/stylesheets/flickity
+
+# Extra javascript file(s)
+js:
+  - /assets/javascript/flickity.pkgd.min.js
+---
+
+<div class="floaters">
+  <h5 class="left">
+    Tags
+  </h5>
+
+  <div class="right">
+      <div style="height:60px">
+          <div class="search-tags">
+            <form>
+              <input type="text" placeholder="Jump to Tag" name="tag" id="tagSearchInput">
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% assign articles = site.posts %}
+{% assign allTags = '' %}
+{% assign allURL = '' %}
+
+{% for article in articles %}
+  {% for tag in article.tags %}
+    {% comment %} Make sure a nasty \n tag in article doesn't spoil the operation {% endcomment %}
+
+    {% assign articleTag = tag | downcase | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
+    {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
+
+    {% unless articleTag == "" %}
+      {% assign allTags = allTags | append: "<%>" | append: articleTag | append: "<%>" | append: article.url | append: "<%>" %}
+      {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
+    {% endunless %}
+
+  {% endfor %}
+{% endfor %}
+
+{% assign allURL = allURL | downcase %}
+{% assign sortedTags = allTags | split: "\n" | sort | uniq %}
+
+{% assign last_tag = "" %}
+
+<div class="page-content">
+  <tag><div>
+    {% for items in sortedTags %}
+        {% assign tag_url = items | split: "<%>" | shift %}
+
+        {% assign tagDowncased = tag_url[0] %}
+        {% assign tag = tagDowncased | capitalize %}
+        {% assign article_url = tag_url[1] %}
+        {% assign article_title = tag_url[2] %}
+        {% assign article_date = tag_url[3] | date: "%Y-%m-%d" %}
+        {% assign article_image = tag_url[4] %}
+
+        {% comment %} If last tag continues, don't show a new heading {% endcomment %}
+
+        {% if last_tag != tag %}
+          {% assign last_tag = tag %}
+          </div></tag>
+          <tag class="tag-link" tagname="{{ tagDowncased }}">
+          <a class="link" href="#{{ tagDowncased }}" id="{{ tagDowncased }}" class=""><h4 class="mt-4rem mb-1rem"># {{ tag }}</h4></a>
+          <div class="js-flickity gallery" id="{{ tagDowncased }}" Flickity data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
+        {% endif %}
+
+        <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
+          <div class="lazyload" style="height: 90% !important">
+
+            {% if article_image %}
+              <div src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+            {% else %}
+              {% include generate_random_image.html %}
+            {% endif %}
+
+            <div class="lazyload-anim"></div>
+          </div>
+            <div class="overflow-ellipsis">{{ article_title }}dfsajkdfsajkadfsjkadfsjkfsdjkdfsajkladfslkadfsl</div>
+        </a>
+
+    {% endfor %}
+</div>
+</div>
+
+<style>
+  .gallery {
+    background-color: transparent ;
+  }
+
+  .gallery-cell {
+    width: 160px;
+    height: 210px;
+    margin-right: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  a.link {
+    text-decoration: none;
+  }
+
+  ol.flickity-page-dots {
+    display: none;
+  }
+
+  .card-images {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    user-select: none;
+  }
+
+  .overflow-ellipsis {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 1;
+    color: var(--text-dark);
+  }
+
+.search-tags::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: 0;
+    transition: var(--default-transition-time);
+}
+
+.search-tags input:hover, .search-tags input:focus, .search-tags input:active {
+  outline: none !important;
+  border: none ;
+}
+
+.search-tags:hover::after, .search-tags:focus::after, .search-tags:active::after {
+  transform: scaleX(1);
+}
+
+.search-tags {
+  padding-right: 0 !important;
+}
+
+.search-tags input {
+  transition: var(--default-transition-time);
+  border: none !important;
+   /* 1px solid var(--primary-color); */
+  position: relative;
+  padding-left: 20px !important;
+}
+
+.search-tags input::-moz-focus-inner {
+  outline: none !important;
+}
+
+.gsc-search-button {
+  position: relative;
+  padding: 0 !important;
+  z-index: 1;
+  display: none;
+}
+
+.search-tags {
+  position: relative;
+}
+
+.search-tags::before {
+    content: url("/assets/images/icons/search.svg");
+    position: absolute;
+    top: 55%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.gsc-search-button-v2 {
+  background-color: transparent !important;
+}
+
+#observeSearch > div {
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    var flkty = new Flickity('.js-flickity', {
+      cellAlign: 'left',
+      groupCells: true,
+      imagesLoaded: true,
+      percentPosition: false,
+      contain: true,
+      pageDots: false
+    })
+
+    const query = window.location.search.substr(1)
+    const tagInput = document.getElementById('tagSearchInput')
+
+    if (query) {
+      const tag_query = query.split('=')
+
+      const tag = tag_query[0]
+      let main_query = tag_query[1]
+
+      if (main_query) main_query = main_query.toLowerCase()
+
+      if(tagInput) tagInput.setAttribute('value', main_query)
+
+      if(tag == 'tag' && main_query) {
+
+        /* code for search through query */
+          element = document.getElementById(main_query)
+          if(element) window.scrollTo(0, element.offsetTop)
+      }
+    }
+  })
+</script>

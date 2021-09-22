@@ -510,7 +510,7 @@ pre {
     border-radius: 6px;
   }
 
-  .tags ul li::before {
+  .tags ul li .tag-clickable::before {
     content: '#';
   }
 }
