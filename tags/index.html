@@ -55,11 +55,6 @@ js:
 {% assign allURL = allURL | downcase %}
 {% assign sortedTags = allTags | split: "\n" | sort | uniq %}
 
-  <!--
-      <div class="js-flickity gallery">
-      <div class="gallery-cell">{{ tag }}</div>
-  </div> -->
-
 {% assign last_tag = "" %}
 
 <div class="page-content">
@@ -83,12 +78,6 @@ js:
           <div class="js-flickity gallery" data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
         {% endif %}
 
-        {% comment %}
-        {% endcomment %}
-
-          <!-- <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div> -->
-
-
         <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
           <div class="lazyload" style="height: 90% !important">
 
@@ -97,7 +86,6 @@ js:
             {% else %}
               {% include generate_random_image.html %}
             {% endif %}
-
 
             <div class="lazyload-anim"></div>
           </div>
@@ -119,19 +107,6 @@ js:
     margin-right: 10px;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: -2px -2px 8px #2224;
-  }
-
-  .gallery-cell::before {
-    /* content: attr(title) ;
-    display: block ;
-    text-align: center ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 20px ;
-    color: #000 ; */
   }
 
   a.link {
@@ -141,8 +116,6 @@ js:
   ol.flickity-page-dots {
     display: none;
   }
-
-  .gallery-cell {}
 
   .card-images {
     object-fit: cover;
