@@ -11,7 +11,6 @@ keywords: ruby rubynews weekly digest
 # Should be an YAML Array
 stylesheets:
   - /assets/stylesheets/subscribe-form
-  - /assets/stylesheets/gsc
   - /assets/stylesheets/flickity
 
 # Extra javascript file(s)
@@ -26,9 +25,11 @@ js:
 
   <div class="right">
       <div style="height:60px">
-        <div id="observeSearch" style="width:100%;min-width:300px">
-          <div class="gcse-search"></div>
-        </div>
+          <div class="search-tags">
+            <form>
+              <input type="text" placeholder="Jump to Tag" name="tag" id="tagSearchInput">
+            </form>
+          </div>
       </div>
   </div>
 </div>
@@ -58,7 +59,7 @@ js:
 {% assign last_tag = "" %}
 
 <div class="page-content">
-<div>
+  <tag><div>
     {% for items in sortedTags %}
         {% assign tag_url = items | split: "<%>" | shift %}
 
@@ -73,9 +74,10 @@ js:
 
         {% if last_tag != tag %}
           {% assign last_tag = tag %}
-          </div>
+          </div></tag>
+          <tag class="tag-link" tagname="{{ tagDowncased }}">
           <a class="link" href="#{{ tagDowncased }}" id="{{ tagDowncased }}" class=""><h4 class="mt-4rem mb-1rem"># {{ tag }}</h4></a>
-          <div class="js-flickity gallery" data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
+          <div class="js-flickity gallery" id="{{ tagDowncased }}" Flickity data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
         {% endif %}
 
         <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
@@ -135,17 +137,106 @@ js:
     z-index: 1;
     color: var(--text-dark);
   }
+
+.search-tags::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: 0;
+    transition: var(--default-transition-time);
+}
+
+.search-tags input:hover, .search-tags input:focus, .search-tags input:active {
+  outline: none !important;
+  border: none ;
+}
+
+.search-tags:hover::after, .search-tags:focus::after, .search-tags:active::after {
+  transform: scaleX(1);
+}
+
+.search-tags {
+  padding-right: 0 !important;
+}
+
+.search-tags input {
+  transition: var(--default-transition-time);
+  border: none !important;
+   /* 1px solid var(--primary-color); */
+  position: relative;
+  padding-left: 20px !important;
+}
+
+.search-tags input::-moz-focus-inner {
+  outline: none !important;
+}
+
+.gsc-search-button {
+  position: relative;
+  padding: 0 !important;
+  z-index: 1;
+  display: none;
+}
+
+.search-tags {
+  position: relative;
+}
+
+.search-tags::before {
+    content: url("/assets/images/icons/search.svg");
+    position: absolute;
+    top: 55%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.gsc-search-button-v2 {
+  background-color: transparent !important;
+}
+
+#observeSearch > div {
+  margin: 0;
+  padding: 0;
+}
+
 </style>
 
 <script>
-  var flkty = new Flickity('.js-flickity', {
-    cellAlign: 'left',
-    groupCells: true,
-    imagesLoaded: true,
-    percentPosition: false,
-    contain: true,
-    pageDots: false
+  document.addEventListener('DOMContentLoaded', () => {
+    var flkty = new Flickity('.js-flickity', {
+      cellAlign: 'left',
+      groupCells: true,
+      imagesLoaded: true,
+      percentPosition: false,
+      contain: true,
+      pageDots: false
+    })
+
+    const query = window.location.search.substr(1)
+    const tagInput = document.getElementById('tagSearchInput')
+
+    if (query) {
+      const tag_query = query.split('=')
+
+      const tag = tag_query[0]
+      let main_query = tag_query[1]
+
+      if (main_query) main_query = main_query.toLowerCase()
+
+      if(tagInput) tagInput.setAttribute('value', main_query)
+
+      if(tag == 'tag' && main_query) {
+
+        /* code for search through query */
+          element = document.getElementById(main_query)
+          if(element) window.scrollTo(0, element.offsetTop)
+      }
+    }
   })
 </script>
-
-<script async src="https://cse.google.com/cse.js?cx=f8fb562776e23cc4e"></script>
