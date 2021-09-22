@@ -63,3 +63,20 @@ js:
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const clickableTags = document.getElementsByClassName('tag-clickable')
+    console.log(clickableTags)
+
+    for(let cT of clickableTags) {
+      let tagURL = cT.getAttribute('tag-url')
+
+
+      cT.onclick = (e) => {
+        e.preventDefault()
+        if (tagURL) window.location.href = tagURL
+      }
+    }
+  })
+</script>

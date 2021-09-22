@@ -74,10 +74,10 @@
         </div>
 
         {% if article.tags %}
-          <div class="tags">
-            <ul>
+          <div class="tags" style="z-index: 1000 ; position: relative">
+            <ul style="position: absolute">
               {% for tag in article.tags %}
-                  <li>{{ tag }}</li>
+                  <li><div class="tag-clickable" tag-url="{{ site.url }}/tags/?tag={{ tag}}">{{ tag }}</div></li>
               {% endfor %}
             </ul>
           </div>
