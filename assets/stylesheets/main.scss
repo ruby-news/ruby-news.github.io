@@ -596,6 +596,15 @@ pre {
   z-index: 1;
 }
 
+.hoverable-primary {
+  transition: var(--default-transition-time);
+
+  &:hover {
+    background: var(--primary-color);
+    color: #fff !important;
+  }
+}
+
 #delaunay {
   position: absolute;
   height: 100%;
