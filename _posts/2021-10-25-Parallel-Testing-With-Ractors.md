@@ -37,11 +37,11 @@ Let's consider the first strategy where:
 + Our randomized groups are assigned to different CPU.
 + We run the tests on the assigned CPU.
 
-![execution strategy](/post_images/2021-10-12/execution strategy 1 - groups.jpg)
+![execution strategy](/post_images/2021-10-25/execution strategy 1 - groups.jpg)
 
 But the drawback of such is that it doesn't guarantee even distribution in terms of the time it takes to run the tests.
 
-![Utilities and Reporting](/post_images/2021-10-12/execution strategy 1 - cpu.jpg)
+![Utilities and Reporting](/post_images/2021-10-25/execution strategy 1 - cpu.jpg)
 
 In this case, CPU 1 can complete the tasks (highlighted with green) quicker while CPU 2 can take much more time to finish off all the time-consuming tasks (highlighted in blue).
 So here CPU 1 gets a little bit luckier and spends most time sleeping instead of speeding up our parallel tests.
@@ -55,7 +55,7 @@ Execution strategy #2 tries to address the issue by using the queue mechanism. I
 + We then randomize and organize tests in a queue.
 + Our workers or CPUs can take items from the queue as soon as they complete the previous tasks.
 
-![execution strategy](/post_images/2021-10-12/strategy - queue.gif)
+![execution strategy](/post_images/2021-10-25/strategy - queue.gif)
 
 In this case, each CPU is taking the job when they are finished with their given tasks.
 
@@ -127,14 +127,14 @@ We can divide them into three areas of concern:
 
 
 ###### Execution
-![execution strategy](/post_images/2021-10-12/Test Frameworks - Execution.jpg)
+![execution strategy](/post_images/2021-10-25/Test Frameworks - Execution.jpg)
 
 + Just regular classes in minitest. So we can just require the file under the test folder to be able to load them.
 + We should be able to keep track of them to be able to reference them later.
 + We should also be able to loop through each one of the test classes but also run each one of the tests defined in them.
 
 ###### Utilities
-![utilities](/post_images/2021-10-12/Test Frameworks - Utilities.jpg)
+![utilities](/post_images/2021-10-25/Test Frameworks - Utilities.jpg)
 
 + Define the Syntax: Now if we zoom inside a specific test we start getting into how do we verify that our application code works? So we start with assertions and how we define the syntax to be able to write our tests.
 + Assist Execution Flow: It needs to assist with the execution flow as well, so if an assertion fails, there's no point in continuing to run that test, mark it as a failure, and move on to the next test we have to run.
@@ -142,7 +142,7 @@ We can divide them into three areas of concern:
 + Provide Helpers: It can provide any helpers, like mocks, stubs, date helpers, etc.
 
 ###### Reporting
-![reporting](/post_images/2021-10-12/Test Frameworks - Reporting.gif)
+![reporting](/post_images/2021-10-25/Test Frameworks - Reporting.gif)
 
 Reporting needs to display the progress to the user so the user knows how many tests are running.
 It also needs to display the aggregated results about the assertions, failures, etc.
@@ -176,7 +176,7 @@ end
 Now when it comes to modelling our test queue,
 we are saving the test classes but we know that each one of them can define multiple tests that can have different test methods.
 
-![execution](/post_images/2021-10-12/Test Frameworks - Execution.jpg)
+![execution](/post_images/2021-10-25/Test Frameworks - Execution.jpg)
 
 So we need each one of these test methods to become an individual item in our queue.
 We need something that looks kind of like this:
@@ -191,7 +191,7 @@ We need something that looks kind of like this:
 An array of tuples where each tuple is composed of the test that we want to run and the class it belongs to.
 
 
-![execution](/post_images/2021-10-12/Test Frameworks - Executions.gif)
+![execution](/post_images/2021-10-25/Test Frameworks - Executions.gif)
 
 Here we have the list of classes we can try to remap them and build the queue in the format that we are expecting.
 
@@ -203,7 +203,7 @@ We begin by creating a test class, we are receiving from the queue. This is very
 
 And with the instance, we can invoke methods to define each one of the steps for running a single test.
 
-![execution](/post_images/2021-10-12/Test Frameworks - Execution - method calls.jpg)
+![execution](/post_images/2021-10-25/Test Frameworks - Execution - method calls.jpg)
 
 Here we are:
 
@@ -245,13 +245,13 @@ We begin the assert method by incrementing the total number of assertions. If it
 A few more statistics we can add if we go back to our execution steps, after we have the instance we can begin by incrementing the total number of tests.
 We know that for each of these items in the queue we are running an individual test. We can the total number that we ran as we end execution.
 
-![utilities and reporting](/post_images/2021-10-12/Test Frameworks - Utilities and Reporting final.jpg)
+![utilities and reporting](/post_images/2021-10-25/Test Frameworks - Utilities and Reporting final.jpg)
 
 ###### Executing
 We begin by requiring each one of the files under test, and we can loop through each one of our test queues, and for each one of them we'll take the class and method name and we will run the execution flow that we defined.
 As we go through the queue we know that we are going to be populating our reporter with information about the test in our singleton reporter, so at the end, we can print the summary. The singleton instances have the entire information about our tests.
 
-![execution](/post_images/2021-10-12/Test Frameworks - Execution 3.jpg)
+![execution](/post_images/2021-10-25/Test Frameworks - Execution 3.jpg)
 
 This is enough for a very simple execution. But we are interested in parallelizing it.
 
