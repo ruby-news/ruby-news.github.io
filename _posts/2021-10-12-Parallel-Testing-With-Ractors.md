@@ -70,8 +70,8 @@ To create a new Ractor, we can just use it like any other Ruby object:
 
 ```ruby
 worker = Ractor.new do
-    item = Ractor.receive
-    process(item)
+  item = Ractor.receive
+  process(item)
 end
 ```
 
@@ -91,19 +91,19 @@ queue = Array(0..99)
 results = []
 
 workers = 10.times.map {
-    Ractor.new do
-        while true
-            number = Ractor.receive
-            Ractor.yield(number * 5)
-        end
+  Ractor.new do
+    while true
+      number = Ractor.receive
+      Ractor.yield(number * 5)
     end
+  end
 }
 
 workers.each { |w| w.send(queue.pop) }
 until queue.empty?
-    idle_worker, result = Ractor.select(*workers)
-    results << result
-    idle_worker.send(queue.pop)
+  idle_worker, result = Ractor.select(*workers)
+  results << result
+  idle_worker.send(queue.pop)
 end
 
 workers.each { |w| results << w.take }
@@ -159,17 +159,17 @@ For example:
 
 ```ruby
 module TestFramework
-    class Test
-        class << self
-            def inherited(child)
-                classes << child
-            end
+  class Test
+    class << self
+      def inherited(child)
+        classes << child
+      end
 
-            def classes
-                @classes ||= []
-            end
-        end
+      def classes
+        @classes ||= []
+      end
     end
+  end
 end
 ```
 
@@ -183,8 +183,8 @@ We need something that looks kind of like this:
 
 ```ruby
 [
-    [PostTest, :test_author],
-    [PostTest, :test_title],
+  [PostTest, :test_author],
+  [PostTest, :test_title],
 ]
 ```
 
@@ -226,17 +226,17 @@ So this is what it looks like in code:
 # lib/test_framework/test
 
 module TestFramework
-    class Test
-        def assert(something, failure_message = nil)
-            TestFramework.reporter.increment_assertions
+  class Test
+    def assert(something, failure_message = nil)
+      TestFramework.reporter.increment_assertions
 
-            return if something
+      return if something
 
-            failure_message ||= "Expected #{something} to be truthy"
-            TestFramework.reporter.register_failure(self, failure_message)
-            raise AssertionFailed
-        end
+      failure_message ||= "Expected #{something} to be truthy"
+      TestFramework.reporter.register_failure(self, failure_message)
+      raise AssertionFailed
     end
+  end
 end
 ```
 
@@ -266,19 +266,19 @@ queue = TestFramework::Test.examples_list.shuffle
 
 require 'etc'
 workers = Array(0...Etc.nprocessors).map do
-    Ractor.new do
-        loop do
-            klass, method_name = Ractor.receive
-            klass.run(method_name)
-        end
+  Ractor.new do
+    loop do
+      klass, method_name = Ractor.receive
+      klass.run(method_name)
     end
+  end
 end
 
 workers.each { |x| w.send(queue.pop) }
 
 until queue.empty?
-    idle_worker, _ = Ractor.select(*workers)
-    idle_worker.send(queue.pop)
+  idle_worker, _ = Ractor.select(*workers)
+  idle_worker.send(queue.pop)
 end
 ```
 
@@ -299,20 +299,20 @@ queue = TestFramework::Test.examples_list.shuffle
 
 require 'etc'
 workers = Array(0...Etc.nprocessors).map do
-    Ractor.new do
-        loop do
-            klass, method_name = Ractor.receive
-            Ractor.yield klass.run(method_name)
-        end
+  Ractor.new do
+    loop do
+      klass, method_name = Ractor.receive
+      Ractor.yield klass.run(method_name)
     end
+  end
 end
 
 workers.each { |x| w.send(queue.pop) }
 
 until queue.empty?
-    idle_worker, temp_reporter = Ractor.select(*workers)
-    reporter << temp_reporter
-    idle_worker.send(queue.pop)
+  idle_worker, temp_reporter = Ractor.select(*workers)
+  reporter << temp_reporter
+  idle_worker.send(queue.pop)
 end
 
 workers.each { |w| reporter << w.take }
