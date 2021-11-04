@@ -2,10 +2,11 @@
 {% assign article_date = page.date | date: "%Y-%m-%d" %}
 {% assign preview_image_src= site.url | append: "/post_images/" | append: article_date | append: "/" | append: page.preview_image %}
 
-<html>
+<html lang="en">
   <head>
     {% include meta_tags.html %}
     <meta name="image" property="og:image" itemprop="image" content="{{ preview_image_src }}">
+    <meta property="og:image:alt" itemprop="image" content="thumbnail">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" sizes="96x96" href="/assets/images/logo/logo96.png">
