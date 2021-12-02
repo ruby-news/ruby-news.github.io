@@ -140,7 +140,6 @@
 
           <div class="blog-contents">
             <header>
-
               {% if page.preview_image %}
                 {% assign full_bg = true %}
                 {% if page.article_full_background == false %}
@@ -166,10 +165,13 @@
                   </div>
                 {% endif %}
 
+                {% assign article_title = page.title %}
+                {% include capitalized_title.html %}
+
                 <break></break>
-                <h2>{{ page.title }}</h2>
+                <h2>{{ capitalized_title }}</h2>
               {% else %}
-                <div class="ta-center">{{ page.title }}</div>
+                <div class="ta-center">{{ capitalized_title }}</div>
               {% endif %}
 
               {% assign tag = page.tags | join: ' ' %}

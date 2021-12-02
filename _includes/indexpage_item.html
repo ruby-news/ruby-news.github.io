@@ -11,24 +11,8 @@
 {% assign prev_counter = 0 %}
 {% assign max_images = 7 %}
 
-{% assign _title_ = article.title | split: ' ' %}
-{% assign title = '' %}
-
-{% assign ignoreCapitalizeWord = 'a an the is are this and but for nor or so yet with to' %}
-
-{% for word in _title_ %}
-  {% assign dw = word | downcase %}
-
-  {% if ignoreCapitalizeWord contains dw %}
-    {% assign title = title | append: dw | append: ' ' %}
-  {% else %}
-    {% assign title = title | append: word | append: ' ' %}
-  {% endif %}
-{% endfor %}
-
-{% assign first_char = title | slice: 0 | upcase %}
-{% assign sliced = title | slice: 1, title.size %}
-{% assign title = first_char | append: sliced %}
+{% assign article_title = article.title %}
+{% include capitalized_title.html %}
 
 <div class="card-wrapper">
   <div class="card">
@@ -65,10 +49,10 @@
         <div class="heading mb-1rem">
           {% if article.link %}
             <h4 class="line-clamp-3 font-montseratt">
-              {{ title }}
+              {{ capitalized_title }}
             </h4>
           {% elsif article.file %}
-            <h4 class="line-clamp-3">{{ article.title }}</h4>
+            <h4 class="line-clamp-3">{{ capitalized_title }}</h4>
           {% else %}
             Untitled
           {% endif %}
