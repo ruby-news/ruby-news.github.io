@@ -1,6 +1,6 @@
 {% assign ignoreCapitalizeWord = 'a an the is are this and but for nor or so yet with to in' %}
 
-{% assign _title_ = article.title | split: ' ' %}
+{% assign _title_ = article_title | split: ' ' %}
 {% assign _capitalized_title_ = '' %}
 
 {% for word in _title_ %}
