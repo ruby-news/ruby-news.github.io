@@ -1,0 +1,18 @@
+{% assign ignoreCapitalizeWord = 'a an the is are this and but for nor or so yet with to in' %}
+
+{% assign _title_ = article.title | split: ' ' %}
+{% assign _capitalized_title_ = '' %}
+
+{% for word in _title_ %}
+  {% assign dw = word | downcase %}
+
+  {% if ignoreCapitalizeWord contains dw %}
+    {% assign _capitalized_title_ = _capitalized_title_ | append: dw | append: ' ' %}
+  {% else %}
+    {% assign _capitalized_title_ = _capitalized_title_ | append: word | append: ' ' %}
+  {% endif %}
+{% endfor %}
+
+{% assign first_char = _capitalized_title_ | slice: 0 | upcase %}
+{% assign sliced = _capitalized_title_ | slice: 1, _capitalized_title_.size %}
+{% assign capitalized_title = first_char | append: sliced %}

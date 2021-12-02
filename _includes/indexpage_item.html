@@ -14,7 +14,7 @@
 {% assign _title_ = article.title | split: ' ' %}
 {% assign title = '' %}
 
-{% assign ignoreCapitalizeWord = 'a an the is are this and but for nor or so yet with' %}
+{% assign ignoreCapitalizeWord = 'a an the is are this and but for nor or so yet with to' %}
 
 {% for word in _title_ %}
   {% assign dw = word | downcase %}
