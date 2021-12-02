@@ -46,7 +46,7 @@ LibmagicRb.check(
 
 It's as easy as that. Using the magic library, it also lets you dig through the EXIF data of the file.
 
-The installation and other details can be found on the [https://github.com/cybergizer-hq/LibmagicRb/](GitHub page for libmagic_rb).
+The installation and other details can be found on the [GitHub page for libmagic_rb](https://github.com/cybergizer-hq/LibmagicRb/).
 As usual, the gem can be found on [Rubygems.org](https://rubygems.org/gems/libmagic_rb).
 
 ###### Please Let us know your thoughts below!
