@@ -4,7 +4,7 @@ layout: article
 
 link: https://ankane.org/new-ml-gems
 preview_image: "ml-gems-2.png"
-tags: Ruby ML AI
+tags: Dec2021
 author: ankane.org
 
 preview_full_background: false

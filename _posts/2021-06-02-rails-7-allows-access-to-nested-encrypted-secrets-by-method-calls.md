@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://blog.saeloun.com/2021/06/02/rails-access-nested-secrects-by-method-call.html
-tags: Rails7 encrypted-secrets
+tags: Jun2021
 preview_image: "coding-924920_640.jpg"
 author: 'Rohit Joshi'
 

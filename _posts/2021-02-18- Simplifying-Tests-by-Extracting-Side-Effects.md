@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://thoughtbot.com/blog/simplify-tests-by-extracting-side-effects
-tags: Testing
+tags: Feb2021
 preview_image: "lab-217043_640.jpg"
 author: 'Joël Quenneville'
 

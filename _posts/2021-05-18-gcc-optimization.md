@@ -8,7 +8,7 @@ title:  "How to Make Ruby Fast with GCC Optimization"
 description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 preview_image: "main.jpg"
-tags: Ruby Optimization GCC
+tags: May2021
 author: 'Ruby News'
 
 

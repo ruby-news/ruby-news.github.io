@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://medium.com/rubycademy/3-ways-to-use-regexp-capture-groups-with-back-references-in-ruby-b4969cc9b3ec
-tags: Ruby Regexp
+tags: Feb2021
 preview_image: "carbon.jpg"
 author: 'Mehdi Farsi'
 
