@@ -8,13 +8,15 @@
   border-radius: 8px;
   box-shadow: 2px 2px 6px #0004;
   position: fixed;
-  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
   height: auto;
   padding: 8px;
   z-index: 100000;
   overflow: hidden;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  animation: fade-in-up 1s ease forwards;
+  user-select: none;
 
   & * {
     color: #222 !important;
@@ -121,5 +123,17 @@
 
   0%, 100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-up {
+  30%, 40% {
+    bottom: 0;
+    transform: translate(-50%, 0%);
+  }
+
+  100% {
+    bottom: 20px;
+    transform: translate(-50%, 0);
   }
 }
