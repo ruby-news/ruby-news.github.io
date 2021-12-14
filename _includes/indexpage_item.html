@@ -74,16 +74,7 @@
           {% endif %}
         </div>
 
-        {% if article.tags %}
-          <div class="tags" style="z-index:1000; position:relative">
-            <ul>
-              {% for tag in article.tags %}
-                  <li class="hoverable-primary"><div class="tag-clickable" tag-url="{{ site.url }}/tags/?tag={{ tag}}">{{ tag }}</div></li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-
+        {% include tag.html %}
       </div>
     </div>
   </div>

@@ -39,18 +39,11 @@ js:
 {% assign allURL = '' %}
 
 {% for article in articles %}
-  {% for tag in article.tags %}
-    {% comment %} Make sure a nasty \n tag in article doesn't spoil the operation {% endcomment %}
+  {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
 
-    {% assign articleTag = tag | downcase | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
-    {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
-
-    {% unless articleTag == "" %}
-      {% assign allTags = allTags | append: "<%>" | append: articleTag | append: "<%>" | append: article.url | append: "<%>" %}
-      {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
-    {% endunless %}
-
-  {% endfor %}
+  {% include tag_format.html %}
+  {% assign allTags = allTags | append: "<%>" | append: tag  | append: "<%>" | append: article.url | append: "<%>" %}
+  {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
 {% endfor %}
 
 {% assign allURL = allURL | downcase %}
@@ -69,6 +62,7 @@ js:
         {% assign article_title = tag_url[2] %}
         {% assign article_date = tag_url[3] | date: "%Y-%m-%d" %}
         {% assign article_image = tag_url[4] %}
+
 
         {% comment %} If last tag continues, don't show a new heading {% endcomment %}
 
@@ -91,7 +85,7 @@ js:
 
             <div class="lazyload-anim"></div>
           </div>
-            <div class="overflow-ellipsis">{{ article_title }}dfsajkdfsajkadfsjkadfsjkfsdjkdfsajkladfslkadfsl</div>
+            <div class="overflow-ellipsis">{{ article_title }}</div>
         </a>
 
     {% endfor %}

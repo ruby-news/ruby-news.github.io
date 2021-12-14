@@ -174,11 +174,6 @@
                 <div class="ta-center">{{ capitalized_title }}</div>
               {% endif %}
 
-              {% assign tag = page.tags | join: ' ' %}
-              {% if tag == '' %}
-                {% assign tag = 'Ruby News' %}
-              {% endif %}
-
               <div class="grid-2x2-float">
                 <div class="author-details">
                   <author-image>
@@ -201,10 +196,6 @@
                       Ruby News
                     {% endif %}
                     <date>{{ page.date | date: "%d %B, %Y | %H:%M:%S %Z (%z)" }}</date>
-
-                    <div class="tags">
-                      {{ tag }}
-                    </div>
                   </about-post>
                 </div>
 

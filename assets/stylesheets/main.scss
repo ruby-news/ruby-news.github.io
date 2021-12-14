@@ -493,13 +493,12 @@ pre {
     color: var(--text-medium) ;
   }
 
-  .tags ul {
-    list-style: none;
+  .tags {
     display: flex;
     padding: 0;
   }
 
-  .tags ul li {
+  .tags .tag-clickable {
     font-family: 'Montserrat';
     font-size: 14px;
     font-weight: 500;
@@ -510,7 +509,7 @@ pre {
     border-radius: 6px;
   }
 
-  .tags ul li .tag-clickable::before {
+  .tags .tag-clickable::before {
     content: '#';
   }
 }
