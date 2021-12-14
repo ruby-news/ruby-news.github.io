@@ -34,6 +34,10 @@ js:
   </div>
 </div>
 
+<div id="noTagFoundBanner" class="ta-center">
+  Your search didn't match any tags :(
+</div>
+
 {% assign articles = site.posts %}
 {% assign allTags = '' %}
 {% assign allURL = '' %}
@@ -225,14 +229,19 @@ js:
 
       if(tagInput) tagInput.setAttribute('value', main_query)
 
-      if(tag == 'tag' && main_query) {
+      // No tags banner - hide by default. Show when no tags match user search
+      const noTagsBanner = document.querySelector('#noTagFoundBanner')
+      if (noTagsBanner) noTagsBanner.style.display = 'none'
 
+      if(tag == 'tag' && main_query) {
         /* code for search through query */
           element = document.getElementById(main_query)
           if(element) {
             const cssNavbar = document.querySelector('.css-navbar')
             const navbarHeight = cssNavbar ? cssNavbar.style.height : 0
             window.scrollTo(0, element.offsetTop - navbarHeight - 8)
+          } else {
+            if (noTagsBanner) noTagsBanner.style.display = 'block'
           }
       }
     }
