@@ -42,7 +42,8 @@ js:
   {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
 
   {% include tag_format.html %}
-  {% assign allTags = allTags | append: "<%>" | append: tag  | append: "<%>" | append: article.url | append: "<%>" %}
+  {% assign downcased_tag = tag | downcase %}
+  {% assign allTags = allTags | append: "<%>" | append: downcased_tag | append: "<%>" | append: article.url | append: "<%>" %}
   {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
 {% endfor %}
 
@@ -62,7 +63,6 @@ js:
         {% assign article_title = tag_url[2] %}
         {% assign article_date = tag_url[3] | date: "%Y-%m-%d" %}
         {% assign article_image = tag_url[4] %}
-
 
         {% comment %} If last tag continues, don't show a new heading {% endcomment %}
 
