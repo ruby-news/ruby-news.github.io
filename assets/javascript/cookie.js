@@ -8,10 +8,10 @@ layout: null
 document.addEventListener('DOMContentLoaded', function() {
   const cookieContainer = document.getElementById('cookieContainer')
 
-  cookieContainer.style.display = 'none'
+  if (cookieContainer) cookieContainer.style.display = 'none'
 
   setTimeout(() => {
-    cookieContainer.style.display = 'block'
+    if (cookieContainer) cookieContainer.style.display = 'block'
   }, 2000)
 
   if(localStorage.cookieAccept == 1) {
