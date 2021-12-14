@@ -229,7 +229,11 @@ js:
 
         /* code for search through query */
           element = document.getElementById(main_query)
-          if(element) window.scrollTo(0, element.offsetTop)
+          if(element) {
+            const cssNavbar = document.querySelector('.css-navbar')
+            const navbarHeight = cssNavbar ? cssNavbar.style.height : 0
+            window.scrollTo(0, element.offsetTop - navbarHeight - 8)
+          }
       }
     }
   })
