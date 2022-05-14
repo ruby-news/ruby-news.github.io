@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://www.honeybadger.io/blog/ruby-insertion-sort/
-tags: JRuby Performance
+tags: April2021
 preview_image: "insertionsort.jpg"
 author: 'Julie Kent'
 
