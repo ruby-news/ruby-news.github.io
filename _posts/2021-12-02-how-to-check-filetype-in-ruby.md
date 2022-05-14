@@ -5,7 +5,7 @@ layout: article
 description: "How to check filetype in Ruby"
 file: "How to check filetype in Ruby"
 preview_image: "libmagic-rb-folder.jpg"
-tags: Rubygems
+tags: Dec2021
 author: 'ruby_news'
 
 ###########################################
