@@ -8,7 +8,7 @@ description: "2022 Fukuoka Ruby Award Competition - Grand Prize - 1 Million Yen 
 Entry Deadline: December 3, 2021."
 file: "Fukuoka-Ruby-Award-2022.md"
 preview_image: "Fukuoka Ruby Award 2021.jpg"
-tags: August 2021
+tags: August2021
 author: 'Ruby News'
 
 ###########################################
