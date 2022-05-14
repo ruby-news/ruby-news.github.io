@@ -6,7 +6,7 @@ title: "Parallel Testing with Ractors"
 description: "Parallel Testing with Ractors"
 file: "Parallel Testing With Ractors"
 preview_image: "main.jpg"
-tags: Rubygems
+tags: October 2021
 author: 'ruby_news'
 
 ###########################################
