@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://blog.saeloun.com/2021/06/02/rails-access-nested-secrects-by-method-call.html
-tags: June 2021
+tags: June2021
 preview_image: "coding-924920_640.jpg"
 author: 'Rohit Joshi'
 
