@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://pointersgonewild.com/2021/06/02/yjit-building-a-new-jit-compiler-inside-cruby/
-tags: YJIT C-Ruby Compiler YARV
+tags: June 2021
 preview_image: "yjit.jpg"
 author: 'pointersgonewild'
 
