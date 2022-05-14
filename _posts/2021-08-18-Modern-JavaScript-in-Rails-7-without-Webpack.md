@@ -7,7 +7,7 @@ description: "No need for transpiling to write JavaScript, no need for bundling 
 file: "Modern-JavaScript-in-Rails-7-without-Webpack"
 link: https://world.hey.com/dhh/modern-web-apps-without-javascript-bundling-or-transpiling-a20f2755
 preview_image: "Modern-JavaScript-in-Rails-7-without-Webpack.png"
-tags: August 2021
+tags: August2021
 author: 'DHH'
 
 
