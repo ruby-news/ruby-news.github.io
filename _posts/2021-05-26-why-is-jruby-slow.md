@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://earthly.dev/blog/jruby/
-tags: JRuby Performance
+tags: May2021
 preview_image: "gem-602252_640.jpg"
 author: 'Adam Gordon Bell '
 
