@@ -7,7 +7,7 @@ title:  "TypeProf: Abductive Reasoning for Abstract Interpretation"
 description: "TypeProf is a Ruby interpreter that abstractly executes Ruby programs at the type level, acting as a new type analysis tool"
 file: "TypeProf-Abductive-Reasoning-for-Abstract-Interpretation"
 preview_image: "ruby-typeprof.png"
-tags: Ruby TypeProf
+tags: August 2021
 author: 'Ruby News'
 
 
