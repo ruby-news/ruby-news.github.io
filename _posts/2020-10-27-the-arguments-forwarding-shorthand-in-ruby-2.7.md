@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 link: https://medium.com/rubycademy/the-arguments-forwarding-shorthand-in-ruby-2-7-af32d58c223b
-tags: Ruby Arguments
+tags: October2020
 preview_image: "jeffrey-dungen-9Ng0FrXhP84-unsplash.jpg"
 author: 'Mehdi Farsi'
 
