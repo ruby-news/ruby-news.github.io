@@ -7,7 +7,7 @@ description: "All you need is the Rails install, gem install, and javascript pac
 file: "How-to-Build-a-Twitter-Clone-with-Rails-and-Hotwire"
 link: https://robrace.dev/build-a-twitter-clone-with-rails-hotwire/
 preview_image: "How-to-Build-a-Twitter-Clone-with-Rails-and-Hotwire.png"
-tags: Hotwire
+tags: August 2021
 author: 'Rob Race'
 
 
