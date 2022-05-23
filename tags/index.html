@@ -34,23 +34,21 @@ js:
   </div>
 </div>
 
+<div id="noTagFoundBanner" class="ta-center">
+  Your search didn't match any tags :(
+</div>
+
 {% assign articles = site.posts %}
 {% assign allTags = '' %}
 {% assign allURL = '' %}
 
 {% for article in articles %}
-  {% for tag in article.tags %}
-    {% comment %} Make sure a nasty \n tag in article doesn't spoil the operation {% endcomment %}
+  {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
 
-    {% assign articleTag = tag | downcase | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
-    {% assign articleTitle = article.title | replace: "\n", "" | replace: "<%>", "" | replace: ",", "" %}
-
-    {% unless articleTag == "" %}
-      {% assign allTags = allTags | append: "<%>" | append: articleTag | append: "<%>" | append: article.url | append: "<%>" %}
-      {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
-    {% endunless %}
-
-  {% endfor %}
+  {% include tag_format.html %}
+  {% assign downcased_tag = tag | downcase %}
+  {% assign allTags = allTags | append: "<%>" | append: downcased_tag | append: "<%>" | append: article.url | append: "<%>" %}
+  {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
 {% endfor %}
 
 {% assign allURL = allURL | downcase %}
@@ -91,7 +89,7 @@ js:
 
             <div class="lazyload-anim"></div>
           </div>
-            <div class="overflow-ellipsis">{{ article_title }}dfsajkdfsajkadfsjkadfsjkfsdjkdfsajkladfslkadfsl</div>
+            <div class="overflow-ellipsis">{{ article_title }}</div>
         </a>
 
     {% endfor %}
@@ -231,11 +229,20 @@ js:
 
       if(tagInput) tagInput.setAttribute('value', main_query)
 
-      if(tag == 'tag' && main_query) {
+      // No tags banner - hide by default. Show when no tags match user search
+      const noTagsBanner = document.querySelector('#noTagFoundBanner')
+      if (noTagsBanner) noTagsBanner.style.display = 'none'
 
+      if(tag == 'tag' && main_query) {
         /* code for search through query */
           element = document.getElementById(main_query)
-          if(element) window.scrollTo(0, element.offsetTop)
+          if(element) {
+            const cssNavbar = document.querySelector('.css-navbar')
+            const navbarHeight = cssNavbar ? cssNavbar.style.height : 0
+            window.scrollTo(0, element.offsetTop - navbarHeight - 8)
+          } else {
+            if (noTagsBanner) noTagsBanner.style.display = 'block'
+          }
       }
     }
   })
