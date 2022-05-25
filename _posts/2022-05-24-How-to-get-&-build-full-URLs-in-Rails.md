@@ -2,7 +2,7 @@
 active: "articles"
 layout: article
 
-title:  "Ruby, the self keyword"
+title:  "How to get & build full URLs in Rails"
 description: "Rails got you a current request absolute URL and provides a simple way for that."
 file: "2022-05-24-How-to-get-&-build-full-URLs-in-Rails.md"
 link: https://dev.to/jetthoughts/how-to-get-build-full-urls-in-rails-448 
