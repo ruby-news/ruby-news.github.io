@@ -1,0 +1,18 @@
+---
+active: "articles"
+layout: article
+
+title:  "Ruby interview questions"
+description: "This article will explore the self keyword of the Ruby language"
+file: "2022-05-26-Ruby-interview-questions.md"
+link: https://dev.to/neodelf/ruby-interview-questions-1k4c
+preview_image: "2022-05-26-Ruby-interview-questions.jpg"
+tags: May2022
+author: 'Ruby News'
+
+preview_full_background: false
+preview_blur: true
+
+article_preview_blur: true
+round_borders: false
+---
