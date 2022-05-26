@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 title:  "Ruby interview questions"
-description: "This article will explore the self keyword of the Ruby language"
+description: "In this post, you will read a collection of Ruby basics for a Middle-level developer."
 file: "2022-05-26-Ruby-interview-questions.md"
 link: https://dev.to/neodelf/ruby-interview-questions-1k4c
 preview_image: "2022-05-26-Ruby-interview-questions.jpg"
