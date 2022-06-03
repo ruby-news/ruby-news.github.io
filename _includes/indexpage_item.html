@@ -32,8 +32,10 @@
         {% assign blurred_bg = false %}
       {% endif %}
 
-      {% if article.preview_image %}
-        <div src="{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+      {% if article.preview_image_link %}
+        <div src="{{ article.preview_image_link}}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+      {% elsif article.preview_image %}
+        <div src="/post_images/{{ article_date }}/{{ article.preview_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
       {% else %}
         {% include generate_random_image.html %}
       {% endif %}

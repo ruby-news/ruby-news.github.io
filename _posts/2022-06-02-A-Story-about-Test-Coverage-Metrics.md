@@ -6,8 +6,7 @@ title:  "A Story about Test Coverage Metrics"
 description: "In this post the author tells a story about Test Coverage Metricks."
 file: "2022-06-02-A-Story-about-Test-Coverage-Metrics.md"
 link: https://coolrequest.dev/2022/05/24/a-story-about-test-metrics.html 
-preview_image: "https://drive.google.com/uc?export=view&id=1PBrn6MwBH9VvudILIrqYIuJpwdzPHoHX"
-tags: June2022
+preview_image_link: "https://drive.google.com/uc?export=view&id=1PBrn6MwBH9VvudILIrqYIuJpwdzPHoHX"
 author: 'Ruby News'
 
 preview_full_background: false
