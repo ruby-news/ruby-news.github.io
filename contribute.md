@@ -149,7 +149,7 @@ layout: article
 
 link: https://some-website.net
 tags: Testing
-preview_image: "main.jpg"
+preview_image_link: "image link"
 author: 'Author Name'
 
 # Background shown on index page as list
