@@ -79,7 +79,7 @@ title:  "How to Make Ruby Fast with GCC Optimization"
 description: "Make Ruby Fast with GCC Optimization"
 file: "gcc-optimization"
 # link: https://...
-preview_image: "main.jpg"
+preview_image_link: "image link"
 tags: Ruby Optimization GCC
 author: 'Ruby News'
 
@@ -119,7 +119,7 @@ Right, the code is wrapped inside `---`.
 4. file: The file name! It's the filename without the date. For example,
     If your file name is `2021-05-18-hello-world.md`, then your file name is `hello-world`
     If it's not a file, then it could be a hyperlink! In that case, clicking on the link will take you to another page in a new browser tab.
-5. preview_image: This field determine the image to be shown in the index page! We will soon see where to upload images and assets.
+5. preview_image_link: This field determine the image to be shown in the index page!
 6. tags: `tags` helps you to better categorize your post!
 7. author: This field determines the author name. It could be your name.
 
@@ -138,10 +138,7 @@ These fields have a default value, and you may or may not include them.
 
 
 ##### Uploading only links:
-To upload links only:
-
-* Create a `.md` file inside _posts directory, with the format `yyyy-mm-dd-post-name.md`
-* Create an image directory inside posts_images/yyyy-mm-dd, with the same year, month and date, unless the folder already exists.
+To upload links only: create a `.md` file inside _posts directory with the format `yyyy-mm-dd-post-name.md`
 
 Put the contents:
 
@@ -161,22 +158,17 @@ author: 'Author Name'
 ---
 ```
 
-As a regular article, the preview_image will get automatically fetched from `posts_images/yyyy-mm-dd/main.jpg`.
-
 Clicking on the link will take the user to the link in a new browser tab.
 
 ---
 
 <h3 id="3">Uploading Images</h3>
-Images are very easy to mess up, and it's hard to track which image belongs to which article - if we have tonnes of unneeded images, we can't find them.
+To upload an image you need to provide a link to the image.
 
-To prevent this situation, we have a very specific way to upload images.
-Nevertheless, uploading an image is simple, you need to keep these points in mind:
+If the image is stored on Google Drive, follow the steps below:
 
-* Go inside post_images
-* Create a new directory as the date of your post. For example: `2021-05-18`
-* Upload your images
-* To set the preview image, upload the image, and then in the post set preview_image: "main.jpg"
+* Copy the ID from the original URL (the characters between the /d/ and /view)
+* Add your id to 'https://drive.google.com/uc?export=view&id='
 
 ---
 
@@ -346,9 +338,7 @@ Make sure to close tags properly when required.
 <h3 id="6">Uploading Article to Codebase</h3>
 After you wrote an article, you need to push it to the codebase. For pushing an article to the codebase:
 
-* You can fork the project, and write some articles there:
-  + All the articles go to `_posts/` directory
-  + All the images goes to `_images/yyyy-mm-dd/` directory, where the yyyy is your post year, mm is the month and dd is the date.
+* You can fork the project and write some articles there. All the articles go to _posts/ directory.
 
 * If your git skill is a bit rusty, feel free to drag-drop articles to your forked copy of this repo. And send us a Pull Request.
 
