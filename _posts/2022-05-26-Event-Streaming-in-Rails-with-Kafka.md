@@ -6,7 +6,7 @@ title:  "Event Streaming in Rails with Kafka"
 description: "Do you need to process a lot of data in real time? Event streaming is a pattern that could help."
 file: "2022-05-26-Event-Streaming-in-Rails-with-Kafka.md"
 link: https://www.honeybadger.io/blog/event-streaming-rails-kafka/
-preview_image: "2022-05-26-Event-Streaming-in-Rails-with-Kafka.png"
+preview_image_link: "https://drive.google.com/uc?export=view&id=16zrDgHjKbLikzRlVue2Bu7BfMvOU9Wb8"
 tags: May2022
 author: 'Ruby News'
 

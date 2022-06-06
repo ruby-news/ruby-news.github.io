@@ -6,7 +6,7 @@ title:  "Rails 7 Arel adds support for FILTER clause"
 description: "Rails 7 Arel adds support for FILTER clause that extends aggregate functions."
 file: "2022-06-03-Rails-7-Arel-adds-support-for-FILTER-clause.md"
 link: https://blog.saeloun.com/2022/05/31/rails-7-arel-filter-support 
-preview_image: "2022-06-03-Rails-7-Arel-adds-support-for-FILTER-clause.jpg"
+preview_image_link: "https://drive.google.com/uc?export=view&id=1CvmENQgx9WO48a6cBQeP5_LC1PTSvgkN"
 tags: June2022
 author: 'Ruby News'
 
