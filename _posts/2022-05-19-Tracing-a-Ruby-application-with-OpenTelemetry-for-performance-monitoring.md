@@ -6,7 +6,7 @@ title:  "Tracing a Ruby application with OpenTelemetry for performance monitorin
 description: "This article expleins why tracing your application can give the much needed context required to troubleshoot performance issues"
 file: "2022-05-19-Tracing-a-Ruby-application-with-OpenTelemetry-for-performance-monitoring.md"
 link: https://signoz.io/blog/opentelemetry-ruby/
-preview_image: "2022-05-19-Tracing-a-Ruby-application-with-OpenTelemetry-for-performance-monitoring.jpeg"
+preview_image_link: "https://drive.google.com/uc?export=view&id=1t_pQ03l-hwOUTofqUTxrlqAR5m8FW7kA"
 tags: May2022
 author: 'Ruby News'
 

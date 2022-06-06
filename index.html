@@ -52,7 +52,7 @@ js:
     <!-- Show the rest posts -->
     {% assign counter = 0 %}
 
-    {% for article in articles limit: 11 %}
+    {% for article in articles limit: 23 %}
       {% if counter < maxFirstPosts %}
         {% assign counter = counter | plus: 1 %}
         {% continue %}
