@@ -6,7 +6,7 @@ title:  "Ruby Vulnerabilities: Exploiting Dangerous Open, Send and Deserializati
 description: "Author tested a Ruby on Rails application that was vulnerable to three of the most common types of Ruby-specific remote code execution (RCE) vulnerabilities"
 file: "2022-05-23-Ruby-Vulnerabilities.md"
 link: https://bishopfox.com/blog/ruby-vulnerabilities-exploits 
-preview_image: "2022-05-23-Ruby-Vulnerabilities.jpg"
+preview_image_link: "https://drive.google.com/uc?export=view&id=1yQrPLYXgL7KOJTsDALsWO9V-dCM_13f9"
 tags: May2022
 author: 'Ruby News'
 

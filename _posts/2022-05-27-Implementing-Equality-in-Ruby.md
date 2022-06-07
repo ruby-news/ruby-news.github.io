@@ -6,7 +6,7 @@ title:  "Implementing Equality in Ruby"
 description: "Let's walk through all forms of equality in Ruby and how to implement them."
 file: "2022-05-27-Implementing-Equality-in-Ruby.md"
 link: https://shopify.engineering/implementing-equality-in-ruby 
-preview_image: "2022-05-27-Implementing-Equality-in-Ruby.jpg"
+preview_image_link: "https://drive.google.com/uc?export=view&id=1DNsYgp6DlyoaohjKkcE9_ttQjtIF-Yt4"
 tags: May2022
 author: 'Ruby News'
 
