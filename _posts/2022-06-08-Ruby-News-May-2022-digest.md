@@ -3,9 +3,9 @@ active: "articles"
 layout: article
 date: 2022-06-08 10:00:00 +5
 
-title:  "Ruby News May Digest"
-file: "2022-06-08-May-digest.md"
-preview_image: "2022-06-08-May-digest.png"
+title:  "Ruby News May 2022 Digest"
+file: "2022-06-08-Ruby-News-May-2022-digest.md"
+preview_image: "2022-06-08-Ruby-News-May-2022-digest.png"
 tags: May2022
 author: 'Ruby News'
 ---
@@ -16,11 +16,11 @@ This digest contains 5 most important and interesting publications that saw the 
 
 ![execution strategy](/post_images/2022-05-16/2022-05-16-More-async-queries,-pattern-matching-and-no-more-autoclosed-PRs.jpg) 
 ### More async queries, pattern matching, and no more autoclosed PRs. The freshest picks from the Rails world.
-https://rubyonrails.org/2022/5/14/this-week-in-rails-more-async-queries-pattern-matching-and-no-more-autoclosed-prs-c37d3f15
+link: "https://rubyonrails.org/2022/5/14/this-week-in-rails-more-async-queries-pattern-matching-and-no-more-autoclosed-prs-c37d3f15"
 
 ![execution strategy](/post_images/2022-05-25/2022-05-25-Rails-8-unreleased-features.jpeg) 
 ###  Rails 8 has no release date at the moment of the digest publication. What kind of feature could be fun to have in the (future) Ruby-on-Rails 8 release ? Let's dream.
-https://www.bootrails.com/blog/rails-8-unreleased-features/
+link: "https://www.bootrails.com/blog/rails-8-unreleased-features/"
 
 ![execution strategy](/post_images/2022-05-25/2022-05-25-Rails-8-unreleased-features.jpeg) 
 ###  This post will examine how you can use Scientist to migrate, refactor, and change critical Ruby production code with confidence.
