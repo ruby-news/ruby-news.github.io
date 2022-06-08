@@ -52,7 +52,7 @@ js:
 {% endfor %}
 
 {% assign allURL = allURL | downcase %}
-{% assign sortedTags = allTags | split: "\n" | article_date.sort | uniq %}
+{% assign sortedTags = allTags | split: "\n" | sort:"date" | uniq %}
 
 {% assign last_tag = "" %}
 
