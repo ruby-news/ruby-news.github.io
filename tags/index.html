@@ -48,11 +48,11 @@ js:
   {% include tag_format.html %}
   {% assign downcased_tag = tag | downcase %}
   {% assign allTags = allTags | append: "<%>" | append: downcased_tag | append: "<%>" | append: article.url | append: "<%>" %}
-  {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "\n" %}
+  {% assign allTags = allTags | append: articleTitle | append: "<%>" | append: article.date | append: "<%>" | append: article.preview_image | append: "<%>" | append: article.preview_image_link | append: "\n" %}
 {% endfor %}
 
 {% assign allURL = allURL | downcase %}
-{% assign sortedTags = allTags | split: "\n" | sort | uniq %}
+{% assign sortedTags = allTags | split: "\n" | uniq %}
 
 {% assign last_tag = "" %}
 
@@ -67,6 +67,7 @@ js:
         {% assign article_title = tag_url[2] %}
         {% assign article_date = tag_url[3] | date: "%Y-%m-%d" %}
         {% assign article_image = tag_url[4] %}
+        {% assign article_image_link = tag_url[5] %}
 
         {% comment %} If last tag continues, don't show a new heading {% endcomment %}
 
@@ -81,8 +82,10 @@ js:
         <a href="{{ site.url }}{{ article_url }}" class="gallery-cell">
           <div class="lazyload" style="height: 90% !important">
 
-            {% if article_image %}
-              <div src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+            {% if article_image_link %}
+              <div src="{{ article_image_link }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
+            {% elsif article_image %} 
+            <div src="/post_images/{{ article_date }}/{{ article_image }}" loading="lazy" class="preview-img" blur-bg="{{ blurred_bg }}" full-background="{{ full_bg }}"></div>
             {% else %}
               {% include generate_random_image.html %}
             {% endif %}
