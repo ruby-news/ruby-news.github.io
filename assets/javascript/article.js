@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sM.visible = true
         if(!endTime) endTime = Date.now()
 
-        if (endTime - startTime > 60000) {
+        if (endTime - startTime > 1000) {
           setTimeout(() => {
             sM.style.transform = 'translate(-50%, -50%) scale(1)'
             sM.style.opacity = 1

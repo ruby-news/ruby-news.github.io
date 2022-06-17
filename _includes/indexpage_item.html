@@ -43,18 +43,18 @@
     </div>
 
     <div class="page-content-body">
-      <div class="p-2rem">
+      <div class="p-1rem">
         <div class="date mt-1rem mb-1rem font-montseratt">
           {{ article.date | date: '%-d %B %Y'}}
         </div>
 
         <div class="heading mb-1rem">
           {% if article.link %}
-            <h4 class="line-clamp-3 font-montseratt">
+            <h4 class="line-clamp-4 font-montseratt">
               {{ capitalized_title }}
             </h4>
           {% else %}
-            <h4 class="line-clamp-3">{{ capitalized_title }}</h4>
+            <h4 class="line-clamp-4">{{ capitalized_title }}</h4>
           {% endif %}
         </div>
 

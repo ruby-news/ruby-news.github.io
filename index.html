@@ -28,38 +28,11 @@ js:
 
 <div class="page-content">
   <div class="grid-responsive-max-3x3">
-    <!-- Show first 2 posts -->
-    {% assign maxFirstPosts = 2 %}
-    {% assign counter = 0 %}
-    {% assign articles = site.posts | sort: 'date' | reverse %}
 
-    {% comment %}
-      <!-- prev_counter is only used to generate random number when image is blank -->
-    {% endcomment %}
+    {% assign articles = paginator.posts | sort: 'date' | reverse %}
 
     {% for article in articles %}
-      {% assign counter = counter | plus: 1 %}
       {% include indexpage_item.html %}
-
-      {% if counter == maxFirstPosts %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-
-    <!-- Show the Email submit form -->
-    {% include submit_form_card.html %}
-
-    <!-- Show the rest posts -->
-    {% assign counter = 0 %}
-
-    {% for article in articles limit: 23 %}
-      {% if counter < maxFirstPosts %}
-        {% assign counter = counter | plus: 1 %}
-        {% continue %}
-      {% endif %}
-
-      {% include indexpage_item.html %}
-
     {% endfor %}
   </div>
 </div>
@@ -77,3 +50,6 @@ js:
     }
   })
 </script>
+
+
+{% include paginator.html %}
