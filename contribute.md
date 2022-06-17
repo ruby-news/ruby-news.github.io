@@ -25,16 +25,23 @@ Here in this guide, we are going to take a look at how we can contribute article
 
 | Section                                                          |
 --------------------------------------------------------|
-| [File formats](#1)                                            |
-| [Uploading a new Post and Link - Front Matter Guide](#2)   |
-| [Uploading Images](#3)                                     |
-| [Markdown Cheatsheet](#4)       |
-| [Markdown with Specific HTML Tags](#5)       |
-| [Uploading Article to Codebase](#6)                 |
+| [Downloading the repository](#1)
+| [File formats](#2)                                            |
+| [Uploading a new Post and Link - Front Matter Guide](#3)   |
+| [Uploading Images](#4)                                     |
+| [Markdown Cheatsheet](#5)       |
+| [Markdown with Specific HTML Tags](#6)       |
+| [Uploading Article to Codebase](#7)                 |
 
 ---
 
-<h3 id="1">File Formats</h3>
+<h3 id="1">Downloading The Repository</h3>
+To create a new post:
+
+* Visit the project <a href='https://github.com/ruby-news/ruby-news.github.io'>repository page.</a>
+* Clone the repository to your local machine.
+
+<h3 id="2">File Formats</h3>
 An article can be either in **HTML** or **Markdown** format
 
 ##### 1. HTML:
@@ -52,7 +59,7 @@ We recommend using markdown because:
 * It doesn't need any opening and closing tag.
 * Uniform styles are automatically fetched from our codebase.
 
-<h3 id="2">Uploading a new Post and Link - Front Matter Guide</h3>
+<h3 id="3">Uploading a new Post and Link - Front Matter Guide</h3>
 We would prefer markdown files for article creation.
 
 To write a new post:
@@ -162,7 +169,7 @@ Clicking on the link will take the user to the link in a new browser tab.
 
 ---
 
-<h3 id="3">Uploading Images</h3>
+<h3 id="4">Uploading Images</h3>
 To upload an image you need to provide a link to the image.
 
 If the image is stored on Google Drive, follow the steps below:
@@ -172,7 +179,7 @@ If the image is stored on Google Drive, follow the steps below:
 
 ---
 
-<h3 id="4">Markdown Cheatsheet</h3>
+<h3 id="5">Markdown Cheatsheet</h3>
 The articles that you upload should be a markdown, markdown files end with .md or .markdown extension.
 
 Here's a cheatsheet of markdown from [markdownguide.org](https://www.markdownguide.org/cheat-sheet/)
@@ -255,7 +262,7 @@ Here's a cheatsheet of markdown from [markdownguide.org](https://www.markdowngui
   </tbody>
 </table>
 
-<h3 id="5">Markdown with Specific HTML Tags</h3>
+<h3 id="6">Markdown with Specific HTML Tags</h3>
 But you can also integrate HTML into markdown!
 If you want to align an image with text, you can add this:
 
@@ -335,7 +342,7 @@ Make sure to close tags properly when required.
 
 ---
 
-<h3 id="6">Uploading Article to Codebase</h3>
+<h3 id="7">Uploading Article to Codebase</h3>
 After you wrote an article, you need to push it to the codebase. For pushing an article to the codebase:
 
 * You can fork the project and write some articles there. All the articles go to _posts/ directory.
