@@ -13,7 +13,7 @@ author: 'Ruby News'
 
 ### Welcome to Ruby News Contribution Guide!
 
-<initial>R</initial>uby News is a website where we weekly tips, tricks and guides about the Ruby programming language!
+Ruby News is a website where we weekly tips, tricks and guides about the Ruby programming language!
 
 Not only this site is open source, but anyone can contribute to Ruby News!
 

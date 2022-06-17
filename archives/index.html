@@ -16,7 +16,7 @@ stylesheets:
 # Extra javascript file(s)
 # js:
 ---
-{% assign articles = paginator.posts | sort: 'date' | reverse %}
+{% assign articles = site.posts | sort: 'date' | reverse %}
 
 <div class="floaters">
   <h5 class="left">
@@ -45,11 +45,11 @@ stylesheets:
 
   <div class="grid-responsive-max-3x3">
     {% for article in articles %}
-      {% include indexpage_item.html %}
+      {% if article.digest %}
+        {% include indexpage_item.html %}
+      {% endif %}
     {% endfor %}
   </div>
 </div>
 
 <script async src="https://cse.google.com/cse.js?cx=f8fb562776e23cc4e"></script>
-
-{% include paginator.html %}

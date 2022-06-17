@@ -17,12 +17,13 @@ sass:
   style: compressed
 
 # Pagination
-paginate: 10
-paginate_path: "/archives/page:num/"
+paginate: 24
+paginate_path: "/rubynews/page:num/"
 
 collections:
   articles:
     output: true
+    digest: false
 
 # Some default webrick headers
 webrick:

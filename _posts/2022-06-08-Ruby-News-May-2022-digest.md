@@ -8,6 +8,7 @@ file: "2022-06-08-Ruby-News-May-2022-digest.md"
 preview_image: "2022-06-08-Ruby-News-May-2022-digest.jpg"
 tags: May2022
 author: 'Ruby News'
+digest: true
 ---
 
 Starting from May, **Ruby News** is renewing regular publication of the latest news related to the Ruby programming language.
