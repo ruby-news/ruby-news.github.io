@@ -15,6 +15,7 @@
 
   --primary-color: #ff0b54;
   --secondary-color: #40f1fc;
+  --color-disabled: #808080;
 
   --text-dark: #131313;
   --text-medium: #646271;
@@ -561,7 +562,7 @@ pre {
   }
 
   .page-link-disabled {
-    cursor: not-allowed;
+    pointer-events: none;
     color: var(--text-gray) !important;
   }
 
