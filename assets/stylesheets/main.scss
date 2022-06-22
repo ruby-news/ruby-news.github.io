@@ -546,7 +546,7 @@ pre {
   justify-content: center;
   user-select: none;
 
-  .page-link, .page-link-disabled, .ellipsis {
+  .page-link, .link-disabled, .ellipsis {
     color: var(--text-medium);
     background-color: transparent;
     text-decoration: none !important;
@@ -560,8 +560,8 @@ pre {
     align-items: center;
   }
 
-  .page-link-disabled {
-    cursor: not-allowed;
+  .link-disabled {
+    pointer-events: none;
     color: var(--text-gray) !important;
   }
 
