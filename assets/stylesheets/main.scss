@@ -15,7 +15,6 @@
 
   --primary-color: #ff0b54;
   --secondary-color: #40f1fc;
-  --color-disabled: #808080;
 
   --text-dark: #131313;
   --text-medium: #646271;
@@ -547,7 +546,7 @@ pre {
   justify-content: center;
   user-select: none;
 
-  .page-link, .page-link-disabled, .ellipsis {
+  .page-link, .link-disabled, .ellipsis {
     color: var(--text-medium);
     background-color: transparent;
     text-decoration: none !important;
@@ -561,7 +560,7 @@ pre {
     align-items: center;
   }
 
-  .page-link-disabled {
+  .link-disabled {
     pointer-events: none;
     color: var(--text-gray) !important;
   }

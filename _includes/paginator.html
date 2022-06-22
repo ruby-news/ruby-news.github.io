@@ -50,7 +50,7 @@
 
   <div class="mdl-tooltip" data-mdl-for="pageLinkFirst">First (Page 1)</div>
   {% if current_page == 1 %}
-    <a id="pageLinkFirst" href="{{ site.url }}" class="page-link page-link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">1</a>
+    <a id="pageLinkFirst" href="{{ site.url }}" class="page-link link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">1</a>
   {% else %}
     <a id="pageLinkFirst" href="{{ site.url }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">1</a>
   {% endif %}
@@ -68,7 +68,7 @@
 
     <div class="mdl-tooltip" data-mdl-for="pageLink-{{ i }}">Page {{ i }}</div>
     {% if i == current_page %}
-      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link page-link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">{{ i }}</a>
+      <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">{{ i }}</a>
     {% else %}
       <a id="pageLink-{{ i }}" href="{{ j }}" class="page-link active mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">{{ i }}</a>
     {% endif %}
@@ -81,7 +81,7 @@
   {% if total_pages != 1 %}
     <div class="mdl-tooltip" data-mdl-for="pageLinkLast">Last (page {{ total_pages }})</div>
       {% if total_pages == current_page %}
-        <a id="pageLinkLast" href="{{ page_url }}/page{{ total_pages }}" class="page-link page-link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">
+        <a id="pageLinkLast" href="{{ page_url }}/page{{ total_pages }}" class="page-link link-disabled mdl-button mdl-js-button mdl-button--icon mdl-button-colored mdl-js-ripple-effect">
           {{ paginator.total_pages }}
         </a>
       {% else %}
@@ -97,7 +97,7 @@
       <img src="/assets/images/icons/chevron-right.svg">
     </a>
   {% else %}
-    <span id="pageLinkNext" class="next page-link-disabled">
+    <span id="pageLinkNext" class="next link-disabled">
       <img src="/assets/images/icons/chevron-right.svg">
     </span>
   {% endif %}
