@@ -76,8 +76,9 @@ js:
           <a class="link" href="#{{ tagDowncased }}" id="{{ tagDowncased }}" class=""><h4 class="mt-4rem mb-1rem"># {{ tag }}</h4></a>
           <div class="js-flickity gallery" id="{{ tagDowncased }}" Flickity data-flickity='{ "cellAlign": "left", "pageDots": "false", "imagesLoaded": true }'>
         {% endif %}
-
-        {% include indexpage_item.html %}
+        <div class="archive-div">
+          {% include indexpage_item.html %}
+        </div>
 
     {% endfor %}
 </div>
