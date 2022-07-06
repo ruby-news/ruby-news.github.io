@@ -2,9 +2,9 @@
 {% assign button_class = "card-link appear-up link-no-style link-article mdl-button mdl-js-button mdl-js-ripple-effect" %}
 
 {% if article.link %}
-  <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener">
+  <a href="{{ article.link }}" class="{{ button_class }}" target="_blank" rel="noopener" style="width: 100%;">
 {% else %}
-  <a href="{{ article.url }}" class="{{ button_class }}">
+  <a href="{{ article.url }}" class="{{ button_class }}" style="width: 100%;">
 {% endif %}
 
 {% comment %} Used only for random image placer {% endcomment %}
