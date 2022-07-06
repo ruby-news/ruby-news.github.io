@@ -13,7 +13,7 @@ digest: true
 
 **Ruby News** has compiled a digest of the most interesting news for June so you don't miss anything:
 ![execution strategy](https://drive.google.com/uc?export=view&id=1SXGbwG0XW3QA8V3ym1InuzARHayaTPS4) 
-#### link_to is a helper method in Ruby that is very useful to enable users to navigate through applications.
+#### link_to is a helper method in Rails that is very useful to enable users to navigate through applications.
 [https://www.bootrails.com/blog/rails-link-to-tutorial-and-examples/](https://www.bootrails.com/blog/rails-link-to-tutorial-and-examples/)
 ![execution strategy](https://drive.google.com/uc?export=view&id=182BzJpgr2C031GQ-JrsBSjqRA0mNBvqA) 
 #### This post will dive into the ins and outs of feature flags in Rails, including how to set them up using the Flipper gem.
