@@ -3,8 +3,8 @@ active: "articles"
 layout: article
 date: 2022-06-08 10:00:00 +5
 
-title:  "Ruby News May 2022 Digest"
-file: "2022-06-08-Ruby-News-May-2022-digest.md"
+title:  "Ruby News June 2022 Digest"
+file: "2022-07-06-Ruby-News-June-2022-Digest.md"
 preview_image: "2022-06-08-Ruby-News-May-2022-digest.jpg"
 tags: June2022
 author: 'Ruby News'
