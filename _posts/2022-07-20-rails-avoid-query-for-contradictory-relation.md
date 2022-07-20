@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 
 title: "Rails avoids queries when performing calculations on contradictory relation"
-description: "In this article, we will configure Capistrano in a Ruby on Rails application."
+description: "Rails now avoids making a query to the database if the calculation contains a contradictory relation."
 file: "2022-07-20-rails-avoid-query-for-contradictory-relation.md"
 link: https://blog.saeloun.com/2022/07/20/rails-avoid-query-for-contradictory-relation.html
 preview_image_link: "https://drive.google.com/uc?export=view&id=1naunDWHVrFI_xtmuQftrLD9kROnMPJYL"
