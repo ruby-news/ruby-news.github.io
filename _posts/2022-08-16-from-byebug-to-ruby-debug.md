@@ -2,7 +2,7 @@
 active: "articles"
 layout: article
 
-title: "A Deep Dive into Memory Leaks in Ruby"
+title: "From byebug to ruby/debug"
 description: "This post can help you get familiar with ruby/debug and make the migration smoother."
 file: "2022-08-16-from-byebug-to-ruby-debug.md"
 link: https://st0012.dev/from-byebug-to-ruby-debug
