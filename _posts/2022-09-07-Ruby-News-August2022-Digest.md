@@ -1,7 +1,7 @@
 ---
 active: "articles"
 layout: article
-date: 2022-08-03 10:00:00 +5
+date: 2022-09-07 10:00:00 +5
 
 title:  "Ruby News August 2022 Digest"
 file: "2022-09-07-Ruby-News-August2022-Digest.md"
