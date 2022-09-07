@@ -12,7 +12,7 @@ digest: true
 ---
 
 #### **New Ruby News digest of the most interesting post for August so you don't miss anything:
-#### [We'll look deeper into the tools you can use to discover and diagnose a memory leak.](https://blog.appsignal.com/2022/08/10/a-deep-dive-into-memory-leaks-in-ruby.html)
+#### [We'll look deeper into] [the tools](https://blog.appsignal.com/2022/08/10/a-deep-dive-into-memory-leaks-in-ruby.html) [you can use to discover and diagnose a memory leak.]
 
 #### [How to build a web basic API with Sinatra and Active Record to support a React frontend.](https://dev.to/jordantaylorj/ruby-active-record-2d4b)
 
