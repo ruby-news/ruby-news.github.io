@@ -11,7 +11,7 @@ author: 'Ruby News'
 digest: true
 ---
 
-#### **New Ruby News digest of the most interesting post for October so you don't miss anything:
+#### New Ruby News digest of the most interesting post for October so you don't miss anything:
 #### [This post](https://evilmartians.com/chronicles/viewcomponent-in-the-wild-building-modern-rails-frontends) will focus on the higher-level aspects of applying the component approach when building view layers inside modern Rails applications. You’ll learn why this approach is a great alternative to building single-page applications.
 
 #### [Some best practices and examine](https://evilmartians.com/chronicles/viewcomponent-in-the-wild-supercharging-your-components) various tips and tricks and you’ll learn how to bend view components to your will.
