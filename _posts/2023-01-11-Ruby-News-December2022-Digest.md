@@ -3,7 +3,7 @@ active: "articles"
 layout: article
 date: 2023-01-11 10:00:00 +5
 
-title:  "Ruby News November 2022 Digest"
+title:  "Ruby News December 2022 Digest"
 file: "2023-01-11-Ruby-News-December2022-Digest.md"
 preview_image_link: "https://drive.google.com/uc?export=view&id=1geRqkLh_l9SfFpkji0RrWzFYNQ8Os6Z-"
 tags: Dec2022
