@@ -2,7 +2,7 @@
 active: "articles"
 layout: article
 
-title: "A "Shallow" Dive into Memory Leaks in Ruby"
+title: "A Shallow Dive into Memory Leaks in Ruby"
 description: "In this post the author explains how to avoid memory leaks in Ruby."
 file: "2023-01-20-memory-leak-and-ruby.md"
 link: https://dev.to/daviducolo/memory-leak-and-ruby-a1m  
