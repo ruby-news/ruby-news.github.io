@@ -14,7 +14,7 @@ digest: true
 #### New Ruby News digest of the most interesting posts for April so you don't miss anything:
 #### [Pretty much everything](https://www.akshaykhot.com/definitive-guide-to-rack/) you need to know about Rack as a Rails developer.
 
-#### [In this article](https://blog.rubyhero.dev/delegator-design-pattern), we'll provide a comprehensive guide to understanding and implementing the Pub/Sub pattern.
+#### [In this article](https://dev.to/vladhilko/how-to-implement-pubsub-pattern-in-ruby-on-rails-1l5p), we'll provide a comprehensive guide to understanding and implementing the Pub/Sub pattern.
 
 #### [Ruby's switch statement](https://www.akshaykhot.com/ruby-switch-statement/) is very versatile and flexible, especially due to the dynamic nature of Ruby. In this post, we'll see how you can use it in various ways. We'll also learn why it works the way it works.
 
