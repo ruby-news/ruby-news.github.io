@@ -22,7 +22,7 @@ digest: true
 
 #### [In this article](https://www.scrapingdog.com/blog/ruby-http-clients/), we’ll take a look at some of the best Ruby HTTP clients available and compare their features, performance, and ease of use.
 
-#### [How to explore](https://reinteractive.com/articles/creating-intelligent-knowledge-base-q&a-app-with-gpt-3-and-ruby) the Open/Closed Principle and demonstrate its application in Ruby. 
+#### [We will explore](https://blog.appsignal.com/2023/04/19/how-to-load-code-in-ruby.html) three different options for loading code: using load, require, and autoload. We will also look into the Ruby gem Zeitwerk. 
 
 ![execution strategy](https://drive.google.com/uc?export=view&id=1OJUHkkm0sIKnaNwzyJNjsJ8cRDbYaCs1)
 ##### Final Words
