@@ -4,7 +4,7 @@ layout: article
 date: 2023-05-03 10:00:00 +5
 
 title:  "Ruby News April 2023 Digest"
-file: "2023-03-05-Ruby-News-April2023-Digest.md"
+file: "2023-05-03-Ruby-News-April2023-Digest.md"
 preview_image_link: "https://drive.google.com/uc?export=view&id=1geRqkLh_l9SfFpkji0RrWzFYNQ8Os6Z-"
 tags: Apr2023
 author: 'Ruby News'
