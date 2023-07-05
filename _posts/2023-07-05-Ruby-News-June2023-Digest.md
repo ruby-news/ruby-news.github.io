@@ -16,7 +16,7 @@ digest: true
 
 #### [Here are some handy tips and tricks](https://www.codynorman.com/ruby/rails_console_deep_dive/) to get the most from the Rails console.
 
-#### [In this article](https://dev.to/rubycademy/how-does-environment-check-work-in-ruby-on-rails-948), we're going to explore the Rails.env object and the respond_to_missing.
+#### [How he used glimmer library](https://dev.to/smackdh/ruby-gui-with-glimmer-2fkh) to create a simple currency converter.
 
 #### [An unofficial, community-maintained guide](https://hanamimastery.com/articles/unofficial-hanami-upgrade-guides) to help upgrade projects that are built on Hanami 1.x to Hanami 2.x.
 
