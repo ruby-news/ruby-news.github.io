@@ -7,7 +7,7 @@ description: "This post covers almost everything you need to know about HTTP coo
 file: "2023-09-14-how-http-cookies-work-rails.md"
 link: https://www.akshaykhot.com/how-http-cookies-work-rails/
 preview_image_link: "https://drive.google.com/uc?export=view&id=1nI5VXuBrYnP65bpCjO0nG2z-bMvMW8LK"
-tags: Aug2023
+tags: Sep2023
 author: 'Ruby News'
 
 preview_full_background: false
