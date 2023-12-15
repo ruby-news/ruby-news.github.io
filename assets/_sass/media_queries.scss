@@ -9,6 +9,10 @@
 	.grid-responsive-max-3x3 {
 		grid-template-columns: 1fr 1fr !important;
 	}
+  
+  .archive-div {
+    width: 50%;
+  }
 
   .card-link {
     max-width: 466px;
@@ -31,16 +35,36 @@
 		grid-template-columns: auto !important;
 	}
 
+  .archive-div {
+    width: 100%;
+  }
+
   .card-link {
     max-width: none;
   }
 
-  .card {
+  .grid-responsive-max-3x3 .card {
     width: 100% !important;
     box-shadow: none !important;
     max-width: none;
     box-shadow: none;
     height: auto !important;
+
+    .preview {
+      height: 100% !important;
+    }
+
+    .page-content-body {
+      height: 100% !important;
+    }
+  }
+
+  .archive-div .card {
+    width: 100% !important;
+    box-shadow: none !important;
+    max-width: none;
+    box-shadow: none;
+    height: 488px !important;
 
     .preview {
       height: 100% !important;

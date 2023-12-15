@@ -1,0 +1,55 @@
+---
+layout: archives
+
+# These fields are fetched from the rubynews layout to generate meta tags
+description: Ruby Weekly News Digest Archives
+title: Ruby News Archives
+author: https://ruby.news
+keywords: ruby rubynews weekly digest
+
+# Extra scss / css file(s), don't use .css extension
+# Should be an YAML Array
+stylesheets:
+  - /assets/stylesheets/subscribe-form
+  - /assets/stylesheets/gsc
+
+# Extra javascript file(s)
+# js:
+---
+{% assign articles = site.posts | sort: 'date' | reverse %}
+
+<div class="floaters">
+  <h5 class="left">
+    Digests Posts
+  </h5>
+
+  <div class="right">
+      <div style="height:60px">
+        <div id="observeSearch" style="width:100%;min-width:300px">
+          <div class="gcse-search"></div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="mt-5rem"></div>
+
+  <h4 class="mb-4rem ta-center">
+    {% if articles.size > 1 %}
+      {{ articles.last.date | date: '%b %Y' }} - {{ articles.first.date | date: '%b %Y' }}
+    {% else %}
+      {{ articles.last.date | date: '%b %Y' }}
+    {% endif %}
+  </h4>
+
+  <div class="grid-responsive-max-3x3">
+    {% for article in articles %}
+      {% if article.digest %}
+        {% include indexpage_item.html %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script async src="https://cse.google.com/cse.js?cx=f8fb562776e23cc4e"></script>
