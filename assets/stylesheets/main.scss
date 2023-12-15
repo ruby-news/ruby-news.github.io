@@ -597,10 +597,16 @@ pre {
 
 .hoverable-primary {
   transition: var(--default-transition-time);
+  .hoverable-primary::after {
+    opacity: 0;
+  }
 
   &:hover {
     background: var(--primary-color);
     color: #fff !important;
+    &::after {
+      opacity: 1;
+    }
   }
 }
 
